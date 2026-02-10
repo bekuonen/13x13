@@ -1,0 +1,17 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+</style>
+
+{{ with partials.IncludeCached "func/style/GetMainCSS.html" "style/GetMainCSS" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" >
+{{ end }}
+
+{{ range site.Params.custom_css }}
+  {{ with partials.IncludeCached "func/style/GetResource.html" . . }}{{ else }}
+    <link rel="stylesheet" href="{{ urls.RelURL (.) }}">
+  {{ end }}
+{{ end }}

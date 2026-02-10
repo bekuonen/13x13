@@ -1,0 +1,57 @@
+/* Google Font laden */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --color-walliser-rot: #B8293D;
+  --color-cremweiss: #FAF8F5;
+  --color-schiefergrau: #2D3640;
+  --color-nebelgrau: #6B7280;
+}
+
+/* Einheitliche Schrift überall */
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}/* 13x13 Farbkonzept */
+:root {
+  --color-walliser-rot: #B8293D;
+  --color-cremweiss: #FAF8F5;
+  --color-schiefergrau: #2D3640;
+  --color-nebelgrau: #6B7280;
+}
+
+/* Hintergrund */
+body {
+  background-color: var(--color-cremweiss);
+}
+
+/* Header - schwarzer Bereich */
+.site-header {
+  background-color: #000;
+}
+
+/* Links im Menü */
+.site-navigation a {
+  color: #fff;
+}
+
+/* Artikel-Karten */
+.post {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Überschriften */
+h1, h2, h3 {
+  color: var(--color-schiefergrau);
+}
+
+/* Links */
+a {
+  color: var(--color-walliser-rot);
+}
+
+a:hover {
+  color: var(--color-schiefergrau);
+}

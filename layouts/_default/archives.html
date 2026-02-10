@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiv – 13×13</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.7; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .archive-container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        .archive-container h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .archive-subtitle { color: #999; margin-bottom: 3rem; font-size: 1rem; }
+        .year-group { margin-bottom: 3rem; }
+        .year-title { font-size: 1.8rem; color: #B8293D; margin-bottom: 1rem; border-bottom: 2px solid #B8293D; padding-bottom: 0.3rem; display: inline-block; }
+        .month-group { margin-bottom: 2rem; margin-left: 1rem; }
+        .month-title { font-size: 1.1rem; color: #666; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .archive-entry { display: grid; grid-template-columns: 100px 1fr auto auto; gap: 1rem; align-items: baseline; padding: 0.6rem 0; border-bottom: 1px solid #eee; }
+        .archive-entry:last-child { border-bottom: none; }
+        .entry-date { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; color: #999; }
+        .entry-title a { color: #2D3640; text-decoration: none; font-weight: 500; font-size: 1.05rem; }
+        .entry-title a:hover { color: #B8293D; }
+        .entry-author a { font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; color: #B8293D; text-decoration: none; white-space: nowrap; }
+        .entry-author a:hover { text-decoration: underline; }
+        .entry-category a { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; background: #f0f0f0; color: #666; padding: 0.2rem 0.6rem; border-radius: 3px; text-decoration: none; white-space: nowrap; }
+        .entry-category a:hover { background: #B8293D; color: white; }
+        @media (max-width: 600px) {
+            .archive-entry { grid-template-columns: 1fr; gap: 0.2rem; }
+            .entry-date { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    {{ partial "nav.html" . }}
+    <div class="archive-container">
+        <h1>Archiv</h1>
+        <p class="archive-subtitle">Alle Beiträge chronologisch</p>
+        {{ $pages := where .Site.RegularPages "Section" "posts" }}
+        {{ range $pages.GroupByDate "2006" }}
+        <div class="year-group">
+            <h2 class="year-title">{{ .Key }}</h2>
+            {{ range .Pages.GroupByDate "Januar" }}
+            <div class="month-group">
+                <h3 class="month-title">{{ .Key }}</h3>
+                {{ range .Pages }}
+                <div class="archive-entry">
+                    <span class="entry-date">{{ .Date.Format "02.01.2006" }}</span>
+                    <span class="entry-title"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
+                    <span class="entry-author">{{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/">{{ . }}</a>{{ end }}</span>
+                    <span class="entry-category">{{ range .Params.categories }}<a href="/categories/{{ . | urlize }}/">{{ . }}</a> {{ end }}</span>
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Data.Singular | title }} – 13×13</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.7; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .author-profile { max-width: 800px; margin: 3rem auto; padding: 0 2rem; text-align: center; }
+        .author-avatar { width: 120px; height: 120px; border-radius: 50%; background: #B8293D; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 600; margin: 0 auto 1.5rem; }
+        .author-profile h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .author-bio { font-size: 1.1rem; color: #666; margin-bottom: 2rem; }
+        .article-count { font-size: 0.9rem; color: #999; margin-bottom: 3rem; }
+        .articles-section { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; }
+        .articles-section h2 { font-size: 1.5rem; margin-bottom: 2rem; border-bottom: 2px solid #B8293D; padding-bottom: 0.5rem; display: inline-block; }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+        .article-card { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        .article-card a { text-decoration: none; color: inherit; }
+        .article-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .article-card h3:hover { color: #B8293D; }
+        .article-meta { font-size: 0.85rem; color: #999; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .article-excerpt { color: #666; font-size: 0.95rem; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: #B8293D; text-decoration: none; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    {{ partial "nav.html" . }}
+
+    <div class="author-profile">
+        <a href="/authors/" class="back-link">← Alle Autoren</a>
+        {{ $name := .Data.Term }}
+        {{ $initials := "" }}
+        {{ $parts := split .Data.Term " " }}
+        {{ range $parts }}{{ $initials = printf "%s%s" $initials (substr . 0 1) }}{{ end }}
+        <div class="author-avatar">{{ upper $initials }}</div>
+        <h1>{{ .Data.Term }}</h1>
+        {{ $authorPage := site.GetPage (printf "/authors/%s" (.Data.Term | urlize)) }}
+        {{ with $authorPage }}{{ with .Params.bio }}<p class="author-bio">{{ . }}</p>{{ end }}{{ end }}
+        <p class="article-count">{{ len .Pages }} Artikel</p>
+    </div>
+
+    {{ if .Pages }}
+    <div class="articles-section">
+        <h2>Artikel</h2>
+        <div class="articles-grid">
+            {{ range .Pages }}
+            <div class="article-card">
+                <a href="{{ .Permalink }}">
+                    <div class="article-meta">{{ .Date.Format "2. Januar 2006" }} · {{ math.Round (div (countwords .Content) 200.0) }} Min.</div>
+                    <h3>{{ .Title }}</h3>
+                    <p class="article-excerpt">{{ .Summary | truncate 150 }}</p>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+</body>
+</html>

@@ -1,0 +1,87 @@
+nano ~/13x13/hugo.toml
+```
+
+2. Mit den **Pfeiltasten** navigierst du nach unten zur Zeile `recent_posts_number = 3`
+
+3. Cursor ans **Ende dieser Zeile** setzen, dann **Enter** drücken für eine neue Zeile
+
+4. Eintippen:
+```
+   custom_css = ["css/custom.css"]baseURL = 'https://13x13.ch/'
+languageCode = 'de-ch'
+title = '13×13 – Geschichten aus dem Wallis'
+theme = 'ananke'
+
+[params]
+  description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.'
+  author = 'Redaktion 13×13'
+  featured_image = ''
+  background_color_class = 'bg-near-white'
+  recent_posts_number = 3
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  author = 'authors'
+
+[menu]
+  [[menu.main]]
+    name = 'Story'
+    url = '/categories/story/'
+    weight = 1
+  [[menu.main]]
+    name = 'Politik'
+    url = '/categories/politik/'
+    weight = 2
+  [[menu.main]]
+    url = '/categories/kultur/'
+    weight = 3
+  [[menu.main]]
+    name = 'Land & Leute'
+    url = '/categories/land-leute/'
+    weight = 4
+  [[menu.main]]
+    name = 'Sport'
+    url = '/categories/sport/'
+    weight = 5
+  [[menu.main]]
+    name = 'Porträt'
+    url = '/categories/portraet/'
+    weight = 6
+  [[menu.main]]
+    name = 'Genuss'
+    url = '/categories/genuss/'
+    weight = 7
+  [[menu.main]]
+    name = 'Interview'
+    url = '/categories/interview/'
+    weight = 8
+  [[menu.main]]
+    name = 'Talk'
+    url = '/categories/talk/'
+    weight = 9
+  [[menu.main]]
+    name = 'Natur & Umwelt'
+    url = '/categories/natur-umwelt/'
+    weight = 10
+  [[menu.main]]
+    name = 'Tourismus'
+    url = '/categories/tourismus/'
+    weight = 11
+  [[menu.main]]
+    name = 'Comic'
+    url = '/categories/comic/'
+    weight = 12
+  [[menu.main]]
+    name = 'Ästhetik'
+    url = '/categories/aesthetik/'
+    weight = 13
+  [[menu.main]]
+    name = 'Autoren'
+    url = '/authors/'
+    weight = 14
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

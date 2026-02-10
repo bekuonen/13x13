@@ -1,0 +1,90 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Space Grotesk', sans-serif !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .site-title, nav {
+    font-family: 'Space Grotesk', sans-serif !important;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-toggle {
+    background: transparent;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .dropdown-toggle:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    z-index: 1000;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: #2D3640;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  
+  .dropdown-menu a:hover {
+    background: #FAF8F5;
+    color: #B8293D;
+  }
+</style>
+
+<header class="cover bg-top" style="background-color: #2D3640; padding: 1.5rem 0;">
+  <div class="pb3 pb4-ns pt4 pt5-ns ph4 ph5-m ph6-l" style="max-width: 1200px; margin: 0 auto;">
+    <nav class="f6 fw6 tracked" style="font-family: 'Space Grotesk', sans-serif; display: flex; align-items: center; gap: 2rem;">
+      <a href="/" title="Home">
+        <img src="/images/logo.svg" alt="13×13" style="height: 60px; width: auto;">
+      </a>
+      
+      <div class="dropdown">
+        <button class="dropdown-toggle">
+          Kategorien
+          <span style="font-size: 0.7rem;">▼</span>
+        </button>
+        <div class="dropdown-menu">
+          {{ range .Site.Menus.main }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

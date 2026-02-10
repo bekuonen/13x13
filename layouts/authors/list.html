@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoren – {{ .Site.Title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Space Grotesk', sans-serif;
+            background: #FAF8F5;
+            color: #2D3640;
+        }
+        h1, h2 { font-family: 'Space Grotesk', sans-serif; }
+        .header {
+            background: #2D3640;
+            padding: 1.5rem 0;
+        }
+        .header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .header img { height: 60px; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2D3640;
+        }
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .author-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #B8293D 0%, #8B1F2E 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 4px 12px rgba(184, 41, 61, 0.2);
+        }
+        .author-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .author-card h2 a {
+            color: #2D3640;
+            text-decoration: none;
+        }
+        .author-card h2 a:hover {
+            color: #B8293D;
+        }
+        .author-count {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-bottom: 1rem;
+        }
+        .author-bio {
+            color: #6B7280;
+            line-height: 1.6;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    {{ partial "nav.html" . }}
+    
+    <div class="container">
+        <h1>Unsere Autoren</h1>
+        
+        <div class="authors-grid">
+            {{ range .Pages }}
+            <div class="author-card">
+                <div class="author-avatar">
+                    {{ if eq .Title "Maria Zurbriggen" }}MZ
+                    {{ else if eq .Title "Thomas Summermatter" }}TS
+                    {{ else if eq .Title "Sabine Kalbermatten" }}SK
+                    {{ else }}?{{ end }}
+                </div>
+                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                <div class="author-count">{{ len .Pages }} Artikel</div>
+                {{ with .Params.bio }}
+                <p class="author-bio">{{ . }}</p>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</body>
+</html>

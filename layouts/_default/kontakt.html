@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} – 13×13</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.7; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .page-container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+        .page-container h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .page-subtitle { color: #999; font-size: 1rem; margin-bottom: 3rem; }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+        .contact-info { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .contact-info h3 { font-size: 1.2rem; margin-bottom: 1rem; color: #B8293D; }
+        .contact-info p { margin-bottom: 0.5rem; }
+        .contact-info a { color: #B8293D; text-decoration: none; }
+        .contact-info a:hover { text-decoration: underline; }
+        .info-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; text-transform: uppercase; color: #999; margin-top: 1rem; margin-bottom: 0.2rem; }
+        .section-title { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #B8293D; padding-bottom: 0.3rem; display: inline-block; }
+        .form-section { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 3rem; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; margin-bottom: 0.3rem; color: #666; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.7rem 1rem; border: 1px solid #ddd; border-radius: 6px; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; background: #FAF8F5; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #B8293D; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+        .btn-submit { background: #B8293D; color: white; border: none; padding: 0.8rem 2rem; border-radius: 6px; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; cursor: pointer; font-weight: 600; transition: background 0.2s; }
+        .btn-submit:hover { background: #9a2233; }
+        .nl-section { background: #2D3640; border-radius: 8px; padding: 2.5rem; color: white; text-align: center; margin-bottom: 3rem; }
+        .nl-section h2 { color: white; margin-bottom: 0.5rem; }
+        .nl-section p { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; }
+        .nl-form { display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto; }
+        .nl-form input { flex: 1; padding: 0.7rem 1rem; border: none; border-radius: 6px; font-size: 1rem; }
+        .nl-form button { background: #B8293D; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 6px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; cursor: pointer; white-space: nowrap; }
+        .nl-form button:hover { background: #9a2233; }
+        .nl-hint { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.75rem; }
+        .success-msg { display: none; background: #e8f5e9; color: #2e7d32; padding: 1rem; border-radius: 6px; margin-top: 1rem; font-family: 'Space Grotesk', sans-serif; text-align: center; }
+    </style>
+</head>
+<body>
+    {{ partial "nav.html" . }}
+    <div class="page-container">
+        <h1>{{ .Title }}</h1>
+        <p class="page-subtitle">{{ .Params.subtitle }}</p>
+
+        <h2 class="section-title">Redaktion</h2>
+        <div class="two-col">
+            <div class="contact-info">
+                <h3>Redaktionsleitung</h3>
+                <p><strong>{{ .Params.redaktion_name }}</strong></p>
+                <div class="info-label">Adresse</div>
+                <p>{{ .Params.redaktion_adresse }}</p>
+                <p>{{ .Params.redaktion_plz }}</p>
+                <div class="info-label">E-Mail</div>
+                <p><a href="mailto:{{ .Params.redaktion_email }}">{{ .Params.redaktion_email }}</a></p>
+                <div class="info-label">Telefon</div>
+                <p><a href="tel:{{ .Params.redaktion_telefon | replaceRE " " "" }}">{{ .Params.redaktion_telefon }}</a></p>
+            </div>
+            <div class="contact-info">
+                <h3>Zweigstelle Wallis</h3>
+                <p><strong>{{ .Params.zweigstelle_name }}</strong></p>
+                <div class="info-label">Adresse</div>
+                <p>{{ .Params.zweigstelle_adresse }}</p>
+                <p>{{ .Params.zweigstelle_plz }}</p>
+                <div class="info-label">Web</div>
+                <p><a href="https://{{ .Params.zweigstelle_web }}">{{ .Params.zweigstelle_web }}</a></p>
+                <div class="info-label">Social Media</div>
+                <p>Folgt bald</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Nachricht senden</h2>
+        <div class="form-section">
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="betreff">Betreff</label>
+                    <select id="betreff" name="betreff">
+                        <option value="allgemein">Allgemeine Anfrage</option>
+                        <option value="mitmachen">Als Autor mitmachen</option>
+                        <option value="feedback">Feedback zu einem Artikel</option>
+                        <option value="kooperation">Kooperation / Werbung</option>
+                        <option value="technisch">Technisches Problem</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nachricht">Nachricht *</label>
+                    <textarea id="nachricht" name="nachricht" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Nachricht senden</button>
+                <div id="contactSuccess" class="success-msg">Vielen Dank! Deine Nachricht wurde gesendet.</div>
+            </form>
+        </div>
+
+        <div class="nl-section">
+            <h2>📬 Newsletter abonnieren</h2>
+            <p>{{ .Params.newsletter_text }}</p>
+            <form id="nlForm" class="nl-form">
+                <input type="email" id="nlEmail" placeholder="Deine E-Mail-Adresse" required>
+                <button type="submit">Anmelden</button>
+            </form>
+            <p class="nl-hint">{{ .Params.newsletter_hint }}</p>
+            <div id="nlSuccess" class="success-msg" style="color:white;background:rgba(255,255,255,0.15);">Willkommen an Bord! Du erhältst bald Post von uns.</div>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var data = {name: document.getElementById('name').value, email: document.getElementById('email').value, betreff: document.getElementById('betreff').value, nachricht: document.getElementById('nachricht').value, datum: new Date().toISOString(), typ: 'kontakt'};
+        var all = JSON.parse(localStorage.getItem('13x13-kontakt') || '[]');
+        all.push(data);
+        localStorage.setItem('13x13-kontakt', JSON.stringify(all));
+        document.getElementById('contactSuccess').style.display = 'block';
+        this.reset();
+        setTimeout(function(){ document.getElementById('contactSuccess').style.display = 'none'; }, 5000);
+    });
+    document.getElementById('nlForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = document.getElementById('nlEmail').value;
+        var all = JSON.parse(localStorage.getItem('13x13-newsletter') || '[]');
+        if(all.indexOf(email) === -1) all.push(email);
+        localStorage.setItem('13x13-newsletter', JSON.stringify(all));
+        document.getElementById('nlSuccess').style.display = 'block';
+        this.reset();
+        setTimeout(function(){ document.getElementById('nlSuccess').style.display = 'none'; }, 5000);
+    });
+    </script>
+</body>
+</html>
