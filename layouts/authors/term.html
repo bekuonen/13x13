@@ -12,7 +12,7 @@
         body{font-family:'Inter',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.7}
         h1,h2,h3{font-family:'Space Grotesk',sans-serif}
 
-        .profile-hero{background:linear-gradient(135deg,#2D3640 0%,#1a1f26 100%);padding:3rem 2rem 4rem;text-align:center;color:white;position:relative}
+        .profile-hero{background:linear-gradient(135deg,#2D3640 0%,#1a1f26 100%);padding:5rem 2rem 4rem;text-align:center;color:white;position:relative}
         .back-link{display:inline-block;margin-bottom:2rem;color:rgba(255,255,255,0.7);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:0.9rem;transition:color 0.2s}
         .back-link:hover{color:white}
         .back-link::before{content:'← '}
@@ -115,7 +115,7 @@
             </div>
             {{ $totalWords := 0 }}{{ range .Pages }}{{ $totalWords = add $totalWords (countwords .Content) }}{{ end }}
             <div class="stat">
-                <span class="stat-number">{{ math.Round (div (float64 $totalWords) 200.0) }}</span>
+                <span class="stat-number">{{ math.Round (div (mul $totalWords 1.0) 200.0) }}</span>
                 <span class="stat-label">Lesezeit (Min.)</span>
             </div>
             {{ if .Pages }}
