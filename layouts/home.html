@@ -1,205 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Space Grotesk', sans-serif;
-            background: #FAF8F5;
-            color: #2D3640;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2, h3 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .header {
-            background: #2D3640;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        .header img {
-            height: 60px;
-        }
-        
-        /* DROPDOWN */
-        .nav-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .nav-dropdown > a {
-            color: white;
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            font-family: 'Space Grotesk', sans-serif;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .nav-dropdown > a:hover {
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .nav-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 240px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10000;
-            margin-top: 0.5rem;
-            border-radius: 4px;
-            overflow: hidden;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-        
-        .nav-dropdown-content a {
-            color: #2D3640;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #f5f5f5;
-        }
-        
-        .nav-dropdown-content a:last-child {
-            border-bottom: none;
-        }
-        
-        .nav-dropdown-content a:hover {
-            background-color: #B8293D;
-            color: white;
-        }
-        
-        .nav-dropdown:hover .nav-dropdown-content {
-            display: block;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem 3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #2D3640;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: #6B7280;
-        }
-        .articles-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        .article-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .article-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
-        .article-meta {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.75rem;
-            color: #6B7280;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
-        }
-        .article-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        .article-title a {
-            color: #2D3640;
-            text-decoration: none;
-        }
-        .article-title a:hover {
-            color: #B8293D;
-        }
-        .article-excerpt {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #6B7280;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>13×13 – Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Space Grotesk',sans-serif;background:#2D3640;color:white;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center}
+h1{font-size:3.5rem;margin-bottom:0.5rem;letter-spacing:-0.02em}
+.accent{color:#B8293D}
+.sub{color:rgba(255,255,255,0.6);font-size:1.2rem;margin-bottom:3rem}
+.soon{font-size:0.95rem;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;margin-top:2rem}
+</style>
 </head>
 <body>
-    {{ partial "nav.html" . }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <div class="hero">
-        <h1>{{ .Site.Title }}</h1>
-        <p>{{ .Site.Params.description }}</p>
-    </div>
-    
-    <div class="articles-grid">
-        {{ range first 12 .Site.RegularPages.ByDate.Reverse }}
-        <article class="article-card">
-            <div class="article-meta">
-                {{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/" style="color: #B8293D; text-decoration: none; font-weight: 500;">{{ . }}</a> &bull; {{ end }}
-                {{ .Date.Format "2. Januar 2006" }}
-                {{ with .ReadingTime }} • {{ . }} Min.{{ end }}
-            </div>
-            
-            <h2 class="article-title">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </h2>
-            
-            {{ with .Params.description }}
-            <p class="article-excerpt">{{ . }}</p>
-            {{ end }}
-        </article>
-        {{ end }}
-    </div>
+<div>
+<h1>13<span class="accent">×</span>13</h1>
+<p class="sub">Walliser Perspektiven</p>
+<p class="soon">Bald verfügbar.</p>
+</div>
 </body>
 </html>
