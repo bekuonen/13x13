@@ -3,64 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Data.Singular | title }} – 13×13</title>
+    <title>{{ .Title }} – 13×13</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.7; }
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
-        .author-profile { max-width: 800px; margin: 3rem auto; padding: 0 2rem; text-align: center; }
-        .author-avatar { width: 120px; height: 120px; border-radius: 50%; background: #B8293D; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 600; margin: 0 auto 1.5rem; }
-        .author-profile h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        .author-bio { font-size: 1.1rem; color: #666; margin-bottom: 2rem; }
-        .article-count { font-size: 0.9rem; color: #999; margin-bottom: 3rem; }
-        .articles-section { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; }
-        .articles-section h2 { font-size: 1.5rem; margin-bottom: 2rem; border-bottom: 2px solid #B8293D; padding-bottom: 0.5rem; display: inline-block; }
-        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
-        .article-card { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
-        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
-        .article-card a { text-decoration: none; color: inherit; }
-        .article-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .article-card h3:hover { color: #B8293D; }
-        .article-meta { font-size: 0.85rem; color: #999; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; margin-bottom: 0.75rem; }
-        .article-excerpt { color: #666; font-size: 0.95rem; }
-        .back-link { display: inline-block; margin-bottom: 2rem; color: #B8293D; text-decoration: none; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; }
-        .back-link:hover { text-decoration: underline; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.7}
+        h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+
+        .profile-hero{background:linear-gradient(135deg,#2D3640 0%,#1a1f26 100%);padding:3rem 2rem 4rem;text-align:center;color:white;position:relative}
+        .back-link{display:inline-block;margin-bottom:2rem;color:rgba(255,255,255,0.7);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:0.9rem;transition:color 0.2s}
+        .back-link:hover{color:white}
+        .back-link::before{content:'← '}
+
+        .author-avatar{width:140px;height:140px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:3rem;color:white;background:linear-gradient(135deg,#B8293D 0%,#8B1F2E 100%);box-shadow:0 6px 20px rgba(184,41,61,0.3);overflow:hidden;border:4px solid rgba(255,255,255,0.15)}
+        .author-avatar img{width:100%;height:100%;object-fit:cover}
+
+        .profile-hero h1{font-size:2.5rem;margin-bottom:0.5rem}
+        .author-bio{font-size:1.15rem;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto 1.5rem}
+        .author-ort{font-size:0.9rem;color:rgba(255,255,255,0.5);font-family:'Space Grotesk',sans-serif}
+        .author-ort::before{content:'📍 '}
+
+        .contact-bar{max-width:800px;margin:-1.5rem auto 0;padding:1.2rem 2rem;background:white;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;position:relative;z-index:2}
+        .contact-item{display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:#6B7280}
+        .contact-item a{color:#B8293D;text-decoration:none;font-weight:500}
+        .contact-item a:hover{text-decoration:underline}
+        .contact-icon{font-size:1.1rem}
+
+        .stats-row{display:flex;justify-content:center;gap:3rem;margin:2.5rem 0;flex-wrap:wrap}
+        .stat{text-align:center;padding:1rem}
+        .stat-number{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:#B8293D;display:block}
+        .stat-label{font-size:0.8rem;color:#999;text-transform:uppercase;letter-spacing:0.05em}
+
+        .articles-section{max-width:1100px;margin:0 auto;padding:0 2rem 4rem}
+        .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:0.75rem;border-bottom:2px solid #B8293D}
+        .section-header h2{font-size:1.5rem}
+
+        .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+
+        .article-card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:all 0.3s}
+        .article-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+        .article-card a{text-decoration:none;color:inherit;display:block;padding:1.5rem}
+        .article-meta{font-size:0.8rem;color:#999;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;margin-bottom:0.5rem;display:flex;gap:1rem;flex-wrap:wrap}
+        .article-cat{color:#B8293D;font-weight:600}
+        .article-card h3{font-size:1.2rem;margin-bottom:0.5rem;transition:color 0.2s}
+        .article-card:hover h3{color:#B8293D}
+        .article-excerpt{color:#6B7280;font-size:0.9rem;line-height:1.6}
+
+        .empty-state{text-align:center;padding:4rem 2rem;color:#999}
+        .empty-state p{font-size:1.1rem}
+
+        @media(max-width:600px){
+            .profile-hero h1{font-size:1.8rem}
+            .author-avatar{width:100px;height:100px;font-size:2rem}
+            .articles-grid{grid-template-columns:1fr}
+            .contact-bar{flex-direction:column;align-items:center;gap:0.75rem}
+            .stats-row{gap:1.5rem}
+        }
     </style>
 </head>
 <body>
     {{ partial "nav.html" . }}
 
-    <div class="author-profile">
-        <a href="/authors/" class="back-link">← Alle Autoren</a>
-        {{ $name := .Data.Term }}
-        {{ $initials := "" }}
-        {{ $parts := split .Data.Term " " }}
-        {{ range $parts }}{{ $initials = printf "%s%s" $initials (substr . 0 1) }}{{ end }}
-        <div class="author-avatar">{{ upper $initials }}</div>
-        <h1>{{ .Data.Term }}</h1>
-        {{ $authorPage := site.GetPage (printf "/authors/%s" (.Data.Term | urlize)) }}
-        {{ with $authorPage }}{{ with .Params.bio }}<p class="author-bio">{{ . }}</p>{{ end }}{{ end }}
-        <p class="article-count">{{ len .Pages }} Artikel</p>
+    {{ $authorPage := site.GetPage (printf "/authors/%s" (.Data.Term | urlize)) }}
+
+    <div class="profile-hero">
+        <a href="/authors/" class="back-link">Alle Autoren</a>
+        <div class="author-avatar">
+            {{ with $authorPage }}
+                {{ with .Params.photo }}
+                    <img src="{{ . }}" alt="{{ $.Title }}">
+                {{ else }}
+                    {{ $parts := split $.Title " " }}{{ $initials := "" }}{{ range $parts }}{{ $initials = printf "%s%s" $initials (substr . 0 1) }}{{ end }}{{ upper $initials }}
+                {{ end }}
+            {{ else }}
+                {{ $parts := split .Title " " }}{{ $initials := "" }}{{ range $parts }}{{ $initials = printf "%s%s" $initials (substr . 0 1) }}{{ end }}{{ upper $initials }}
+            {{ end }}
+        </div>
+        <h1>{{ .Title }}</h1>
+        {{ with $authorPage }}
+            {{ with .Params.bio }}<p class="author-bio">{{ . }}</p>{{ end }}
+            {{ with .Params.ort }}<div class="author-ort">{{ . }}</div>{{ end }}
+        {{ end }}
     </div>
 
-    {{ if .Pages }}
+    {{ with $authorPage }}
+    {{ if or .Params.email .Params.website }}
+    <div class="contact-bar">
+        {{ with .Params.email }}
+        <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <a href="mailto:{{ . }}">{{ . }}</a>
+        </div>
+        {{ end }}
+        {{ with .Params.website }}
+        <div class="contact-item">
+            <span class="contact-icon">🌐</span>
+            <a href="{{ . }}" target="_blank">{{ . | replaceRE "https?://" "" }}</a>
+        </div>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{ end }}
+
     <div class="articles-section">
-        <h2>Artikel</h2>
+        <div class="stats-row">
+            <div class="stat">
+                <span class="stat-number">{{ len .Pages }}</span>
+                <span class="stat-label">Artikel</span>
+            </div>
+            {{ $totalWords := 0 }}{{ range .Pages }}{{ $totalWords = add $totalWords (countwords .Content) }}{{ end }}
+            <div class="stat">
+                <span class="stat-number">{{ math.Round (div (float64 $totalWords) 200.0) }}</span>
+                <span class="stat-label">Lesezeit (Min.)</span>
+            </div>
+            {{ if .Pages }}
+            <div class="stat">
+                <span class="stat-number">{{ (index .Pages 0).Date.Format "Jan 06" }}</span>
+                <span class="stat-label">Letzter Artikel</span>
+            </div>
+            {{ end }}
+        </div>
+
+        {{ if .Pages }}
+        <div class="section-header">
+            <h2>Alle Artikel</h2>
+        </div>
         <div class="articles-grid">
             {{ range .Pages }}
             <div class="article-card">
                 <a href="{{ .Permalink }}">
-                    <div class="article-meta">{{ .Date.Format "2. Januar 2006" }} · {{ math.Round (div (countwords .Content) 200.0) }} Min.</div>
+                    <div class="article-meta">
+                        <span>{{ .Date.Format "2. Januar 2006" }}</span>
+                        <span>{{ math.Round (div (countwords .Content) 200.0) }} Min. Lesezeit</span>
+                        {{ with .Params.categories }}{{ range first 1 . }}<span class="article-cat">{{ . }}</span>{{ end }}{{ end }}
+                    </div>
                     <h3>{{ .Title }}</h3>
                     <p class="article-excerpt">{{ .Summary | truncate 150 }}</p>
                 </a>
             </div>
             {{ end }}
         </div>
+        {{ else }}
+        <div class="empty-state">
+            <p>Noch keine Artikel von diesem Autor. Bald kommt mehr! 🖊️</p>
+        </div>
+        {{ end }}
     </div>
-    {{ end }}
 </body>
 </html>
