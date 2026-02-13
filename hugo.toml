@@ -1,4 +1,4 @@
-baseURL = 'https://13x13.ch/'
+baseURL = "https://13x13.ch/"
 languageCode = 'de-ch'
 defaultContentLanguage = 'de'
 title = '13×13 – Geschichten aus dem Wallis'
