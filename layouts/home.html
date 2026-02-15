@@ -144,7 +144,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         .article-title a {
             color: #2D3640;
@@ -152,6 +152,18 @@
         }
         .article-title a:hover {
             color: #B8293D;
+        }
+        .article-category {
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .article-category a {
+            color: #B8293D;
+            text-decoration: none;
+        }
+        .article-category a:hover {
+            text-decoration: underline;
         }
         .article-excerpt {
             font-size: 1.05rem;
@@ -162,20 +174,6 @@
 </head>
 <body>
     {{ partial "nav.html" . }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     <div class="hero">
         <h1>{{ .Site.Title }}</h1>
@@ -194,6 +192,12 @@
             <h2 class="article-title">
                 <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h2>
+            
+            {{ with .Params.categories }}
+            <div class="article-category">
+                <a href="/categories/{{ index . 0 | urlize }}/">{{ index . 0 }}</a>
+            </div>
+            {{ end }}
             
             {{ with .Params.description }}
             <p class="article-excerpt">{{ . }}</p>
