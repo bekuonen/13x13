@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>13×13 – Coming Soon</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Space Grotesk',sans-serif;background:#2D3640;color:white;display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center}
+h1{font-size:3.5rem;margin-bottom:0.5rem;letter-spacing:-0.02em}
+.accent{color:#B8293D}
+.sub{color:rgba(255,255,255,0.6);font-size:1.2rem;margin-bottom:3rem}
+.soon{font-size:0.95rem;color:rgba(255,255,255,0.35);border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;margin-top:2rem}
+</style>
+</head>
+<body>
+<div>
+<h1>13<span class="accent">×</span>13</h1>
+<p class="sub">Walliser Perspektiven</p>
+<p class="soon">Bald verfügbar.</p>
+</div>
+</body>
+</html>
