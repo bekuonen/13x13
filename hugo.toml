@@ -22,8 +22,6 @@ theme = 'ananke'
 [menu]
 
 [params.giscus]
-  [params.giscus]
-  repo = "bekuonen/13x13"
   repoid = "R_kgDORNugmg"
   category = "General"
   categoryid = "DIC_kwDORNugms4C2s5m"
