@@ -22,11 +22,8 @@ theme = 'ananke'
 [menu]
 
 [params.giscus]
-  enable = true
+  [params.giscus]
   repo = "bekuonen/13x13"
-  repoId = "R_kgDONhugmw"
+  repoid = "R_kgDORNugmg"
   category = "General"
-  categoryId = "DIC_kwDONhugms4CZs5m"
-  mapping = "pathname"
-  reactionsEnabled = "1"
-  theme = "preferred_color_scheme"
+  categoryid = "DIC_kwDORNugms4C2s5m"
