@@ -1,0 +1,24 @@
+/* Oswald von Google Fonts importieren */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap');
+
+/* Oswald für Headlines */
+h1, h2, h3, h4, h5, h6,
+.site-title,
+.page-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Für den Mega-Header wie bei Air Zermatt */
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}

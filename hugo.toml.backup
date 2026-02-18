@@ -20,13 +20,3 @@ theme = 'ananke'
       unsafe = true
 
 [menu]
-
-[params.giscus]
-  enable = true
-  repo = "bekuonen/13x13"
-  repoId = "R_kgDONhugmw"
-  category = "General"
-  categoryId = "DIC_kwDONhugms4CZs5m"
-  mapping = "pathname"
-  reactionsEnabled = "1"
-  theme = "preferred_color_scheme"

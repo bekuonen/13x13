@@ -1,0 +1,9 @@
+/* Space Grotesk für alles */
+body, p, article, .lh-copy, .serif {
+  font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Überschriften auch Space Grotesk */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif !important;
+}

@@ -10,6 +10,16 @@ theme = 'ananke'
   background_color_class = 'bg-near-white'
   recent_posts_number = 3
 
+[params.giscus]
+  enable = true
+  repo = "bekuonen/13x13"
+  repoId = "R_kgDONhugmw"
+  category = "General"
+  categoryId = "DIC_kwDONhugms4CZs5m"
+  mapping = "pathname"
+  reactionsEnabled = "1"
+  theme = "preferred_color_scheme"
+
 [taxonomies]
   category = 'categories'
   tag = 'tags'
@@ -20,13 +30,3 @@ theme = 'ananke'
       unsafe = true
 
 [menu]
-
-[params.giscus]
-  enable = true
-  repo = "bekuonen/13x13"
-  repoId = "R_kgDONhugmw"
-  category = "General"
-  categoryId = "DIC_kwDONhugms4CZs5m"
-  mapping = "pathname"
-  reactionsEnabled = "1"
-  theme = "preferred_color_scheme"
