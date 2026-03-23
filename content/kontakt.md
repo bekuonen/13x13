@@ -1,133 +1,16 @@
 +++
 title = "Kontakt & Newsletter"
+layout = "kontakt"
+subtitle = "Wir freuen uns auf deine Nachricht"
+redaktion_name = "Bernhard Kuonen"
+redaktion_adresse = "Untergütschstrasse 36"
+redaktion_plz = "6003 Luzern"
+redaktion_email = "13@13x13.ch"
+redaktion_telefon = "+41 76 251 14 58"
+zweigstelle_name = "Redaktion Wallis"
+zweigstelle_adresse = "Furkastrasse 639"
+zweigstelle_plz = "3985 Münster"
+zweigstelle_web = "13x13.ch"
+newsletter_text = "Monatlich dreizehn neue Geschichten aus dem Wallis – direkt in dein Postfach."
+newsletter_hint = "Kein Spam. Jederzeit abmeldbar."
 +++
-
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.7; }
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
-        .page-container { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
-        .page-container h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        .page-subtitle { color: #999; font-size: 1rem; margin-bottom: 3rem; }
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-        @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
-        .contact-info { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-        .contact-info h3 { font-size: 1.2rem; margin-bottom: 1rem; color: #B8293D; }
-        .contact-info p { margin-bottom: 0.5rem; }
-        .contact-info a { color: #B8293D; text-decoration: none; }
-        .contact-info a:hover { text-decoration: underline; }
-        .info-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; text-transform: uppercase; color: #999; margin-top: 1rem; margin-bottom: 0.2rem; }
-        .section-title { font-size: 1.5rem; margin-bottom: 1.5rem; border-bottom: 2px solid #B8293D; padding-bottom: 0.3rem; display: inline-block; }
-        .form-section { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 3rem; }
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; margin-bottom: 0.3rem; color: #666; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.7rem 1rem; border: 1px solid #ddd; border-radius: 6px; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; background: #FAF8F5; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #B8293D; }
-        .form-group textarea { min-height: 120px; resize: vertical; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
-        .btn-submit { background: #B8293D; color: white; border: none; padding: 0.8rem 2rem; border-radius: 6px; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; cursor: pointer; font-weight: 600; transition: background 0.2s; }
-        .btn-submit:hover { background: #9a2233; }
-        .success-msg { display: none; background: #e8f5e9; color: #2e7d32; padding: 1rem; border-radius: 6px; margin-top: 1rem; font-family: 'Space Grotesk', sans-serif; text-align: center; }
-    </style>
-</head>
-<body>
-    <div class="page-container">
-        <h1>Kontakt & Newsletter</h1>
-        <p class="page-subtitle">Wir freuen uns auf deine Nachricht</p>
-
-        <h2 class="section-title">Redaktion</h2>
-        <div class="two-col">
-            <div class="contact-info">
-                <h3>Redaktionsleitung</h3>
-                <p><strong>Bernhard Kuonen</strong></p>
-                <div class="info-label">Adresse</div>
-                <p>Untergütschstrasse 36</p>
-                <p>6003 Luzern</p>
-                <div class="info-label">E-Mail</div>
-                <p><a href="mailto:13@13x13.ch">13@13x13.ch</a></p>
-                <div class="info-label">Telefon</div>
-                <p><a href="tel:+41762511458">+41 76 251 14 58</a></p>
-            </div>
-            <div class="contact-info">
-                <h3>Zweigstelle Wallis</h3>
-                <p><strong>Redaktion Wallis</strong></p>
-                <div class="info-label">Adresse</div>
-                <p>Furkastrasse 639</p>
-                <p>3985 Münster</p>
-                <div class="info-label">Web</div>
-                <p><a href="https://13x13.ch">13x13.ch</a></p>
-                <div class="info-label">Social Media</div>
-                <p>Folgt bald</p>
-            </div>
-        </div>
-
-        <h2 class="section-title">Nachricht senden</h2>
-        <div class="form-section">
-            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-                <input type="hidden" name="access_key" value="6afe5ddd-e0cd-4090-98e7-812fb1fc58da">
-                <input type="hidden" name="subject" value="Neue Nachricht von 13x13.ch">
-                <input type="hidden" name="from_name" value="13x13 Kontaktformular">
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-Mail *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="betreff">Betreff</label>
-                    <select id="betreff" name="betreff">
-                        <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
-                        <option value="Als Autor mitmachen">Als Autor mitmachen</option>
-                        <option value="Feedback zu einem Artikel">Feedback zu einem Artikel</option>
-                        <option value="Kooperation / Werbung">Kooperation / Werbung</option>
-                        <option value="Technisches Problem">Technisches Problem</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="nachricht">Nachricht *</label>
-                    <textarea id="nachricht" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Nachricht senden</button>
-                <div id="contactSuccess" class="success-msg">Vielen Dank! Deine Nachricht wurde gesendet.</div>
-            </form>
-        </div>
-    </div>
-
-    <script>
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        try {
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            });
-            if (response.ok) {
-                document.getElementById('contactSuccess').style.display = 'block';
-                form.reset();
-                setTimeout(() => {
-                    document.getElementById('contactSuccess').style.display = 'none';
-                }, 5000);
-            }
-        } catch (error) {
-            alert('Fehler beim Senden. Bitte versuche es erneut.');
-        }
-    });
-    </script>
-</body>
-</html>
