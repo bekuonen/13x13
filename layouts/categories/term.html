@@ -42,7 +42,7 @@
       <article class="article-card">
                 <div class="article-meta">
         {{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/">{{ . }}</a> &bull; {{ end }}
-          {{ .Date.Format "2. January 2006" }}
+                    {{ .Date | time.Format "2. January 2006" }}
 {{ with .ReadingTime }} &bull; {{ . }} Min.{{ end }}
         </div>
                   <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
