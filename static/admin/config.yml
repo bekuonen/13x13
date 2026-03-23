@@ -1,79 +1,80 @@
 backend:
   name: github
-  repo: bekuonen/13x13
-  branch: main
-    base_url: https://cms-auth.bekuonen.workers.dev
+    repo: bekuonen/13x13
+      branch: main
+        base_url: https://cms-auth.bekuonen.workers.dev
 
-media_folder: static/images/uploads
-public_folder: /images/uploads
+        media_folder: static/images/uploads
+        public_folder: /images/uploads
+        locale: de
 
-locale: de
-
-collections:
-  - name: posts
-    label: Artikel
-    label_singular: Artikel
-    folder: content/posts
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Titel", name: "title", widget: "string"}
-      - {label: "Datum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
-      - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
-      - label: "Autoren"
-        name: "authors"
-        widget: "list"
-        field: {label: "Autor", name: "author", widget: "string"}
-      - label: "Kategorie"
-        name: "categories"
-        widget: "select"
-        multiple: true
-        options:
-          - {label: "Genuss", value: "genuss"}
-          - {label: "Portraet", value: "portraet"}
-          - {label: "Land und Leute", value: "land-leute"}
-          - {label: "Sport", value: "sport"}
-          - {label: "Politik", value: "politik"}
-          - {label: "Kultur", value: "kultur"}
-          - {label: "Wirtschaft", value: "wirtschaft"}
-          - {label: "Natur", value: "natur"}
-          - {label: "Geschichte", value: "geschichte"}
-          - {label: "Gesellschaft", value: "gesellschaft"}
-          - {label: "Reise", value: "reise"}
-          - {label: "Handwerk", value: "handwerk"}
-          - {label: "Poesie", value: "poesie"}
-      - {label: "Beschreibung", name: "description", widget: "text", required: false}
-      - {label: "Titelbild", name: "featured_image", widget: "image", required: false}
-      - {label: "Inhalt", name: "body", widget: "markdown"}
-  - name: authors
-    label: Autoren
-    label_singular: Autor
-    folder: content/authors
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "title", widget: "string"}
-      - {label: "Biografie", name: "bio", widget: "text", required: false}
-      - {label: "E-Mail", name: "email", widget: "string", required: false}
-      - {label: "Website", name: "website", widget: "string", required: false}
-      - {label: "Foto", name: "photo", widget: "image", required: false}
-      - {label: "Ort", name: "ort", widget: "string", required: false}
-  - name: pages
-    label: Seiten
-    files:
-      - name: editorial
-        label: Editorial
-        file: content/editorial.md
-        fields:
-          - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Untertitel", name: "subtitle", widget: "string", required: false}
-          - {label: "Inhalt", name: "body", widget: "markdown", required: false}
-      - name: kontakt
-        label: Kontakt
-        file: content/kontakt.md
-        fields:
-          - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Redaktion Name", name: "redaktion_name", widget: "string", required: false}
-          - {label: "Redaktion E-Mail", name: "redaktion_email", widget: "string", required: false}
-          - {label: "Redaktion Telefon", name: "redaktion_telefon", widget: "string", required: false}
-          - {label: "Inhalt", name: "body", widget: "markdown", required: false}
+        collections:
+          - name: posts
+              label: Artikel
+                  label_singular: Artikel
+                      folder: content/posts
+                          create: true
+                              slug: "{{slug}}"
+                                  fields:
+                                        - {label: "Titel", name: "title", widget: "string"}
+                                              - {label: "Datum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
+                                                    - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
+                                                          - label: "Autoren"
+                                                                  name: "authors"
+                                                                          widget: "list"
+                                                                                  field: {label: "Autor", name: "author", widget: "string"}
+                                                                                        - label: "Kategorie"
+                                                                                                name: "categories"
+                                                                                                        widget: "select"
+                                                                                                                multiple: true
+                                                                                                                        options:
+                                                                                                                                  - {label: "Genuss", value: "genuss"}
+                                                                                                                                            - {label: "Portraet", value: "portraet"}
+                                                                                                                                                      - {label: "Land und Leute", value: "land-leute"}
+                                                                                                                                                                - {label: "Sport", value: "sport"}
+                                                                                                                                                                          - {label: "Politik", value: "politik"}
+                                                                                                                                                                                    - {label: "Kultur", value: "kultur"}
+                                                                                                                                                                                              - {label: "Wirtschaft", value: "wirtschaft"}
+                                                                                                                                                                                                        - {label: "Natur", value: "natur"}
+                                                                                                                                                                                                                  - {label: "Geschichte", value: "geschichte"}
+                                                                                                                                                                                                                            - {label: "Gesellschaft", value: "gesellschaft"}
+                                                                                                                                                                                                                                      - {label: "Tourismus", value: "tourismus"}
+                                                                                                                                                                                                                                                - {label: "Handwerk", value: "handwerk"}
+                                                                                                                                                                                                                                                          - {label: "Bildung", value: "bildung"}
+                                                                                                                                                                                                                                                                - {label: "Beschreibung", name: "description", widget: "text", required: false}
+                                                                                                                                                                                                                                                                      - {label: "Titelbild", name: "featured_image", widget: "image", required: false}
+                                                                                                                                                                                                                                                                            - {label: "Inhalt", name: "body", widget: "markdown"}
+                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                              - name: authors
+                                                                                                                                                                                                                                                                                  label: Autoren
+                                                                                                                                                                                                                                                                                      label_singular: Autor
+                                                                                                                                                                                                                                                                                          folder: content/authors
+                                                                                                                                                                                                                                                                                              create: true
+                                                                                                                                                                                                                                                                                                  slug: "{{slug}}"
+                                                                                                                                                                                                                                                                                                      fields:
+                                                                                                                                                                                                                                                                                                            - {label: "Name", name: "title", widget: "string"}
+                                                                                                                                                                                                                                                                                                                  - {label: "Biografie", name: "bio", widget: "text", required: false}
+                                                                                                                                                                                                                                                                                                                        - {label: "E-Mail", name: "email", widget: "string", required: false}
+                                                                                                                                                                                                                                                                                                                              - {label: "Website", name: "website", widget: "string", required: false}
+                                                                                                                                                                                                                                                                                                                                    - {label: "Foto", name: "photo", widget: "image", required: false}
+                                                                                                                                                                                                                                                                                                                                          - {label: "Ort", name: "ort", widget: "string", required: false}
+                                                                                                                                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                                                                                                                            - name: pages
+                                                                                                                                                                                                                                                                                                                                                label: Seiten
+                                                                                                                                                                                                                                                                                                                                                    files:
+                                                                                                                                                                                                                                                                                                                                                          - name: editorial
+                                                                                                                                                                                                                                                                                                                                                                  label: Editorial
+                                                                                                                                                                                                                                                                                                                                                                          file: content/editorial.md
+                                                                                                                                                                                                                                                                                                                                                                                  fields:
+                                                                                                                                                                                                                                                                                                                                                                                            - {label: "Titel", name: "title", widget: "string"}
+                                                                                                                                                                                                                                                                                                                                                                                                      - {label: "Untertitel", name: "subtitle", widget: "string", required: false}
+                                                                                                                                                                                                                                                                                                                                                                                                                - {label: "Inhalt", name: "body", widget: "markdown", required: false}
+                                                                                                                                                                                                                                                                                                                                                                                                                      - name: kontakt
+                                                                                                                                                                                                                                                                                                                                                                                                                              label: Kontakt
+                                                                                                                                                                                                                                                                                                                                                                                                                                      file: content/kontakt.md
+                                                                                                                                                                                                                                                                                                                                                                                                                                              fields:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        - {label: "Titel", name: "title", widget: "string"}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                  - {label: "Redaktion Name", name: "redaktion_name", widget: "string", required: false}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            - {label: "Redaktion E-Mail", name: "redaktion_email", widget: "string", required: false}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      - {label: "Redaktion Telefon", name: "redaktion_telefon", widget: "string", required: false}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                - {label: "Inhalt", name: "body", widget: "markdown", required: false}
