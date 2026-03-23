@@ -11,6 +11,15 @@ theme = 'ananke'
   background_color_class = 'bg-near-white'
   recent_posts_number = 3
 
+  [params.giscus]
+    repo = "bekuonen/13x13"
+    repoid = "R_kgDORNugmg"
+    category = "General"
+    categoryid = "DIC_kwDORNugms4C2s5m"
+    mapping = "pathname"
+    reactionsenabled = "1"
+    theme = "preferred_color_scheme"
+
 [taxonomies]
   category = 'categories'
   tag = 'tags'
@@ -87,12 +96,3 @@ theme = 'ananke'
   name = "Poesie"
   url = "/categories/poesie/"
   weight = 13
-
-[params.giscus]
-  repo = "bekuonen/13x13"
-  repoid = "R_kgDORNugmg"
-  category = "General"
-  categoryid = "DIC_kwDORNugms4C2s5m"
-  mapping = "pathname"
-  reactionsenabled = "1"
-  theme = "preferred_color_scheme"
