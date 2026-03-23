@@ -1,92 +1,99 @@
 baseURL = 'https://13x13.ch/'
 languageCode = 'de-ch'
 defaultContentLanguage = 'de'
-title = '13×13 – Geschichten aus dem Wallis'
+title = '13x13 - Geschichten aus dem Wallis'
 theme = 'ananke'
 
 [params]
   description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.'
-    author = 'Redaktion 13×13'
-      featured_image = ''
-        background_color_class = 'bg-near-white'
-          recent_posts_number = 3
+    author = 'Redaktion 13x13'
+        featured_image = ''
+            background_color_class = 'bg-near-white'
+                recent_posts_number = 3
 
-          [taxonomies]
-            category = 'categories'
-              tag = 'tags'
-                author = 'authors'
+                        [taxonomies]
+                                    category = 'categories'
+                                                tag = 'tags'
+                                                            author = 'authors'
 
-                [markup]
-                  [markup.goldmark]
-                      [markup.goldmark.renderer]
-                            unsafe = true
-
-                            # Kategorien-Dropdown: 13 Themen des Wallis-Magazins
-                            [[menu.main]]
-                              name = "Genuss"
-                                url = "/categories/genuss/"
-                                  weight = 1
-
-                                  [[menu.main]]
-                                    name = "Portraet"
-                                      url = "/categories/portraet/"
-                                        weight = 2
-
-                                        [[menu.main]]
-                                          name = "Land & Leute"
-                                            url = "/categories/land-leute/"
-                                              weight = 3
-
-                                              [[menu.main]]
-                                                name = "Sport"
-                                                  url = "/categories/sport/"
-                                                    weight = 4
-
-                                                    [[menu.main]]
-                                                      name = "Politik"
-                                                        url = "/categories/politik/"
-                                                          weight = 5
-
-                                                          [[menu.main]]
-                                                            name = "Kultur"
-                                                              url = "/categories/kultur/"
-                                                                weight = 6
-
-                                                                [[menu.main]]
-                                                                  name = "Wirtschaft"
-                                                                    url = "/categories/wirtschaft/"
-                                                                      weight = 7
-
-                                                                      [[menu.main]]
-                                                                        name = "Natur"
-                                                                          url = "/categories/natur/"
-                                                                            weight = 8
-Update: 13 Kategorien final (Tourismus→Reise, Bildung→Poesie)                                                                            [[menu.main]]
-                                                                              name = "Geschichte"
-                                                                                url = "/categories/geschichte/"
-                                                                                  weight = 9
-
-                                                                                  [[menu.main]]
-                                                                                    name = "Gesellschaft"
-                                                                                      url = "/categories/gesellschaft/"
-                                                                                        weight = 10
-
-                                                                                        [[menu.main]]
-                                                                                          name = "Reise"
-                                                                                            url = "/categories/reise/"
-                                                                                              weight = 11
-
-                                                                                              [[menu.main]]
-                                                                                                name = "Handwerk"
-                                                                                                  url = "/categories/handwerk/"
-                                                                                                    weight = 12
-                                                                                                    
-                                                                                                    [[menu.main]]
-                                                                                                      name = "Poesie"
-                                                                                                        url = "/categories/poesie/"
-                                                                                                          weight = 13
+                                                                    [markup]
+                                                                              [markup.goldmark]
+                                                                                          [markup.goldmark.renderer]
+                                                                                                          unsafe = true
                                                                                                           
-                                                                                                          [params.giscus]
-                                                                                                            repoid = "R_kgDORNugmg"
-                                                                                                              category = "General"
-                                                                                                                categoryid = "DIC_kwDORNugms4C2s5m"
+                                                                                                          # Kategorien-Dropdown: 13 Themen des Wallis-Magazins
+                                                                                                          [[menu.main]]
+                                                                                                            name = "Genuss"
+                                                                                                              url = "/categories/genuss/"
+                                                                                                                weight = 1
+                                                                                                                
+                                                                                                                [[menu.main]]
+                                                                                                                  name = "Portraet"
+                                                                                                                    url = "/categories/portraet/"
+                                                                                                                      weight = 2
+                                                                                                                      
+                                                                                                                      [[menu.main]]
+                                                                                                                        name = "Land & Leute"
+                                                                                                                          url = "/categories/land-leute/"
+                                                                                                                            weight = 3
+                                                                                                                            
+                                                                                                                            [[menu.main]]
+                                                                                                                              name = "Sport"
+                                                                                                                                url = "/categories/sport/"
+                                                                                                                                  weight = 4
+                                                                                                                                  
+                                                                                                                                  [[menu.main]]
+                                                                                                                                    name = "Politik"
+                                                                                                                                      url = "/categories/politik/"
+                                                                                                                                        weight = 5
+                                                                                                                                        
+                                                                                                                                        [[menu.main]]
+                                                                                                                                          name = "Kultur"
+                                                                                                                                            url = "/categories/kultur/"
+                                                                                                                                              weight = 6
+                                                                                                                                              
+                                                                                                                                              [[menu.main]]
+                                                                                                                                                name = "Wirtschaft"
+                                                                                                                                                  url = "/categories/wirtschaft/"
+                                                                                                                                                    weight = 7
+                                                                                                                                                    
+                                                                                                                                                    [[menu.main]]
+                                                                                                                                                      name = "Natur"
+                                                                                                                                                        url = "/categories/natur/"
+                                                                                                                                                          weight = 8
+                                                                                                                                                          
+                                                                                                                                                          [[menu.main]]
+                                                                                                                                                            name = "Geschichte"
+                                                                                                                                                              url = "/categories/geschichte/"
+                                                                                                                                                                weight = 9
+                                                                                                                                                                
+                                                                                                                                                                [[menu.main]]
+                                                                                                                                                                  name = "Gesellschaft"
+                                                                                                                                                                    url = "/categories/gesellschaft/"
+                                                                                                                                                                      weight = 10
+                                                                                                                                                                      
+                                                                                                                                                                      [[menu.main]]
+                                                                                                                                                                        name = "Reise"
+                                                                                                                                                                          url = "/categories/reise/"
+                                                                                                                                                                            weight = 11
+                                                                                                                                                                            
+                                                                                                                                                                            [[menu.main]]
+                                                                                                                                                                              name = "Handwerk"
+                                                                                                                                                                                url = "/categories/handwerk/"
+                                                                                                                                                                                  weight = 12
+                                                                                                                                                                                  
+                                                                                                                                                                                  [[menu.main]]
+                                                                                                                                                                                    name = "Poesie"
+                                                                                                                                                                                      url = "/categories/poesie/"
+                                                                                                                                                                                        weight = 13
+                                                                                                                                                                                        
+                                                                                                                                                                                        [params.giscus]
+                                                                                                                                                                                          repoid = "R_kgDORNugmg"
+                                                                                                                                                                                            category = "General"
+                                                                                                                                                                                              categoryid = "DIC_kwDORNugms4CnFJ2"
+                                                                                                                                                                                                mapping = "pathname"
+                                                                                                                                                                                                  strict = "0"
+                                                                                                                                                                                                    reactions = "1"
+                                                                                                                                                                                                      emitmetadata = "0"
+                                                                                                                                                                                                        inputposition = "bottom"
+                                                                                                                                                                                                          lang = "de"
