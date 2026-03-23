@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+  <html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title | title }} – {{ .Site.Title }}</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700" rel="stylesheet">
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Manrope',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.6}
+    .page-container{max-width:1200px;margin:0 auto;padding:0 2rem}
+    .page-header{padding:3rem 0 2rem}
+    .page-header h1{font-size:2rem;margin-bottom:0.3rem}
+    .back-link{font-size:0.85rem;color:#B8293D;text-decoration:none;display:inline-block;margin-bottom:1rem}
+    .back-link:hover{text-decoration:underline}
+      .post-count{color:#999;font-size:0.95rem;margin-top:0.3rem}
+    .articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:1.5rem;padding-bottom:3rem}
+    .article-card{background:white;border-radius:8px;padding:2rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);transition:transform 0.2s,box-shadow 0.2s}
+    .article-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.12)}
+    .article-meta{font-size:0.75rem;color:#6B7280;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+    .article-meta a{color:#B8293D;text-decoration:none;font-weight:500}
+          .article-meta a:hover{text-decoration:underline}
+          .article-title{font-size:1.4rem;font-weight:600;margin-bottom:0.75rem}
+    .article-title a{color:#2D3640;text-decoration:none}
+    .article-title a:hover{color:#B8293D}
+          .article-excerpt{font-size:1rem;color:#6B7280;line-height:1.5}
+    .read-more{display:inline-block;margin-top:0.75rem;font-size:0.85rem;color:#B8293D;text-decoration:none;font-weight:600}
+        .read-more:hover{text-decoration:underline}
+        </style>
+      </head>
+      <body>
+      {{ partial "nav.html" . }}
+        <div class="page-container">
+          <div class="page-header">
+            <a href="/categories/" class="back-link">← Alle Kategorien</a>
+            <h1>{{ .Title | title }}</h1>
+            <p class="post-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}Beitrag{{ else }}Beiträge{{ end }}</p>
+          </div>
+          <div class="articles-grid">
+      {{ range .Pages.ByDate.Reverse }}
+      <article class="article-card">
+                <div class="article-meta">
+        {{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/">{{ . }}</a> &bull; {{ end }}
+{{ .Date.Format "2. January 2006" }}
+{{ with .ReadingTime }} &bull; {{ . }} Min.{{ end }}
+        </div>
+                  <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ with .Params.description }}
+        <p class="article-excerpt">{{ . }}</p>
+          {{ end }}
+        <a href="{{ .RelPermalink }}" class="read-more">Lesen →</a>
+                </article>
+          {{ end }}
+              </div>
+            </div>
+          </body>
+          </html>
