@@ -180,7 +180,7 @@
     </div>
     
     <div class="articles-grid">
-        {{ range first 12 .Site.RegularPages.ByDate.Reverse }}
+                {{ range first 12 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
         <article class="article-card">
             <div class="article-meta">
                 {{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/" style="color: #B8293D; text-decoration: none; font-weight: 500;">{{ . }}</a> &bull; {{ end }}
