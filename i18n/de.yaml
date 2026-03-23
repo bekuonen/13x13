@@ -1,33 +1,33 @@
-# Hugo i18n – Deutsch (Schweiz)
-# Monatsnamen für .Date.Format "2. January 2006"
+# Hugo i18n - Deutsch (Schweiz)
+# Monatsnamen fur .Date.Format "2. January 2006"
 months:
   January: Januar
-    February: Februar
-      March: März
-        April: April
-          May: Mai
-            June: Juni
-              July: Juli
-                August: August
-                  September: September
-                    October: Oktober
-                      November: November
-                        December: Dezember
+  February: Februar
+  March: Maerz
+  April: April
+  May: Mai
+  June: Juni
+  July: Juli
+  August: August
+  September: September
+  October: Oktober
+  November: November
+  December: Dezember
 
-                        # Wochentage
-                        weekdays:
-                          Monday: Montag
-                            Tuesday: Dienstag
-                              Wednesday: Mittwoch
-                                Thursday: Donnerstag
-                                  Friday: Freitag
-                                    Saturday: Samstag
-                                      Sunday: Sonntag
+# Wochentage
+weekdays:
+  Monday: Montag
+  Tuesday: Dienstag
+  Wednesday: Mittwoch
+  Thursday: Donnerstag
+  Friday: Freitag
+  Saturday: Samstag
+  Sunday: Sonntag
 
-                                      # UI-Texte
-                                      readingTime:
-                                        other: "{{ .Count }} Min. Lesezeit"
-                                        wordCount:
-                                          other: "{{ .Count }} Wörter"
-                                          by: "von"
-                                          tableOfContents: "Inhaltsverzeichnis"
+# UI-Texte
+readingTime:
+  other: "{{ .Count }} Min. Lesezeit"
+wordCount:
+  other: "{{ .Count }} Woerter"
+by: "von"
+tableOfContents: "Inhaltsverzeichnis"
