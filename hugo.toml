@@ -21,6 +21,7 @@ theme = 'ananke'
                       [markup.goldmark.renderer]
                             unsafe = true
 
+                            # Kategorien-Dropdown: 13 Themen des Wallis-Magazins
                             [[menu.main]]
                               name = "Genuss"
                                 url = "/categories/genuss/"
@@ -60,8 +61,7 @@ theme = 'ananke'
                                                                         name = "Natur"
                                                                           url = "/categories/natur/"
                                                                             weight = 8
-
-                                                                            [[menu.main]]
+Update: 13 Kategorien final (Tourismus→Reise, Bildung→Poesie)                                                                            [[menu.main]]
                                                                               name = "Geschichte"
                                                                                 url = "/categories/geschichte/"
                                                                                   weight = 9
@@ -72,8 +72,8 @@ theme = 'ananke'
                                                                                         weight = 10
 
                                                                                         [[menu.main]]
-                                                                                          name = "Tourismus"
-                                                                                            url = "/categories/tourismus/"
+                                                                                          name = "Reise"
+                                                                                            url = "/categories/reise/"
                                                                                               weight = 11
 
                                                                                               [[menu.main]]
@@ -82,8 +82,8 @@ theme = 'ananke'
                                                                                                     weight = 12
                                                                                                     
                                                                                                     [[menu.main]]
-                                                                                                      name = "Bildung"
-                                                                                                        url = "/categories/bildung/"
+                                                                                                      name = "Poesie"
+                                                                                                        url = "/categories/poesie/"
                                                                                                           weight = 13
                                                                                                           
                                                                                                           [params.giscus]
