@@ -3,7 +3,7 @@ title = 'Das perfekte Raclette aus dem Goms'
 date = 2026-02-06
 categories = ['genuss']
 tags = ['Käse', 'Tradition', 'Rezepte']
-authors = ['Sabine Kalbermatten']
+authors = ['sabine-kalbermatten']
 description = 'Käsemeister Peter Imoberdorf verrät die Geheimnisse des perfekten Walliser Raclettes.'
 draft = false
 +++
