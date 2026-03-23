@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo {{ .Hugo.Version }}">
+  <meta name="generator" content="Hugo {{ hugo.Version }}">
   <title>{{ .Title }} - {{ .Site.Title }}</title>
   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -60,96 +60,3 @@
     .post-nav .next{text-align:right}
     @media(max-width:600px){
       .article-wrap{padding:1.5rem 1rem 3rem}
-      .article-title{font-size:1.7rem}
-      .author-box{flex-direction:column}
-      .post-nav{grid-template-columns:1fr}
-    }
-  </style>
-</head>
-<body>
-  {{ partial "nav.html" . }}
-  <main class="article-wrap">
-
-    {{ $cats := .GetTerms "categories" }}
-    {{ $authors := .GetTerms "authors" }}
-    {{ $tags := .GetTerms "tags" }}
-
-    <nav class="back-nav">
-      {{ if $cats }}
-        {{ range first 1 $cats }}<a href="{{ .RelPermalink }}">&larr; {{ .Title }}</a>{{ end }}
-      {{ else }}
-        <a href="/">&larr; Zurück</a>
-      {{ end }}
-    </nav>
-
-    <header class="article-header">
-      {{ if $cats }}
-        {{ range first 1 $cats }}<a href="{{ .RelPermalink }}" class="article-category">{{ .Title }}</a>{{ end }}
-      {{ end }}
-      <h1 class="article-title">{{ .Title }}</h1>
-      {{ with .Params.description }}<p class="article-description">{{ . }}</p>{{ end }}
-      <div class="article-meta">
-        {{ range $authors }}
-          <span class="meta-author"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
-        {{ end }}
-        <span class="meta-sep">&#183;</span>
-        <span>{{ .Date.Format "2. January 2006" }}</span>
-        <span class="meta-sep">&#183;</span>
-        <span>{{ .ReadingTime }} Min. Lesezeit</span>
-      </div>
-    </header>
-
-    {{ with .Params.image }}
-      <figure class="article-image">
-        <img src="{{ . }}" alt="{{ $.Title }}">
-        {{ with $.Params.image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
-      </figure>
-    {{ end }}
-
-    <div class="article-body">
-      {{ .Content }}
-    </div>
-
-    {{ if $tags }}
-      <div class="article-tags">
-        <span class="tags-label">Tags</span>
-        {{ range $tags }}
-          <a href="{{ .RelPermalink }}" class="tag">{{ .Title }}</a>
-        {{ end }}
-      </div>
-    {{ end }}
-
-    {{ range $authors }}
-      <div class="author-box">
-        <div class="author-avatar">
-          {{ with .Params.photo }}<img src="{{ . }}" alt="{{ $.Title }}">{{ else }}{{ upper (substr .Title 0 1) }}{{ end }}
-        </div>
-        <div class="author-info">
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-          {{ with .Params.ort }}<p class="author-ort">{{ . }}</p>{{ end }}
-          {{ with .Params.bio }}<p class="author-bio">{{ . }}</p>{{ end }}
-          <a href="{{ .RelPermalink }}" class="author-link">Alle Artikel &rarr;</a>
-        </div>
-      </div>
-    {{ end }}
-
-    {{ if or .PrevInSection .NextInSection }}
-      <nav class="post-nav">
-        {{ if .PrevInSection }}
-          <a href="{{ .PrevInSection.RelPermalink }}">
-            <div class="post-nav-label">&larr; Vorheriger Beitrag</div>
-            <div class="post-nav-title">{{ .PrevInSection.Title }}</div>
-          </a>
-        {{ else }}<div></div>{{ end }}
-        {{ if .NextInSection }}
-          <a href="{{ .NextInSection.RelPermalink }}" class="next">
-            <div class="post-nav-label">Nächster Beitrag &rarr;</div>
-            <div class="post-nav-title">{{ .NextInSection.Title }}</div>
-          </a>
-        {{ end }}
-      </nav>
-    {{ end }}
-
-  </main>
-</body>
-</html>
