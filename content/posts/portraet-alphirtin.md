@@ -3,7 +3,7 @@ title = 'Anna Imhof - Eine Saison auf der Alp'
 date = 2026-02-06
 categories = ['portraet']
 tags = ['Alp', 'Frauen', 'Landwirtschaft', 'Goms']
-authors = ['Maria Zurbriggen']
+authors = ['maria-zurbriggen']
 description = 'Anna Imhof verbringt jeden Sommer drei Monate auf 2200 Metern Höhe - als eine der wenigen Alphirtinnen im Wallis.'
 draft = false
 +++
