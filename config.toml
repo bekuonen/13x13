@@ -1,32 +1,3 @@
-baseURL = 'https://13x13.ch/'
-languageCode = 'de-ch'
-title = '13×13 – Geschichten aus dem Wallis'
-theme = 'ananke'
-
-[params]
-  description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.'
-  author = 'Redaktion 13×13'
-  featured_image = ''
-  background_color_class = 'bg-near-white'
-  recent_posts_number = 3
-
-[params.giscus]
-  enable = true
-  repo = "bekuonen/13x13"
-  repoId = "R_kgDONhugmw"
-  category = "General"
-  categoryId = "DIC_kwDONhugms4CZs5m"
-  mapping = "pathname"
-  reactionsEnabled = "1"
-  theme = "preferred_color_scheme"
-
-[taxonomies]
-  category = 'categories'
-  tag = 'tags'
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
-[menu]
+# config.toml – VERALTET
+# Hugo-Konfiguration wurde nach hugo.toml migriert.
+# Diese Datei bleibt als Referenz, hat aber keine aktive Funktion mehr.
