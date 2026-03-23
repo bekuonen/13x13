@@ -3,7 +3,8 @@ backend:
   repo: bekuonen/13x13
   branch: main
   auth_type: pkce
-  app_id: 0v23lisR13mWQNHhRvyP
+  app_id: Ov23lisR13mWQNHhRvyP
+  base_url: https://github.com
 media_folder: static/images/uploads
 public_folder: /images/uploads
 locale: de
