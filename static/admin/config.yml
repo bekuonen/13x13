@@ -2,8 +2,8 @@ backend:
   name: github
   repo: bekuonen/13x13
   branch: main
-  base_url: https://cms-auth.bekuonen.workers.dev
-
+  auth_type: pkce
+  app_id: 0v23lisR13mWQNHhRvyP
 media_folder: static/images/uploads
 public_folder: /images/uploads
 locale: de
