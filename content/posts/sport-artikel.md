@@ -3,7 +3,7 @@ title = 'Walliser Skiclub feiert Jubiläum'
 date = 2026-02-05
 categories = ['sport']
 tags = ['Ski', 'Vereine', 'Goms']
-authors = ['Thomas Summermatter']
+authors = ['thomas-summermatter']
 description = 'Der SC Münster blickt auf 100 Jahre Vereinsgeschichte zurück und plant grosse Feierlichkeiten.'
 draft = false
 +++
