@@ -63,9 +63,15 @@
       .article-title{font-size:1.75rem}
       .post-nav{grid-template-columns:1fr}
     }
-    .kofi-support { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: #fff8f0; border-left: 3px solid #B8293D; border-radius: 0 6px 6px 0; text-align: center; }
+    
+    .support-block { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .kofi-support, .twint-support { flex: 1; min-width: 200px; padding: 1.25rem 1.5rem; border-radius: 0 6px 6px 0; text-align: center; }
+    .kofi-support { background: #fff8f0; border-left: 3px solid #B8293D; }
     .kofi-support a { color: #B8293D; text-decoration: none; font-family: 'Manrope', sans-serif; font-size: 0.95rem; font-weight: 600; }
     .kofi-support a:hover { text-decoration: underline; }
+    .twint-support { background: #f0f7ff; border-left: 3px solid #006ECA; }
+    .twint-support p { color: #006ECA; font-family: 'Manrope', sans-serif; font-size: 0.95rem; font-weight: 600; margin: 0; }
+    .twint-support span { display: block; font-size: 0.8rem; color: #666; margin-top: 0.3rem; font-weight: 400; }
     </style>
 </head>
 <body>
@@ -107,10 +113,16 @@
     {{- end }}
   </div>
   {{ end }}
-  <div class="kofi-support">
-    <a href="https://ko-fi.com/13x13" target="_blank" rel="noopener">
-      ☕ Diesem Text etwas beisteuern – freiwillig, kein Druck.
-    </a>
+  <div class="support-block">
+    <div class="kofi-support">
+      <a href="https://ko-fi.com/13x13" target="_blank" rel="noopener">
+        ☕ Diesem Text etwas beisteuern – Ko-fi
+      </a>
+    </div>
+    <div class="twint-support">
+      <p>📱 Twint</p>
+      <span>+41 76 251 14 58</span>
+    </div>
   </div>
 </article>
 </body>
