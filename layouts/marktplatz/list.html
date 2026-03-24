@@ -51,7 +51,7 @@
     <article class="card{{ if .Params.featured }} featured{{ end }}" data-kat="{{ .Params.kategorie }}">
       {{ if .Params.featured }}<span class="card-badge">13x13 empfiehlt</span>{{ end }}
       <span class="card-kat">{{ index $kl .Params.kategorie | default .Params.kategorie }}</span>
-      {{ with .Params.logo }}<a class="card-logo" href="{{ with $.Params.website }}{{ . }}{{ end }}" target="_blank" rel="noopener"><img src="{{ . }}" alt="{{ $.Title }} Logo"></a>{{ end }}
+      {{ with .Params.logo }}<a class="card-logo" href="{{ with .Params.website }}{{ . }}{{ end }}" target="_blank" rel="noopener"><img src="{{ . }}" alt="{{ $.Title }} Logo"></a>{{ end }}
       <div class="card-name">
         {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $.Title }}</a>{{ else }}{{ .Title }}{{ end }}
       </div>
