@@ -25,6 +25,10 @@
         .ed-section li { margin-bottom: 0.5rem; }
         .highlight-box { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin: 2rem 0; }
         .highlight-box h3 { color: #B8293D; margin-bottom: 0.75rem; }
+                .standpunkte-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .standpunkt { background: white; border-radius: 8px; padding: 1.25rem 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 3px solid #B8293D; }
+        .standpunkt p { font-size: 0.95rem; margin: 0; line-height: 1.5; }
+        .sp-nr { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 700; color: #B8293D; display: block; margin-bottom: 0.4rem; }
     </style>
 </head>
 <body>
@@ -34,8 +38,8 @@
         <p class="editorial-subtitle">{{ .Params.subtitle }}</p>
 
         <nav class="section-nav">
-            <a href="#projekt" class="active">Projekt</a>
-            <a href="#idee">Idee &amp; Vision</a>
+                        <a href="#standpunkte" class="active">13 Standpunkte</a>
+                        <a href="#projekt">Projekt</a>
             <a href="#entstehung">Entstehung</a>
             <a href="#wir">Was wir sein wollen</a>
         </nav>
