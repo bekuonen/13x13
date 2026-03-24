@@ -15,7 +15,7 @@
             <div id="km" onclick="event.stopPropagation();" style="display:none;position:absolute;top:100%;left:0;background:white;min-width:240px;max-height:70vh;overflow-y:auto;box-shadow:0 8px 24px rgba(0,0,0,0.2);border-radius:4px;z-index:10000;">
                 {{ range .Site.Menus.main }}
                 <a href="{{ .URL }}" style="display:block;padding:0.75rem 1.2rem;color:#2D3640;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:0.9rem;border-bottom:1px solid #f0f0f0;" onmouseover="this.style.background='#B8293D';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='#2D3640'">{{ .Name }}</a>
-                {{ end }
+                {{ end }}
             </div>
         </div>
         <a href="/marktplatz/" style="color:white;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:0.85rem;text-transform:uppercase;border:1px solid rgba(255,255,255,0.3);border-radius:4px;padding:0.5rem 1rem;background:rgba(184,41,61,0.2);">Marktplatz</a> <a href="/authors/" style="color:white;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-size:0.85rem;text-transform:uppercase;border:1px solid rgba(255,255,255,0.3);border-radius:4px;padding:0.5rem 1rem;">Schreibende</a>
