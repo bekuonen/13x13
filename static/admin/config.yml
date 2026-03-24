@@ -12,7 +12,7 @@ collections:
     label: Artikel
     label_singular: Artikel
     folder: content/posts
-    create: tru
+    create: true
     slug: "{{slug}}"
     fields:
       - {label: "Titel", name: "title", widget: "string"}
