@@ -49,7 +49,7 @@
       {{ if .Params.featured }}<span class="card-badge">13x13 empfiehlt</span>{{ end }}
       <span class="card-kat">{{ index $kl .Params.kategorie | default .Params.kategorie }}</span>
       <div class="card-name">
-        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $.Title }}</a>{{ else }}{{ .Title }}{{ end }}
+        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}
       </div>
       <div class="card-text">{{ .Summary }}</div>
       <footer class="card-foot">
