@@ -46,14 +46,14 @@
     {{- $kl := dict "handwerk-manufaktur" "Handwerk & Manufaktur" "genuss-gastlichkeit" "Genuss & Gastlichkeit" "kultur-raum" "Kultur & Raum" "innovation-zukunft" "Innovation & Zukunft" "tourismus-erlebnis" "Tourismus & Erlebnis" }}
     {{- range sort .Pages "Params.featured" "desc" }}
     <article class="card{{ if .Params.featured }} featured{{ end }}" data-kat="{{ .Params.kategorie }}">
-      {{ if .Params.featured }}<span class="card-badge">Empfehlung der Folge</span>{{ end }}
+      {{ if .Params.featured }}<span class="card-badge">13x13 empfiehlt</span>{{ end }}
       <span class="card-kat">{{ index $kl .Params.kategorie | default .Params.kategorie }}</span>
       <div class="card-name">
         {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $.Title }}</a>{{ else }}{{ .Title }}{{ end }}
       </div>
       <div class="card-text">{{ .Summary }}</div>
       <footer class="card-foot">
-        <span>{{ with .Params.autor }}{{ . }}{{ end }}{{ with .Params.folge }} &middot; {{ . }}{{ end }}</span>
+        <span>{{ with .Params.autor }}{{ . | replace "Kreis 13x13" "13x13" }}{{ end }}{{ with .Params.folge }} &middot; {{ . }}{{ end }}</span>
         {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">Website &rarr;</a>{{ end }}
       </footer>
     </article>
