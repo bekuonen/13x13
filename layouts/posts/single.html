@@ -83,6 +83,7 @@
       {{- end }}
       <span class="meta-sep">|</span>
       <span>{{ .Date.Format "2. January 2006" }}</span>
+          {{ with .Params.textformat }}<span class="meta-sep">|</span><span class="textformat">{{ . }}</span>{{ end }}
       {{ with .ReadingTime }}<span class="meta-sep">|</span><span>{{ . }} Min.</span>{{ end }}
     </div>
   </header>
@@ -102,6 +103,11 @@
     {{- end }}
   </div>
   {{ end }}
+  <div class="kofi-support">
+    <a href="https://ko-fi.com/13x13" target="_blank" rel="noopener">
+      ☕ Diesem Text etwas beisteuern – freiwillig, kein Druck.
+    </a>
+  </div>
 </article>
 </body>
 </html>
