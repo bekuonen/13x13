@@ -18,6 +18,14 @@ collections:
       - {label: "Titel", name: "title", widget: "string"}
       - {label: "Datum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
       - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
+      - label: "Textformat"
+        name: "textformat"
+        widget: "select"
+        options:
+          - {label: "Einschätzung", value: "einschaetzung"}
+          - {label: "Reportage", value: "reportage"}
+          - {label: "Fiktion", value: "fiktion"}
+          - {label: "Beobachtung", value: "beobachtung"}
       - label: "Autoren"
         name: "authors"
         widget: "list"
@@ -97,3 +105,28 @@ collections:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Beschreibung", name: "description", widget: "text", required: false}
           - {label: "Inhalt", name: "body", widget: "markdown", required: false}
+
+  - name: marktplatz
+    label: Marktplatz
+    label_singular: Empfehlung
+    folder: content/marktplatz
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Firmenname", name: "title", widget: "string"}
+      - {label: "Folge", name: "folge", widget: "string", hint: "#1, #2, #3 ..."}
+      - label: "Kategorie"
+        name: "kategorie"
+        widget: "select"
+        options:
+          - {label: "Handwerk & Manufaktur", value: "handwerk-manufaktur"}
+          - {label: "Genuss & Gastlichkeit", value: "genuss-gastlichkeit"}
+          - {label: "Kultur & Raum", value: "kultur-raum"}
+          - {label: "Innovation & Zukunft", value: "innovation-zukunft"}
+          - {label: "Tourismus & Erlebnis", value: "tourismus-erlebnis"}
+      - {label: "Website", name: "website", widget: "string", required: false}
+      - {label: "Logo", name: "logo", widget: "image", required: false}
+      - {label: "Kuratierter Text", name: "body", widget: "markdown"}
+      - {label: "Foto", name: "foto", widget: "image", required: false}
+      - {label: "Schreibende/r", name: "autor", widget: "string", required: false}
+      - {label: "Empfehlung der Folge", name: "featured", widget: "boolean", default: false}
