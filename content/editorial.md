@@ -52,3 +52,26 @@ subtitle: "Dreizehn Stimmen. Dreizehn Perspektiven. Jeden Monat neu."
 </div>
 <blockquote>«13×13 ist kein Magazin. Es ist eine Einladung, das Wallis mit anderen Augen zu sehen.»</blockquote>
 </section>
+
+
+</section>
+
+<section id="standpunkte" class="ed-section">
+<h2>13 Standpunkte</h2>
+<p>Wir haben keine Charta. Aber wir haben Haltung. Hier ist sie – in dreizehn Sätzen.</p>
+<div class="standpunkte-grid">
+<div class="standpunkt"><span class="sp-nr">01</span><p>Das Wallis hat mehr zu sagen als es sagt.</p></div>
+<div class="standpunkt"><span class="sp-nr">02</span><p>Wir schreiben, weil uns etwas beschäftigt.</p></div>
+<div class="standpunkt"><span class="sp-nr">03</span><p>Unabhängig zu sein ist anstrengend – und richtig so.</p></div>
+<div class="standpunkt"><span class="sp-nr">04</span><p>Lokales Denken ist kein Nachteil.</p></div>
+<div class="standpunkt"><span class="sp-nr">05</span><p>Wir haben keine Antworten. Aber gute Fragen.</p></div>
+<div class="standpunkt"><span class="sp-nr">06</span><p>13 Menschen, 13 Blickwinkel – kein Konsens nötig.</p></div>
+<div class="standpunkt"><span class="sp-nr">07</span><p>Guter Text braucht Zeit. Den nehmen wir uns.</p></div>
+<div class="standpunkt"><span class="sp-nr">08</span><p>Wir kennen das Wallis von innen.</p></div>
+<div class="standpunkt"><span class="sp-nr">09</span><p>Schreiben ist Haltung einnehmen.</p></div>
+<div class="standpunkt"><span class="sp-nr">10</span><p>Wir sind keine Zeitung. Wir sind Nachbarn.</p></div>
+<div class="standpunkt"><span class="sp-nr">11</span><p>Das Oberwallis verdient mehr Aufmerksamkeit als es bekommt.</p></div>
+<div class="standpunkt"><span class="sp-nr">12</span><p>Wir irren uns manchmal. Das gehört dazu.</p></div>
+<div class="standpunkt"><span class="sp-nr">13</span><p>13×13 ist ein Versuch. Ein ernsthafter.</p></div>
+</div>
+</section>
