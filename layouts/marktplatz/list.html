@@ -1,87 +1,80 @@
 {{ define "main" }}
-<div class="marktplatz-wrap">
+<style>
+.mp{max-width:960px;margin:0 auto;padding:2rem 1.5rem 4rem;font-family:'Space Grotesk',sans-serif}
+.mp-head{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid #e8e4de}
+.mp-head h1{font-size:1.75rem;font-weight:700;color:#2D3640;margin:0 0 0.4rem}
+.mp-lead{font-size:0.9rem;color:#6B7280;margin:0}
+.mp-filter{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem}
+.mp-filter a{font-size:0.78rem;padding:0.3rem 0.85rem;border:1px solid #e8e4de;border-radius:20px;background:#fff;color:#6B7280;text-decoration:none;font-weight:500;transition:all 0.15s}
+.mp-filter a:hover,.mp-filter a.active{background:#B8293D;color:#fff;border-color:#B8293D}
+.mp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.card{background:#fff;border-radius:10px;padding:1.25rem;border:1px solid #e8e4de;transition:box-shadow 0.2s,transform 0.2s}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.card.featured{border:2px solid #B8293D}
+.card-badge{display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:#B8293D;background:#FEF2F4;padding:0.2rem 0.55rem;border-radius:10px;margin-bottom:0.6rem}
+.card-kat{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:#B8293D;margin-bottom:0.5rem;display:block}
+.card-name{font-size:1rem;font-weight:700;color:#2D3640;margin-bottom:0.6rem;line-height:1.3}
+.card-name a{color:#2D3640;text-decoration:none}
+.card-name a:hover{color:#B8293D}
+.card-text{font-size:0.88rem;color:#4B5563;line-height:1.65;margin-bottom:1rem}
+.card-foot{display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:#9CA3AF;border-top:1px solid #f0ece6;padding-top:0.6rem}
+.card-foot a{color:#B8293D;text-decoration:none;font-weight:600;font-size:0.75rem}
+.card-foot a:hover{text-decoration:underline}
+.card.hidden{display:none}
+.mp-iban{margin-top:2.5rem;padding:1.25rem 1.5rem;background:#fff;border-radius:8px;border-left:3px solid #e8e4de;font-size:0.85rem;color:#6B7280}
+.mp-iban strong{color:#2D3640}
+.iban-nr{font-family:monospace;font-weight:700;color:#2D3640}
+@media(max-width:600px){.mp{padding:1rem 1rem 3rem}.mp-grid{grid-template-columns:1fr}}
+</style>
 
-  <header class="marktplatz-header">
+<div class="mp">
+  <header class="mp-head">
     <h1>Marktplatz</h1>
-    <p class="marktplatz-lead">13 kuratierte Empfehlungen – erneuert mit jeder Folge von 13x13.</p>
+    <p class="mp-lead">13 kuratierte Empfehlungen – vom Kreis 13x13 ausgewählt nach Bedeutung, Verankerung und Eigenständigkeit.</p>
   </header>
 
-  {{- $kategorien := slice "handwerk-manufaktur" "genuss-gastlichkeit" "kultur-raum" "innovation-zukunft" "tourismus-erlebnis" -}}
-  {{- $labels := dict "handwerk-manufaktur" "Handwerk & Manufaktur" "genuss-gastlichkeit" "Genuss & Gastlichkeit" "kultur-raum" "Kultur & Raum" "innovation-zukunft" "Innovation & Zukunft" "tourismus-erlebnis" "Tourismus & Erlebnis" -}}
-
-  <nav class="marktplatz-filter" aria-label="Filter nach Kategorie">
-    <a href="#alle" class="filter-btn filter-btn--active" data-filter="alle">Alle</a>
-    {{- range $kategorien }}
-    <a href="#{{ . }}" class="filter-btn" data-filter="{{ . }}">{{ index $labels . }}</a>
-    {{- end }}
+  <nav class="mp-filter">
+    <a href="#" class="active" data-filter="alle">Alle</a>
+    <a href="#" data-filter="handwerk-manufaktur">Handwerk &amp; Manufaktur</a>
+    <a href="#" data-filter="genuss-gastlichkeit">Genuss &amp; Gastlichkeit</a>
+    <a href="#" data-filter="kultur-raum">Kultur &amp; Raum</a>
+    <a href="#" data-filter="innovation-zukunft">Innovation &amp; Zukunft</a>
+    <a href="#" data-filter="tourismus-erlebnis">Tourismus &amp; Erlebnis</a>
   </nav>
 
-  {{- $featured := where .Pages "Params.featured" true }}
-  {{- if $featured }}
-  <section class="marktplatz-featured">
-    {{- range first 1 $featured }}
-    <article class="empfehlung empfehlung--featured">
-      <span class="empfehlung-badge">Empfehlung der Folge</span>
-      <span class="empfehlung-kategorie">{{ index $labels (.Params.kategorie | default "") }}</span>
-      {{ with .Params.logo }}<img src="{{ . }}" alt="{{ $.Title }} Logo" class="empfehlung-logo">{{ end }}
-      <div class="empfehlung-body">
-        {{ .Content }}
+  <div class="mp-grid">
+    {{- range sort .Pages "Params.featured" "desc" }}
+    <article class="card{{ if .Params.featured }} featured{{ end }}" data-kat="{{ .Params.kategorie }}">
+      {{ if .Params.featured }}<span class="card-badge">Empfehlung der Folge</span>{{ end }}
+      <span class="card-kat">{{ .Params.kategorie | replace "-" " " | title }}</span>
+      <div class="card-name">
+        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $.Title }}</a>{{ else }}{{ .Title }}{{ end }}
       </div>
-      <footer class="empfehlung-footer">
-        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener" class="empfehlung-link">{{ $.Title }}</a>{{ end }}
-        {{ with .Params.foto }}<figure class="empfehlung-foto"><img src="{{ . }}" alt="{{ $.Title }}"></figure>{{ end }}
-        {{ with .Params.autor }}<span class="empfehlung-autor">Kuratiert von {{ . }}</span>{{ end }}
-        <span class="empfehlung-folge">{{ .Params.folge }}</span>
+      <div class="card-text">{{ .Summary }}</div>
+      <footer class="card-foot">
+        <span>{{ with .Params.autor }}{{ . }}{{ end }}{{ with .Params.folge }} &middot; {{ . }}{{ end }}</span>
+        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">Website &rarr;</a>{{ end }}
       </footer>
     </article>
     {{- end }}
-  </section>
-  {{- end }}
+  </div>
 
-  <section class="marktplatz-liste" id="alle">
-    {{- range .Pages }}
-    {{- if not .Params.featured }}
-    <article class="empfehlung" data-kategorie="{{ .Params.kategorie }}">
-      <span class="empfehlung-kategorie">{{ index $labels (.Params.kategorie | default "") }}</span>
-      {{ with .Params.logo }}<img src="{{ . }}" alt="{{ $.Title }} Logo" class="empfehlung-logo">{{ end }}
-      <div class="empfehlung-body">
-        {{ .Content }}
-      </div>
-      <footer class="empfehlung-footer">
-        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener" class="empfehlung-link">{{ $.Title }}</a>{{ end }}
-        {{ with .Params.foto }}<figure class="empfehlung-foto"><img src="{{ . }}" alt="{{ $.Title }}"></figure>{{ end }}
-        {{ with .Params.autor }}<span class="empfehlung-autor">Kuratiert von {{ . }}</span>{{ end }}
-        <span class="empfehlung-folge">{{ .Params.folge }}</span>
-      </footer>
-    </article>
-    {{- end }}
-    {{- end }}
-  </section>
-
-  <aside class="marktplatz-iban">
-    <p>Eine Empfehlung hat Wert geschaffen? 13x13 freut sich über einen freiwilligen Beitrag.</p>
-    <p class="iban-label">IBAN: <span class="iban-nr">CH00 0000 0000 0000 0000 0</span></p>
-    <p class="iban-hinweis">Kein Preis, kein Druck – nur wenn es passt.</p>
+  <aside class="mp-iban">
+    <strong>Freiwilliger Beitrag:</strong> Wenn eine Empfehlung etwas wert war –
+    <span class="iban-nr">CH00 0000 0000 0000 0000 0</span> &middot; Kein Preis, kein Druck.
   </aside>
-
 </div>
 
 <script>
-document.querySelectorAll('.filter-btn').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
+const btns = document.querySelectorAll('.mp-filter a');
+const cards = document.querySelectorAll('.card');
+btns.forEach(btn => {
+  btn.addEventListener('click', e => {
     e.preventDefault();
-    var filter = this.dataset.filter;
-    document.querySelectorAll('.filter-btn').forEach(function(b) {
-      b.classList.remove('filter-btn--active');
-    });
-    this.classList.add('filter-btn--active');
-    document.querySelectorAll('.empfehlung').forEach(function(art) {
-      if (filter === 'alle' || art.dataset.kategorie === filter) {
-        art.style.display = '';
-      } else {
-        art.style.display = 'none';
-      }
-    });
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cards.forEach(c => c.classList.toggle('hidden', f !== 'alle' && c.dataset.kat !== f));
   });
 });
 </script>
