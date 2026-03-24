@@ -63,9 +63,13 @@
       .article-title{font-size:1.75rem}
       .post-nav{grid-template-columns:1fr}
     }
-  </style>
+    .kofi-support { margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: #fff8f0; border-left: 3px solid #B8293D; border-radius: 0 6px 6px 0; text-align: center; }
+    .kofi-support a { color: #B8293D; text-decoration: none; font-family: 'Manrope', sans-serif; font-size: 0.95rem; font-weight: 600; }
+    .kofi-support a:hover { text-decoration: underline; }
+    </style>
 </head>
 <body>
+{{ partial "nav.html" . }}
 <article class="article-wrap">
   <nav class="back-nav">
     <a href="{{ .Site.BaseURL }}">&larr; {{ .Site.Title }}</a>
