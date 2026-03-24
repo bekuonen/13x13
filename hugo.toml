@@ -96,3 +96,7 @@ theme = 'ananke'
   name = "Poesie"
   url = "/categories/poesie/"
   weight = 13
+[[menu.main]]
+  name = "Marktplatz"
+  url = "/marktplatz/"
+  weight = 14
