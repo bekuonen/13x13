@@ -16,6 +16,9 @@
 .card-name{font-size:1rem;font-weight:700;color:#2D3640;margin-bottom:0.6rem;line-height:1.3}
 .card-name a{color:#2D3640;text-decoration:none}
 .card-name a:hover{color:#B8293D}
+.card-logo{display:block;margin-bottom:0.75rem;text-align:center}
+.card-logo img{max-height:52px;max-width:140px;object-fit:contain;filter:grayscale(20%);transition:filter 0.2s}
+.card-logo img:hover{filter:grayscale(0%)}
 .card-text{font-size:0.88rem;color:#4B5563;line-height:1.65;margin-bottom:1rem}
 .card-foot{display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:#9CA3AF;border-top:1px solid #f0ece6;padding-top:0.6rem}
 .card-foot a{color:#B8293D;text-decoration:none;font-weight:600;font-size:0.75rem}
@@ -48,8 +51,9 @@
     <article class="card{{ if .Params.featured }} featured{{ end }}" data-kat="{{ .Params.kategorie }}">
       {{ if .Params.featured }}<span class="card-badge">13x13 empfiehlt</span>{{ end }}
       <span class="card-kat">{{ index $kl .Params.kategorie | default .Params.kategorie }}</span>
+      {{ with .Params.logo }}<a class="card-logo" href="{{ with $.Params.website }}{{ . }}{{ end }}" target="_blank" rel="noopener"><img src="{{ . }}" alt="{{ $.Title }} Logo"></a>{{ end }}
       <div class="card-name">
-        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ .Title }}</a>{{ else }}{{ .Title }}{{ end }}
+        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $.Title }}</a>{{ else }}{{ .Title }}{{ end }}
       </div>
       <div class="card-text">{{ .Summary }}</div>
       <footer class="card-foot">
