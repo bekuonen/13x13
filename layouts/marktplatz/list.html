@@ -30,7 +30,7 @@
 <div class="mp">
   <header class="mp-head">
     <h1>Marktplatz</h1>
-    <p class="mp-lead">13 kuratierte Empfehlungen – vom Kreis 13x13 ausgewählt nach Bedeutung, Verankerung und Eigenständigkeit.</p>
+    <p class="mp-lead">13 kuratierte Empfehlungen &ndash; vom Kreis 13x13 ausgewählt nach Bedeutung, Verankerung und Eigenständigkeit.</p>
   </header>
 
   <nav class="mp-filter">
@@ -43,10 +43,11 @@
   </nav>
 
   <div class="mp-grid">
+    {{- $kl := dict "handwerk-manufaktur" "Handwerk & Manufaktur" "genuss-gastlichkeit" "Genuss & Gastlichkeit" "kultur-raum" "Kultur & Raum" "innovation-zukunft" "Innovation & Zukunft" "tourismus-erlebnis" "Tourismus & Erlebnis" }}
     {{- range sort .Pages "Params.featured" "desc" }}
     <article class="card{{ if .Params.featured }} featured{{ end }}" data-kat="{{ .Params.kategorie }}">
       {{ if .Params.featured }}<span class="card-badge">Empfehlung der Folge</span>{{ end }}
-      <span class="card-kat">{{ .Params.kategorie | replace "-" " " | title }}</span>
+      <span class="card-kat">{{ index $kl .Params.kategorie | default .Params.kategorie }}</span>
       <div class="card-name">
         {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">{{ $.Title }}</a>{{ else }}{{ .Title }}{{ end }}
       </div>
@@ -60,7 +61,7 @@
   </div>
 
   <aside class="mp-iban">
-    <strong>Freiwilliger Beitrag:</strong> Wenn eine Empfehlung etwas wert war –
+    <strong>Freiwilliger Beitrag:</strong> Wenn eine Empfehlung etwas wert war &ndash;
     <span class="iban-nr">CH00 0000 0000 0000 0000 0</span> &middot; Kein Preis, kein Druck.
   </aside>
 </div>
