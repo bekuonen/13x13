@@ -97,14 +97,17 @@
   <div class="nl-section">
     <h2>📬 Newsletter abonnieren</h2>
     <p>{{ .Params.newsletter_text }}</p>
-    <form id="nlForm" class="nl-form">
-      <input type="email" id="nlEmail" placeholder="Deine E-Mail-Adresse" required>
-      <button type="submit">Anmelden</button>
-    </form>
+    <iframe
+      width="100%"
+      height="340"
+      src="https://131c7f63.sibforms.com/serve/MUIFADhRAQsRlR2i3OD-zyIDl50veJTfTdWDLLQP-ywgQZWX0QSQLM5zFcQQJ9XL8MGBkiU-5jzpA2z50MFFSvn0kd1opCnwzlp9Xs4ZYSfP8NBrxwLx2CfE3Y3TH6-gnRvyb1gtvXjNjIXh_7KQgdQzaDIyzsd5UTiXE98oa9O-O975E5eWyiqzE4WAJTvQ98TvlEmdxRiC5gyH6g=="
+      frameborder="0"
+      scrolling="auto"
+      allowfullscreen
+      style="display:block;border:none;">
+    </iframe>
     <p class="nl-hint">{{ .Params.newsletter_hint }}</p>
-    <div id="nlSuccess" class="success-msg" style="color:white;background:rgba(255,255,255,0.15);">Willkommen an Bord! Du erhältst bald Post von uns.</div>
   </div>
-</div>
 <script>
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -116,16 +119,7 @@
     this.reset();
     setTimeout(function(){ document.getElementById('contactSuccess').style.display = 'none'; }, 5000);
   });
-  document.getElementById('nlForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var email = document.getElementById('nlEmail').value;
-    var all = JSON.parse(localStorage.getItem('13x13-newsletter') || '[]');
-    if(all.indexOf(email) === -1) all.push(email);
-    localStorage.setItem('13x13-newsletter', JSON.stringify(all));
-    document.getElementById('nlSuccess').style.display = 'block';
-    this.reset();
-    setTimeout(function(){ document.getElementById('nlSuccess').style.display = 'none'; }, 5000);
-  });
+  
 </script>
 </body>
 </html>
