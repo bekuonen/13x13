@@ -1,0 +1,88 @@
+{{ define "main" }}
+<div class="marktplatz-wrap">
+
+  <header class="marktplatz-header">
+    <h1>Marktplatz</h1>
+    <p class="marktplatz-lead">13 kuratierte Empfehlungen – erneuert mit jeder Folge von 13x13.</p>
+  </header>
+
+  {{- $kategorien := slice "handwerk-manufaktur" "genuss-gastlichkeit" "kultur-raum" "innovation-zukunft" "tourismus-erlebnis" -}}
+  {{- $labels := dict "handwerk-manufaktur" "Handwerk & Manufaktur" "genuss-gastlichkeit" "Genuss & Gastlichkeit" "kultur-raum" "Kultur & Raum" "innovation-zukunft" "Innovation & Zukunft" "tourismus-erlebnis" "Tourismus & Erlebnis" -}}
+
+  <nav class="marktplatz-filter" aria-label="Filter nach Kategorie">
+    <a href="#alle" class="filter-btn filter-btn--active" data-filter="alle">Alle</a>
+    {{- range $kategorien }}
+    <a href="#{{ . }}" class="filter-btn" data-filter="{{ . }}">{{ index $labels . }}</a>
+    {{- end }}
+  </nav>
+
+  {{- $featured := where .Pages "Params.featured" true }}
+  {{- if $featured }}
+  <section class="marktplatz-featured">
+    {{- range first 1 $featured }}
+    <article class="empfehlung empfehlung--featured">
+      <span class="empfehlung-badge">Empfehlung der Folge</span>
+      <span class="empfehlung-kategorie">{{ index $labels (.Params.kategorie | default "") }}</span>
+      {{ with .Params.logo }}<img src="{{ . }}" alt="{{ $.Title }} Logo" class="empfehlung-logo">{{ end }}
+      <div class="empfehlung-body">
+        {{ .Content }}
+      </div>
+      <footer class="empfehlung-footer">
+        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener" class="empfehlung-link">{{ $.Title }}</a>{{ end }}
+        {{ with .Params.foto }}<figure class="empfehlung-foto"><img src="{{ . }}" alt="{{ $.Title }}"></figure>{{ end }}
+        {{ with .Params.autor }}<span class="empfehlung-autor">Kuratiert von {{ . }}</span>{{ end }}
+        <span class="empfehlung-folge">{{ .Params.folge }}</span>
+      </footer>
+    </article>
+    {{- end }}
+  </section>
+  {{- end }}
+
+  <section class="marktplatz-liste" id="alle">
+    {{- range .Pages }}
+    {{- if not .Params.featured }}
+    <article class="empfehlung" data-kategorie="{{ .Params.kategorie }}">
+      <span class="empfehlung-kategorie">{{ index $labels (.Params.kategorie | default "") }}</span>
+      {{ with .Params.logo }}<img src="{{ . }}" alt="{{ $.Title }} Logo" class="empfehlung-logo">{{ end }}
+      <div class="empfehlung-body">
+        {{ .Content }}
+      </div>
+      <footer class="empfehlung-footer">
+        {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener" class="empfehlung-link">{{ $.Title }}</a>{{ end }}
+        {{ with .Params.foto }}<figure class="empfehlung-foto"><img src="{{ . }}" alt="{{ $.Title }}"></figure>{{ end }}
+        {{ with .Params.autor }}<span class="empfehlung-autor">Kuratiert von {{ . }}</span>{{ end }}
+        <span class="empfehlung-folge">{{ .Params.folge }}</span>
+      </footer>
+    </article>
+    {{- end }}
+    {{- end }}
+  </section>
+
+  <aside class="marktplatz-iban">
+    <p>Eine Empfehlung hat Wert geschaffen? 13x13 freut sich über einen freiwilligen Beitrag.</p>
+    <p class="iban-label">IBAN: <span class="iban-nr">CH00 0000 0000 0000 0000 0</span></p>
+    <p class="iban-hinweis">Kein Preis, kein Druck – nur wenn es passt.</p>
+  </aside>
+
+</div>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    var filter = this.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(function(b) {
+      b.classList.remove('filter-btn--active');
+    });
+    this.classList.add('filter-btn--active');
+    document.querySelectorAll('.empfehlung').forEach(function(art) {
+      if (filter === 'alle' || art.dataset.kategorie === filter) {
+        art.style.display = '';
+      } else {
+        art.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+{{ end }}
