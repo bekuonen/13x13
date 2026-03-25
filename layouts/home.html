@@ -8,209 +8,138 @@
     <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Manrope', sans-serif;
-            background: #FAF8F5;
-            color: #2D3640;
-            line-height: 1.5;
-            margin: 0;
-            padding: 0;
+        body { font-family: 'Manrope', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.5; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+
+        /* NAV */
+        .header { background: #2D3640; padding: 1.5rem 0; position: sticky; top: 0; z-index: 1000; }
+        .header nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; gap: 2rem; }
+        .header img { height: 60px; }
+        .nav-dropdown { position: relative; display: inline-block; }
+        .nav-dropdown > a { color: white; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; font-family: 'Manrope', sans-serif; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; text-decoration: none; display: inline-block; }
+        .nav-dropdown > a:hover { background: rgba(255,255,255,0.1); }
+        .nav-dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 10000; margin-top: 0.5rem; border-radius: 4px; overflow: hidden; max-height: 70vh; overflow-y: auto; }
+        .nav-dropdown-content a { color: #2D3640; padding: 12px 16px; text-decoration: none; display: block; font-family: 'Manrope', sans-serif; font-size: 0.9rem; border-bottom: 1px solid #f5f5f5; }
+        .nav-dropdown-content a:last-child { border-bottom: none; }
+        .nav-dropdown-content a:hover { background-color: #B8293D; color: white; }
+        .nav-dropdown:hover .nav-dropdown-content { display: block; }
+
+        /* HERO */
+        .hero { max-width: 800px; margin: 0 auto; padding: 3.5rem 2rem 2.5rem; text-align: center; }
+        .hero-title { font-size: 2rem; font-weight: 700; color: #2D3640; line-height: 1.25; margin-bottom: 1rem; }
+        .hero-sub { font-size: 1rem; color: #6B7280; }
+
+        /* KACHELN */
+        .kacheln { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .kachel { background: white; border-radius: 8px; padding: 2rem 1.5rem; text-decoration: none; color: #2D3640; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+        .kachel:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+        .kachel svg { width: 56px; height: 56px; flex-shrink: 0; }
+        .kachel-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #B8293D; }
+        .kachel-desc { font-size: 0.9rem; color: #6B7280; line-height: 1.5; }
+
+        /* ARTIKEL */
+        .section-label { max-width: 1200px; margin: 0 auto; padding: 0 2rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #9CA3AF; }
+        .articles-grid { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+        .article-card { background: white; border-radius: 8px; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
+        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        .article-meta { font-size: 0.72rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+        .article-title { font-size: 1.35rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.3; }
+        .article-title a { color: #2D3640; text-decoration: none; }
+        .article-title a:hover { color: #B8293D; }
+        .article-category { font-size: 0.82rem; margin-bottom: 0.7rem; font-weight: 500; }
+        .article-category a { color: #B8293D; text-decoration: none; }
+        .article-excerpt { font-size: 0.95rem; line-height: 1.55; color: #6B7280; }
+        .article-author { margin-top: 1rem; font-size: 0.8rem; font-weight: 600; color: #2D3640; }
+        .article-author a { color: #2D3640; text-decoration: none; }
+        .article-author a:hover { color: #B8293D; }
+
+        /* MOBILE */
+        @media (max-width: 900px) { .kacheln { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .hero { padding: 1rem 1.25rem; }
+            .hero-title { font-size: 1.4rem; }
+            .hero-sub { font-size: 0.9rem; }
+            .kacheln { grid-template-columns: repeat(2, 1fr); padding: 0 1rem 2rem; gap: 1rem; }
+            .kachel { padding: 1.25rem 1rem; }
+            .articles-grid { padding: 0 1rem 2rem; gap: 1rem; }
+            .article-card { padding: 1.25rem; }
+            .article-title { font-size: 1.15rem; }
+            .section-label { padding: 0 1rem 0.75rem; }
         }
-        h1, h2, h3 {
-            font-family: 'Manrope', sans-serif;
-        }
-        .header {
-            background: #2D3640;
-            padding: 1.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-        .header img {
-            height: 60px;
-        }
-        
-        /* DROPDOWN */
-        .nav-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .nav-dropdown > a {
-            color: white;
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            font-family: 'Manrope', sans-serif;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .nav-dropdown > a:hover {
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .nav-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 240px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 10000;
-            margin-top: 0.5rem;
-            border-radius: 4px;
-            overflow: hidden;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-        
-        .nav-dropdown-content a {
-            color: #2D3640;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.9rem;
-            border-bottom: 1px solid #f5f5f5;
-        }
-        
-        .nav-dropdown-content a:last-child {
-            border-bottom: none;
-        }
-        
-        .nav-dropdown-content a:hover {
-            background-color: #B8293D;
-            color: white;
-        }
-        
-        .nav-dropdown:hover .nav-dropdown-content {
-            display: block;
-        }
-        
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem 3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #2D3640;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: #6B7280;
-        }
-        .articles-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-        .article-card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .article-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
-        .article-meta {
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.75rem;
-            color: #6B7280;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-        }
-        .article-title {
-            font-family: 'Manrope', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-        .article-title a {
-            color: #2D3640;
-            text-decoration: none;
-        }
-        .article-title a:hover {
-            color: #B8293D;
-        }
-        .article-category {
-            font-size: 0.85rem;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-        .article-category a {
-            color: #B8293D;
-            text-decoration: none;
-        }
-        .article-category a:hover {
-            text-decoration: underline;
-        }
-        .article-excerpt {
-            font-size: 1.05rem;
-            line-height: 1.5;
-            color: #6B7280;
-        }
-            @media (max-width: 768px) {
-                                        .hero { padding: 1rem 1.25rem; }
-                                        .hero h1 { display: none; }
-                            .hero p { font-size: 1rem; }
-                            .articles-grid { padding: 1rem; gap: 1rem; }
-                            .article-card { padding: 1.25rem; }
-                            .article-title { font-size: 1.25rem; }
-            }
     </style>
 </head>
 <body>
-    {{ partial "nav.html" . }}
-    
-    <div class="hero">
-        <h1>{{ .Site.Title }}</h1>
-        <p>{{ .Site.Params.description }}</p>
-    </div>
-    
-    <div class="articles-grid">
-                {{ range first 12 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
-        <article class="article-card">
-            <div class="article-meta">
-                {{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/" style="color: #B8293D; text-decoration: none; font-weight: 500;">{{ . }}</a> &bull; {{ end }}
-                {{ .Date.Format "2. Januar 2006" }}
-                {{ with .ReadingTime }} • {{ . }} Min.{{ end }}
-            </div>
-            
-            <h2 class="article-title">
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </h2>
-            
-            {{ with .Params.categories }}
-            <div class="article-category">
-                <a href="/categories/{{ index . 0 | urlize }}/">{{ index . 0 }}</a>
-            </div>
-            {{ end }}
-            
-            {{ with .Params.description }}
-            <p class="article-excerpt">{{ . }}</p>
-            {{ end }}
-        </article>
-        {{ end }}
-    </div>
+{{ partial "nav.html" . }}
+
+<div class="hero">
+    <p class="hero-title">Wir schreiben nicht über das Wallis.<br>Wir schreiben aus ihm heraus.</p>
+    <p class="hero-sub">13 Menschen aus dem Wallis. Unabhängig, neugierig, manchmal unbequem.</p>
+</div>
+
+<div class="kacheln">
+    <a href="/editorial/" class="kachel">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 8 L44 38 H12 Z" fill="#B8293D" opacity="0.15"/>
+            <path d="M28 8 L44 38 H12 Z" stroke="#B8293D" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+            <circle cx="28" cy="8" r="3" fill="#B8293D"/>
+            <line x1="28" y1="38" x2="28" y2="48" stroke="#B8293D" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="20" y1="48" x2="36" y2="48" stroke="#B8293D" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="kachel-title">13 Standpunkte</span>
+        <span class="kachel-desc">Was wir denken — und warum. 13 Haltungen zu dem, was das Wallis bewegt.</span>
+    </a>
+
+    <a href="/categories/" class="kachel">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="18" stroke="#B8293D" stroke-width="2.5" fill="none"/>
+            <line x1="28" y1="10" x2="28" y2="46" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
+            <line x1="10" y1="28" x2="46" y2="28" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
+            <line x1="13" y1="18" x2="43" y2="38" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
+            <line x1="13" y1="38" x2="43" y2="18" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="28" cy="28" r="5" fill="#B8293D" opacity="0.2"/>
+            <circle cx="28" cy="28" r="2.5" fill="#B8293D"/>
+        </svg>
+        <span class="kachel-title">13 Ansichten</span>
+        <span class="kachel-desc">13 Themen, von Genuss bis Politik. Jeden Monat neu beleuchtet.</span>
+    </a>
+
+    <a href="/marktplatz/" class="kachel">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="30" width="36" height="14" rx="2" stroke="#B8293D" stroke-width="2.5" fill="#B8293D" fill-opacity="0.1"/>
+            <line x1="10" y1="30" x2="46" y2="30" stroke="#B8293D" stroke-width="2"/>
+            <ellipse cx="19" cy="30" rx="4" ry="7" stroke="#B8293D" stroke-width="2" fill="none"/>
+            <ellipse cx="28" cy="30" rx="4" ry="9" stroke="#B8293D" stroke-width="2" fill="none"/>
+            <ellipse cx="37" cy="30" rx="4" ry="6" stroke="#B8293D" stroke-width="2" fill="none"/>
+            <line x1="19" y1="44" x2="19" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
+            <line x1="37" y1="44" x2="37" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="kachel-title">13 Empfehlungen</span>
+        <span class="kachel-desc">Was wir selbst schätzen — Orte, Bücher, Produkte aus dem Wallis.</span>
+    </a>
+
+    <a href="/authors/" class="kachel">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="7" stroke="#B8293D" stroke-width="2.5" fill="#B8293D" fill-opacity="0.1"/>
+            <circle cx="36" cy="20" r="7" stroke="#B8293D" stroke-width="2.5" fill="#B8293D" fill-opacity="0.1"/>
+            <path d="M8 44 C8 35 32 35 32 44" stroke="#B8293D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <path d="M30 38 C30 33 48 33 48 40" stroke="#B8293D" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+        </svg>
+        <span class="kachel-title">Schreibende</span>
+        <span class="kachel-desc">Wer hinter den Texten steckt. 13 Menschen, 13 Stimmen.</span>
+    </a>
+</div>
+
+<p class="section-label">Aktuelle Beiträge</p>
+<div class="articles-grid">
+    {{ range first 12 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+    <article class="article-card">
+        <div class="article-meta">{{ .Date.Format "2. Januar 2006" }}{{ with .ReadingTime }} &middot; {{ . }} Min.{{ end }}</div>
+        <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Params.categories }}<div class="article-category"><a href="/categories/{{ index . 0 | urlize }}/">{{ index . 0 }}</a></div>{{ end }}
+        {{ with .Params.description }}<p class="article-excerpt">{{ . }}</p>{{ end }}
+        {{ with .Params.authors }}<p class="article-author">{{ range . }}<a href="/authors/{{ . | urlize }}/">{{ . }}</a> {{ end }}</p>{{ end }}
+    </article>
+    {{ end }}
+</div>
 </body>
 </html>
