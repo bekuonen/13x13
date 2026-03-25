@@ -1,12 +1,12 @@
 baseURL = 'https://13x13.ch/'
 languageCode = 'de-ch'
 defaultContentLanguage = 'de'
-title = '13×13 – Geschichten aus dem Wallis'
+title = '13Ã13 â Geschichten aus dem Wallis'
 theme = 'ananke'
 
 [params]
   description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.'
-  author = 'Redaktion 13×13'
+  author = 'Redaktion 13Ã13'
   featured_image = ''
   background_color_class = 'bg-near-white'
   recent_posts_number = 3
@@ -38,7 +38,7 @@ theme = 'ananke'
   weight = 1
 
 [[menu.main]]
-  name = "Portraet"
+  name = "Porträt"
   url = "/categories/portraet/"
   weight = 2
 
