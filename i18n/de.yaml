@@ -1,9 +1,9 @@
 # Hugo i18n - Deutsch (Schweiz)
-# Monatsnamen fur .Date.Format "2. January 2006"
+# Monatsnamen für .Date.Format "2. January 2006"
 months:
   January: Januar
   February: Februar
-  March: Maerz
+  March: März
   April: April
   May: Mai
   June: Juni
@@ -28,6 +28,6 @@ weekdays:
 readingTime:
   other: "{{ .Count }} Min. Lesezeit"
 wordCount:
-  other: "{{ .Count }} Woerter"
+  other: "{{ .Count }} Wörter"
 by: "von"
 tableOfContents: "Inhaltsverzeichnis"
