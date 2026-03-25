@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archiv â 13Ã13</title>
+    <title>Archiv Ã¢ÂÂ 13ÃÂ13</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
         /* Eintrag Desktop: 4-Spalten-Grid */
         .archive-entry { display: grid; grid-template-columns: 100px 1fr auto auto; gap: 1rem; align-items: baseline; padding: 0.6rem 0; border-bottom: 1px solid #eee; }
         .archive-entry:last-child { border-bottom: none; }
-        /* display:contents macht die Wrapper-Divs fÃ¼r das Grid transparent */
+        /* display:contents macht die Wrapper-Divs fÃÂ¼r das Grid transparent */
         .entry-line1, .entry-line2 { display: contents; }
         .entry-date { font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; color: #999; }
         .entry-title a { color: #2D3640; text-decoration: none; font-weight: 500; font-size: 1.05rem; }
@@ -59,7 +59,7 @@
     {{ partial "nav.html" . }}
     <div class="archive-container">
         <h1>Archiv</h1>
-        <p class="archive-subtitle">Alle BeitrÃ¤ge chronologisch</p>
+        <p class="archive-subtitle">Alle BeitrÃÂ¤ge chronologisch</p>
 
         <div class="author-filter">
             <span class="filter-label">Schreibende:</span>
@@ -70,10 +70,12 @@
         </div>
 
         {{ $pages := where .Site.RegularPages "Section" "posts" }}
+        {{- $authorNames := dict }}{{- range $.Site.Taxonomies.authors.ByCount }}{{- $authorNames = merge $authorNames (dict (.Page.Title | urlize) .Page.Title) }}{{- end }}
+        {{- $catNames := dict }}{{- range $.Site.Taxonomies.categories.ByCount }}{{- $catNames = merge $catNames (dict (.Page.Title | urlize) .Page.Title) }}{{- end }}
         {{ range $pages.GroupByDate "2006" }}
         <div class="year-group">
             <h2 class="year-title">{{ .Key }}</h2>
-            {{- $monate := dict "January" "Januar" "February" "Februar" "March" "MÃ¤rz" "April" "April" "May" "Mai" "June" "Juni" "July" "Juli" "August" "August" "September" "September" "October" "Oktober" "November" "November" "December" "Dezember" }}
+            {{- $monate := dict "January" "Januar" "February" "Februar" "March" "MÃÂ¤rz" "April" "April" "May" "Mai" "June" "Juni" "July" "Juli" "August" "August" "September" "September" "October" "Oktober" "November" "November" "December" "Dezember" }}
             {{ range .Pages.GroupByDate "January" }}
             <div class="month-group">
                 <h3 class="month-title">{{ index $monate .Key | default .Key }}</h3>
@@ -84,8 +86,8 @@
                         <span class="entry-title"><a href="{{ .Permalink }}">{{ .Title }}</a></span>
                     </div>
                     <div class="entry-line2">
-                        <span class="entry-author">{{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/">{{ . }}</a>{{ end }}</span>
-                        <span class="entry-category">{{ range .Params.categories }}<a href="/categories/{{ . | urlize }}/">{{ . }}</a>{{ end }}</span>
+                        <span class="entry-author">{{ range .Params.authors }}<a href="/authors/{{ . }}/">{{ index $authorNames . | default . }}</a>{{ end }}</span>
+                        <span class="entry-category">{{ range .Params.categories }}<a href="/categories/{{ . }}/">{{ index $catNames . | default . }}</a>{{ end }}</span>
                     </div>
                 </div>
                 {{ end }}
