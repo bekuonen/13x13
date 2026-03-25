@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archiv – 13×13</title>
+    <title>Archiv â 13Ã13</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,14 +37,15 @@
     {{ partial "nav.html" . }}
     <div class="archive-container">
         <h1>Archiv</h1>
-        <p class="archive-subtitle">Alle Beiträge chronologisch</p>
+        <p class="archive-subtitle">Alle BeitrÃ¤ge chronologisch</p>
         {{ $pages := where .Site.RegularPages "Section" "posts" }}
         {{ range $pages.GroupByDate "2006" }}
         <div class="year-group">
             <h2 class="year-title">{{ .Key }}</h2>
-            {{ range .Pages.GroupByDate "Januar" }}
+            {{- $monate := dict "January" "Januar" "February" "Februar" "March" "März" "April" "April" "May" "Mai" "June" "Juni" "July" "Juli" "August" "August" "September" "September" "October" "Oktober" "November" "November" "December" "Dezember" }}
+            {{ range .Pages.GroupByDate "January" }}
             <div class="month-group">
-                <h3 class="month-title">{{ .Key }}</h3>
+                <h3 class="month-title">{{ index $monate .Key | default .Key }}</h3>
                 {{ range .Pages }}
                 <div class="archive-entry">
                     <span class="entry-date">{{ .Date.Format "02.01.2006" }}</span>
