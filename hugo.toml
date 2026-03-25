@@ -30,46 +30,46 @@ theme = 'ananke'
     [markup.goldmark.renderer]
       unsafe = true
 
-# Kategorien-Navigation: 13 Themen
-
-[[menu.main]]
-  name = "Genuss"
-  url = "/categories/genuss/"
-  weight = 1
-
-[[menu.main]]
-  name = "Porträt"
-  url = "/categories/portraet/"
-  weight = 2
-
-[[menu.main]]
-  name = "Land & Leute"
-  url = "/categories/land-leute/"
-  weight = 3
-
-[[menu.main]]
-  name = "Sport"
-  url = "/categories/sport/"
-  weight = 4
+# Kategorien-Navigation: 13 Ansichten
 
 [[menu.main]]
   name = "Politik"
   url = "/categories/politik/"
-  weight = 5
+  weight = 1
 
 [[menu.main]]
-  name = "Kultur"
-  url = "/categories/kultur/"
-  weight = 6
+  name = "Gesellschaft"
+  url = "/categories/gesellschaft/"
+  weight = 2
 
 [[menu.main]]
   name = "Wirtschaft"
   url = "/categories/wirtschaft/"
+  weight = 3
+
+[[menu.main]]
+  name = "Kultur"
+  url = "/categories/kultur/"
+  weight = 4
+
+[[menu.main]]
+  name = "Handwerk"
+  url = "/categories/handwerk/"
+  weight = 5
+
+[[menu.main]]
+  name = "Natur und Umwelt"
+  url = "/categories/natur/"
+  weight = 6
+
+[[menu.main]]
+  name = "Jung und alt"
+  url = "/categories/land-leute/"
   weight = 7
 
 [[menu.main]]
-  name = "Natur"
-  url = "/categories/natur/"
+  name = "Tourismus"
+  url = "/categories/reise/"
   weight = 8
 
 [[menu.main]]
@@ -78,21 +78,21 @@ theme = 'ananke'
   weight = 9
 
 [[menu.main]]
-  name = "Gesellschaft"
-  url = "/categories/gesellschaft/"
+  name = "Sport"
+  url = "/categories/sport/"
   weight = 10
 
 [[menu.main]]
-  name = "Reise"
-  url = "/categories/reise/"
+  name = "Genuss"
+  url = "/categories/genuss/"
   weight = 11
 
 [[menu.main]]
-  name = "Handwerk"
-  url = "/categories/handwerk/"
+  name = "Humor"
+  url = "/categories/poesie/"
   weight = 12
 
 [[menu.main]]
-  name = "Poesie"
-  url = "/categories/poesie/"
+  name = "Comic"
+  url = "/categories/portraet/"
   weight = 13
