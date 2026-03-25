@@ -15,7 +15,7 @@ subtitle: "Haltung. Herkunft. Hintergrund."
 <div class="standpunkt"><span class="sp-nr">05</span><p>Wir haben keine Antworten. Aber Fragen.</p></div>
 <div class="standpunkt"><span class="sp-nr">06</span><p>13 Menschen, 13 Blickwinkel – kein Konsens nötig.</p></div>
 <div class="standpunkt"><span class="sp-nr">07</span><p>Texte brauchen Zeit, die nehmen wir uns.</p></div>
-<div class="standpunkt"><span class="sp-nr">08</span><p>Wir kennen das Wallis von innen.</p></div>
+<div class="standpunkt"><span class="sp-nr">08</span><p>Wir lieben das Wallis. Auch deshalb schauen wir genau hin.</p></div>
 <div class="standpunkt"><span class="sp-nr">09</span><p>Schreiben ist denken – und wir schreiben, was wir denken.</p></div>
 <div class="standpunkt"><span class="sp-nr">10</span><p>Wir sind keine Zeitung, kein Blog. Wir sind 13×13.</p></div>
 <div class="standpunkt"><span class="sp-nr">11</span><p>Wir schreiben nicht immer was ist, sondern was sein könnte – oder sein sollte.</p></div>
