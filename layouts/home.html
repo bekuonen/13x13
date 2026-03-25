@@ -24,18 +24,24 @@
         .nav-dropdown-content a:hover { background-color: #B8293D; color: white; }
         .nav-dropdown:hover .nav-dropdown-content { display: block; }
 
-        /* HERO */
-        .hero { max-width: 800px; margin: 0 auto; padding: 3.5rem 2rem 2.5rem; text-align: center; }
-        .hero-title { font-size: 2rem; font-weight: 700; color: #2D3640; line-height: 1.25; margin-bottom: 1rem; }
+        /* HERO – kompakter */
+        .hero { max-width: 800px; margin: 0 auto; padding: 2rem 2rem 1.75rem; text-align: center; }
+        .hero-title { font-size: 2rem; font-weight: 700; color: #2D3640; line-height: 1.25; margin-bottom: 0.75rem; }
         .hero-sub { font-size: 1rem; color: #6B7280; }
 
         /* KACHELN */
-        .kacheln { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .kacheln { max-width: 1200px; margin: 0 auto; padding: 0 2rem 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
         .kachel { background: white; border-radius: 8px; padding: 2rem 1.5rem; text-decoration: none; color: #2D3640; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
         .kachel:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
         .kachel svg { width: 56px; height: 56px; flex-shrink: 0; }
         .kachel-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #B8293D; }
         .kachel-desc { font-size: 0.9rem; color: #6B7280; line-height: 1.5; }
+
+        /* Standpunkte-Kachel: prominent, roter Hintergrund */
+        .kachel--featured { background: #B8293D; }
+        .kachel--featured .kachel-title { color: rgba(255,255,255,0.8); }
+        .kachel--featured .kachel-desc { color: rgba(255,255,255,0.85); }
+        .kachel--featured:hover { box-shadow: 0 6px 20px rgba(184,41,61,0.35); }
 
         /* ARTIKEL */
         .section-label { max-width: 1200px; margin: 0 auto; padding: 0 2rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #9CA3AF; }
@@ -56,10 +62,10 @@
         /* MOBILE */
         @media (max-width: 900px) { .kacheln { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 768px) {
-            .hero { padding: 1rem 1.25rem; }
+            .hero { padding: 1rem 1.25rem 0.75rem; }
             .hero-title { font-size: 1.4rem; }
             .hero-sub { font-size: 0.9rem; }
-            .kacheln { grid-template-columns: repeat(2, 1fr); padding: 0 1rem 2rem; gap: 1rem; }
+            .kacheln { grid-template-columns: repeat(2, 1fr); padding: 0 1rem 1.5rem; gap: 1rem; }
             .kachel { padding: 1.25rem 1rem; }
             .articles-grid { padding: 0 1rem 2rem; gap: 1rem; }
             .article-card { padding: 1.25rem; }
@@ -77,13 +83,13 @@
 </div>
 
 <div class="kacheln">
-    <a href="/editorial/" class="kachel">
+
+    <a href="/editorial/" class="kachel kachel--featured">
         <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28 8 L44 38 H12 Z" fill="#B8293D" opacity="0.15"/>
-            <path d="M28 8 L44 38 H12 Z" stroke="#B8293D" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
-            <circle cx="28" cy="8" r="3" fill="#B8293D"/>
-            <line x1="28" y1="38" x2="28" y2="48" stroke="#B8293D" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="20" y1="48" x2="36" y2="48" stroke="#B8293D" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M28 8 L44 38 H12 Z" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="28" cy="8" r="3" fill="white"/>
+            <line x1="28" y1="38" x2="28" y2="48" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="20" y1="48" x2="36" y2="48" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
         </svg>
         <span class="kachel-title">13 Standpunkte</span>
         <span class="kachel-desc">Was wir denken — und warum. 13 Haltungen zu dem, was das Wallis bewegt.</span>
@@ -96,7 +102,7 @@
             <line x1="10" y1="28" x2="46" y2="28" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
             <line x1="13" y1="18" x2="43" y2="38" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
             <line x1="13" y1="38" x2="43" y2="18" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
-            <circle cx="28" cy="28" r="5" fill="#B8293D" opacity="0.2"/>
+            <circle cx="28" cy="28" r="5" fill="#B8293D" opacity="0.15"/>
             <circle cx="28" cy="28" r="2.5" fill="#B8293D"/>
         </svg>
         <span class="kachel-title">13 Ansichten</span>
@@ -105,13 +111,22 @@
 
     <a href="/marktplatz/" class="kachel">
         <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="30" width="36" height="14" rx="2" stroke="#B8293D" stroke-width="2.5" fill="#B8293D" fill-opacity="0.1"/>
-            <line x1="10" y1="30" x2="46" y2="30" stroke="#B8293D" stroke-width="2"/>
-            <ellipse cx="19" cy="30" rx="4" ry="7" stroke="#B8293D" stroke-width="2" fill="none"/>
-            <ellipse cx="28" cy="30" rx="4" ry="9" stroke="#B8293D" stroke-width="2" fill="none"/>
-            <ellipse cx="37" cy="30" rx="4" ry="6" stroke="#B8293D" stroke-width="2" fill="none"/>
-            <line x1="19" y1="44" x2="19" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
-            <line x1="37" y1="44" x2="37" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
+            <!-- Tisch -->
+            <rect x="10" y="36" width="36" height="4" rx="2" fill="#B8293D" fill-opacity="0.15" stroke="#B8293D" stroke-width="2"/>
+            <!-- Tischbeine -->
+            <line x1="16" y1="40" x2="16" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
+            <line x1="40" y1="40" x2="40" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
+            <!-- Teller -->
+            <ellipse cx="28" cy="34" rx="10" ry="3" fill="#B8293D" fill-opacity="0.1" stroke="#B8293D" stroke-width="1.5"/>
+            <!-- Glas links -->
+            <path d="M17 24 L19 34" stroke="#B8293D" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M15 22 Q17 20 19 22 L19 24 Q17 25 15 24 Z" stroke="#B8293D" stroke-width="1.5" fill="#B8293D" fill-opacity="0.1"/>
+            <!-- Kerze Mitte -->
+            <rect x="26" y="18" width="4" height="12" rx="1" fill="#B8293D" fill-opacity="0.15" stroke="#B8293D" stroke-width="1.5"/>
+            <path d="M28 16 Q29 14 28 12 Q27 14 28 16Z" fill="#B8293D"/>
+            <!-- Glas rechts -->
+            <path d="M39 24 L37 34" stroke="#B8293D" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M41 22 Q39 20 37 22 L37 24 Q39 25 41 24 Z" stroke="#B8293D" stroke-width="1.5" fill="#B8293D" fill-opacity="0.1"/>
         </svg>
         <span class="kachel-title">13 Empfehlungen</span>
         <span class="kachel-desc">Was wir selbst schätzen — Orte, Bücher, Produkte aus dem Wallis.</span>
@@ -127,6 +142,7 @@
         <span class="kachel-title">Schreibende</span>
         <span class="kachel-desc">Wer hinter den Texten steckt. 13 Menschen, 13 Stimmen.</span>
     </a>
+
 </div>
 
 <p class="section-label">Aktuelle Beiträge</p>
