@@ -1,7 +1,7 @@
 baseURL = 'https://13x13.ch/'
 languageCode = 'de-ch'
 defaultContentLanguage = 'de'
-title = '13Ã13 â Geschichten aus dem Wallis'
+title = '13×13 – Geschichten aus dem Wallis'
 theme = 'ananke'
 
 [params]
