@@ -1,7 +1,7 @@
 +++
 title = 'Wenn der Illgrabu chunnt'
 date = 2026-03-26
-categories = ['natur und umwelt']
+categories = ['natur']
 tags = ['Illgraben', 'Pfynwald', 'Murgang', 'Wallis', 'Kindheit']
 authors = ['bernhard-kuonen']
 description = 'Der Illgraben im Pfynwald — eine Urkraft, die eine Kindheit geprägt hat.'
