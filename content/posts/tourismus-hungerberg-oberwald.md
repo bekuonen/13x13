@@ -1,7 +1,7 @@
 +++
 title = 'Der Mut von Oberwald'
 date = 2026-03-26
-categories = ['tourismus']
+categories = ['reise']
 tags = ['Oberwald', 'Goms', 'Bergbahn', 'Tourismus']
 authors = ['bernhard-kuonen']
 description = 'Oberwald plant eine Bergbahn auf den Hungerberg — ein Zeichen für sanften Tourismus und den Mut kleiner Gemeinden.'
