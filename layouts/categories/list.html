@@ -1,1 +1,135 @@
-<!DOCTYPE html>  <html lang="de">  <head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>13 Ansichten – {{ .Site.Title }}</title>    <link rel="preconnect" href="https://fonts.bunny.net">    <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700" rel="stylesheet">    <style>      *{margin:0;padding:0;box-sizing:border-box}    body{font-family:'Manrope',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.6}    .page-container{max-width:900px;margin:3rem auto;padding:0 2rem}    h1{font-size:2.2rem;margin-bottom:0.5rem}    .subtitle{color:#999;margin-bottom:3rem;font-size:1.05rem}    .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.5rem}    .cat-card{background:white;border-radius:8px;padding:1.5rem 2rem;box-shadow:0 1px 3px rgba(0,0,0,0.08);text-decoration:none;display:block;border-left:3px solid #B8293D;transition:transform 0.2s,box-shadow 0.2s}    .cat-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.12)}    .cat-name{font-size:1.15rem;font-weight:600;color:#2D3640;margin-bottom:0.3rem;text-transform:capitalize}    .cat-count{font-size:0.85rem;color:#B8293D;font-weight:500}      </style>        </head>        <body>        {{ partial "nav.html" . }}  <div class="page-container">          <h1>13 Ansichten</h1>          <p class="subtitle">Dreizehn Themen. Dreizehn Perspektiven.</p>          <div class="cat-grid">      {{ range .Site.Taxonomies.categories.Alphabetical }}      <a href="{{ .Page.RelPermalink }}" class="cat-card">                <div class="cat-name">{{ .Page.Title | title }}</div>                <div class="cat-count">{{ .Count }} {{ if eq .Count 1 }}Beitrag{{ else }}Beiträge{{ end }}</div>              </a>        {{ end }}    </div>        </div>      </body>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }} â {{ .Site.Title }}</title>
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700,800" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Manrope',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    .section-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B8293D;margin-bottom:0.75rem;display:block}
+
+    /* ââ PAGE HEADER ââ */
+    .page-header{background:#2D3640;color:#FAF8F5;padding:4rem 1.5rem 3rem}
+    .page-header-inner{max-width:1100px;margin:0 auto}
+    .page-header h1{font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:800;line-height:1.2;margin-bottom:0.75rem}
+    .page-header p{font-size:0.95rem;color:#9CA3AF}
+
+    /* ââ THEMEN GRID (Alle Kategorien) ââ */
+    .alle-themen{padding:3rem 0}
+    .themen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;margin-bottom:3rem}
+    .thema-card{background:#fff;border-radius:6px;padding:1rem 1.1rem;border:1px solid #E8E4DE;border-left:3px solid #B8293D;transition:all 0.18s;display:block}
+    .thema-card:hover,.thema-card.aktiv{background:#B8293D;color:#fff;border-left-color:#8B1F2E}
+    .thema-card:hover .thema-count,.thema-card.aktiv .thema-count{color:rgba(255,255,255,0.7)}
+    .thema-card:hover .thema-name,.thema-card.aktiv .thema-name{color:#fff}
+    .thema-name{font-size:0.9rem;font-weight:600;color:#2D3640;margin-bottom:0.2rem}
+    .thema-count{font-size:0.72rem;color:#9CA3AF}
+
+    /* ââ ARTIKEL-LISTE (Einzelkategorie) ââ */
+    .kategorie-header{padding:2.5rem 0 1.5rem;border-bottom:1px solid #E8E4DE;margin-bottom:2rem}
+    .kategorie-header h2{font-size:1.5rem;font-weight:700;margin-bottom:0.25rem}
+    .kategorie-header .count{font-size:0.85rem;color:#9CA3AF}
+
+    .artikel-liste{padding-bottom:4rem}
+    .artikel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+    .artikel-card{background:#fff;border-radius:8px;padding:1.75rem;border:1px solid #E8E4DE;position:relative;transition:box-shadow 0.2s}
+    .artikel-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.09)}
+    .artikel-card .stretched-link::after{position:absolute;inset:0;content:'';z-index:1}
+    .artikel-meta{font-size:0.72rem;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem}
+    .artikel-title{font-size:1.15rem;font-weight:700;color:#2D3640;line-height:1.3;margin-bottom:0.5rem}
+    .artikel-title a{color:inherit}
+    .artikel-title a:hover{color:#B8293D}
+    .artikel-excerpt{font-size:0.88rem;color:#6B7280;line-height:1.55;margin-bottom:0.75rem}
+    .artikel-author{font-size:0.8rem;font-weight:600;color:#2D3640}
+
+    /* ââ FOOTER ââ */
+    .site-footer{background:#2D3640;color:#9CA3AF;padding:2.5rem 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-size:0.9rem;font-weight:700;color:#FAF8F5}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:0.8rem;color:#9CA3AF;transition:color 0.15s}
+    .footer-links a:hover{color:#FAF8F5}
+
+    @media(max-width:900px){.themen-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:600px){.themen-grid{grid-template-columns:repeat(2,1fr)}.footer-inner{flex-direction:column;text-align:center}}
+  </style>
+</head>
+<body>
+{{ partial "nav.html" . }}
+
+<!-- ââ PAGE HEADER ââââââââââââââââââââââââââââââââââââââ -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="section-label">13 Ansichten</span>
+    {{- if .IsHome }}
+    <h1>Dreizehn Themen. Dreizehn Perspektiven.</h1>
+    <p>Von Genuss bis Politik &mdash; jedes Thema aus der Walliser Perspektive betrachtet.</p>
+    {{- else }}
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Pages.Len }} {{ if eq .Pages.Len 1 }}Beitrag{{ else }}BeitrÃ¤ge{{ end }} in dieser Kategorie</p>
+    {{- end }}
+  </div>
+</div>
+
+<!-- ââ ALLE KATEGORIEN (Ãbersichtsseite) ââââââââââââââââ -->
+<section class="alle-themen">
+  <div class="container">
+    {{- if .IsHome }}
+    <div class="themen-grid">
+      {{- range .Site.Taxonomies.categories.Alphabetical }}
+      <a href="{{ .Page.RelPermalink }}" class="thema-card">
+        <div class="thema-name">{{ .Page.Title }}</div>
+        <div class="thema-count">{{ .Count }} {{ if eq .Count 1 }}Beitrag{{ else }}BeitrÃ¤ge{{ end }}</div>
+      </a>
+      {{- end }}
+    </div>
+    {{- else }}
+
+    <!-- Navigation zu anderen Kategorien -->
+    <div class="themen-grid" style="margin-bottom:2.5rem">
+      {{- range .Site.Taxonomies.categories.Alphabetical }}
+      <a href="{{ .Page.RelPermalink }}" class="thema-card{{ if eq .Page.Title $.Title }} aktiv{{ end }}">
+        <div class="thema-name">{{ .Page.Title }}</div>
+        <div class="thema-count">{{ .Count }}</div>
+      </a>
+      {{- end }}
+    </div>
+
+    <!-- Artikel dieser Kategorie -->
+    <div class="artikel-liste">
+      <div class="artikel-grid">
+        {{- range .Pages.ByDate.Reverse }}
+        <article class="artikel-card">
+          <div class="artikel-meta">{{ .Date.Format "2. January 2006" }}{{ with .ReadingTime }} &middot; {{ . }} Min.{{ end }}</div>
+          <h2 class="artikel-title"><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></h2>
+          {{ with .Params.description }}<p class="artikel-excerpt">{{ . }}</p>{{ end }}
+          {{ with .Params.authors }}<p class="artikel-author">{{ range . }}{{ . }} {{ end }}</p>{{ end }}
+        </article>
+        {{- end }}
+      </div>
+    </div>
+    {{- end }}
+  </div>
+</section>
+
+<!-- ââ FOOTER âââââââââââââââââââââââââââââââââââââââââââ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">13&times;13 &mdash; Geschichten aus dem Wallis</span>
+      <nav class="footer-links">
+        <a href="/kontakt/">Kontakt</a>
+        <a href="/archiv/">Archiv</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
