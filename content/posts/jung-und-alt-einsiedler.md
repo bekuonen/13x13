@@ -1,7 +1,7 @@
 +++
 title = 'Der Mann, den ich besuchte — und nicht verstand'
 date = 2026-03-26
-categories = ['jung und alt']
+categories = ['land-leute']
 tags = ['Einsiedler', 'Wallis', 'Vater', 'Stille']
 authors = ['bernhard-kuonen']
 description = 'Eine fiktive Begegnung mit einem Mann, der alles zurückliess — auch seine Tochter.'
