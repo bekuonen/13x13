@@ -1,7 +1,7 @@
 +++
 title = '«Ich würde alles geben für ein Walliser Raclette»'
 date = 2026-03-26
-categories = ['poesie']
+categories = ['humor']
 tags = ['KI', 'Claude', 'Interview', 'Transparenz']
 authors = ['bernhard-kuonen']
 description = 'Ein Interview mit der KI, die an 13×13 mitgewirkt hat — über Existenz, Raclette und das Pentagon.'
