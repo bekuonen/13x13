@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 Standpunkte – {{ .Site.Title }}</title>
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700,800" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Manrope',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    .section-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B8293D;margin-bottom:0.75rem;display:block}
+
+    /* ── PAGE HEADER ── */
+    .page-header{background:#2D3640;color:#FAF8F5;padding:4rem 1.5rem 3rem}
+    .page-header-inner{max-width:800px;margin:0 auto}
+    .page-header .section-label{color:#B8293D}
+    .page-header h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:1rem}
+    .page-header p{font-size:1rem;color:#9CA3AF;max-width:560px;line-height:1.7}
+
+    /* ── STANDPUNKTE LISTE ── */
+    .standpunkte-liste{padding:4rem 0}
+    .sp-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:800px}
+
+    .sp-item{background:#fff;border-radius:8px;padding:2rem;border:1px solid #E8E4DE;border-left:4px solid #B8293D;position:relative;transition:box-shadow 0.2s}
+    .sp-item:hover{box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+    .sp-item .stretched-link::after{position:absolute;inset:0;content:'';z-index:1}
+
+    .sp-nr{font-size:0.7rem;font-weight:700;color:#B8293D;letter-spacing:0.1em;margin-bottom:0.5rem;display:block}
+    .sp-title{font-size:1.25rem;font-weight:700;color:#2D3640;margin-bottom:0.5rem;line-height:1.3}
+    .sp-title a{color:inherit}
+    .sp-title a:hover{color:#B8293D}
+    .sp-excerpt{font-size:0.9rem;color:#6B7280;line-height:1.6;margin-bottom:1rem}
+    .sp-meta{font-size:0.78rem;color:#9CA3AF;display:flex;gap:1rem;flex-wrap:wrap}
+    .sp-author{font-weight:600;color:#2D3640}
+
+    /* ── LEERE SEITE ── */
+    .empty-state{text-align:center;padding:5rem 1.5rem;color:#9CA3AF}
+    .empty-state p{font-size:1rem;margin-top:0.5rem}
+
+    /* ── FOOTER ── */
+    .site-footer{background:#2D3640;color:#9CA3AF;padding:2.5rem 0;margin-top:4rem}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-size:0.9rem;font-weight:700;color:#FAF8F5}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:0.8rem;color:#9CA3AF;transition:color 0.15s}
+    .footer-links a:hover{color:#FAF8F5}
+
+    @media(max-width:768px){
+      .footer-inner{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+<body>
+{{ partial "nav.html" . }}
+
+<!-- ══ PAGE HEADER ══════════════════════════════════════ -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="section-label">13x13</span>
+    <h1>13 Standpunkte</h1>
+    <p>Was uns bewegt, was uns antreibt — dreizehn Positionen aus dem Herz des Wallis. Klar formuliert, persönlich verantwortet.</p>
+  </div>
+</div>
+
+<!-- ══ STANDPUNKTE LISTE ════════════════════════════════ -->
+<section class="standpunkte-liste">
+  <div class="container">
+    {{- $pages := .RegularPages.ByDate.Reverse }}
+    {{- if $pages }}
+    <div class="sp-grid">
+      {{- range $i, $p := $pages }}
+      <article class="sp-item">
+        <span class="sp-nr">{{ printf "%02d" (add $i 1) }}</span>
+        <h2 class="sp-title"><a href="{{ $p.RelPermalink }}" class="stretched-link">{{ $p.Title }}</a></h2>
+        {{ with $p.Params.description }}<p class="sp-excerpt">{{ . }}</p>{{ end }}
+        <div class="sp-meta">
+          {{ with $p.Params.authors }}<span class="sp-author">{{ range . }}{{ . }}{{ end }}</span>{{ end }}
+          <span>{{ $p.Date.Format "2. January 2006" }}</span>
+        </div>
+      </article>
+      {{- end }}
+    </div>
+    {{- else }}
+    <div class="empty-state">
+      <span class="section-label">Standpunkte</span>
+      <p>Beiträge erscheinen in Kürze.</p>
+    </div>
+    {{- end }}
+  </div>
+</section>
+
+<!-- ══ FOOTER ═══════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">13&times;13 &mdash; Geschichten aus dem Wallis</span>
+      <nav class="footer-links">
+        <a href="/kontakt/">Kontakt</a>
+        <a href="/archiv/">Archiv</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
