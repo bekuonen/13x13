@@ -1,161 +1,294 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title }}</title>
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Manrope', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.5; }
-        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Site.Title }}</title>
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700,800" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Manrope',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+    .section-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B8293D;margin-bottom:0.75rem;display:block}
+    .section-title{font-size:1.5rem;font-weight:700;color:#2D3640;margin-bottom:1.75rem}
 
-        /* NAV */
-        .header { background: #2D3640; padding: 1.5rem 0; position: sticky; top: 0; z-index: 1000; }
-        .header nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; gap: 2rem; }
-        .header img { height: 60px; }
-        .nav-dropdown { position: relative; display: inline-block; }
-        .nav-dropdown > a { color: white; padding: 0.5rem 1rem; font-size: 0.85rem; text-transform: uppercase; font-family: 'Manrope', sans-serif; border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; text-decoration: none; display: inline-block; }
-        .nav-dropdown > a:hover { background: rgba(255,255,255,0.1); }
-        .nav-dropdown-content { display: none; position: absolute; background-color: white; min-width: 240px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 10000; margin-top: 0.5rem; border-radius: 4px; overflow: hidden; max-height: 70vh; overflow-y: auto; }
-        .nav-dropdown-content a { color: #2D3640; padding: 12px 16px; text-decoration: none; display: block; font-family: 'Manrope', sans-serif; font-size: 0.9rem; border-bottom: 1px solid #f5f5f5; }
-        .nav-dropdown-content a:last-child { border-bottom: none; }
-        .nav-dropdown-content a:hover { background-color: #B8293D; color: white; }
-        .nav-dropdown:hover .nav-dropdown-content { display: block; }
+    /* ── HERO ── */
+    .hero{background:#2D3640;color:#FAF8F5;padding:5rem 1.5rem 4rem}
+    .hero-inner{max-width:800px;margin:0 auto}
+    .hero-eyebrow{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#B8293D;margin-bottom:1.25rem}
+    .hero-claim{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;line-height:1.2;margin-bottom:1.25rem;color:#FAF8F5}
+    .hero-lead{font-size:1.05rem;color:#9CA3AF;max-width:580px;margin-bottom:2rem;line-height:1.7}
+    .hero-cta{display:inline-block;background:#B8293D;color:#fff;padding:0.7rem 1.5rem;border-radius:4px;font-size:0.875rem;font-weight:600;transition:background 0.2s}
+    .hero-cta:hover{background:#8B1F2E}
 
-        /* HERO – kompakter */
-        .hero { max-width: 800px; margin: 0 auto; padding: 2rem 2rem 1.75rem; text-align: center; }
-        .hero-title { font-size: 2rem; font-weight: 700; color: #2D3640; line-height: 1.25; margin-bottom: 0.75rem; }
-        .hero-sub { font-size: 1rem; color: #6B7280; }
+    /* ── AKTUELL ── */
+    .aktuell{padding:4rem 0}
+    .aktuell-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:2rem}
+    .feature-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #E8E4DE;transition:box-shadow 0.2s;position:relative}
+    .feature-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.09)}
+    .feature-card .card-body{padding:1.75rem}
+    .feature-card .card-cat{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#B8293D;margin-bottom:0.5rem;display:block}
+    .feature-card .card-title{font-size:1.4rem;font-weight:700;line-height:1.3;margin-bottom:0.75rem;color:#2D3640}
+    .feature-card .card-title a:hover{color:#B8293D}
+    .feature-card .card-lead{font-size:0.9rem;color:#6B7280;line-height:1.6;margin-bottom:1rem}
+    .feature-card .card-meta{font-size:0.75rem;color:#9CA3AF}
+    .secondary-stack{display:flex;flex-direction:column;gap:1rem}
+    .mini-card{background:#fff;border-radius:8px;padding:1.1rem 1.25rem;border:1px solid #E8E4DE;border-left:3px solid #B8293D;transition:box-shadow 0.2s;position:relative}
+    .mini-card:hover{box-shadow:0 2px 10px rgba(0,0,0,0.07)}
+    .mini-card .card-cat{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#B8293D;margin-bottom:0.3rem;display:block}
+    .mini-card .card-title{font-size:0.95rem;font-weight:600;line-height:1.35;margin-bottom:0.3rem;color:#2D3640}
+    .mini-card .card-title a:hover{color:#B8293D}
+    .mini-card .card-meta{font-size:0.72rem;color:#9CA3AF}
+    .feature-card .stretched-link::after,.mini-card .stretched-link::after{position:absolute;inset:0;content:'';z-index:1}
+    .feature-card .card-title a,.mini-card .card-title a{color:inherit}
 
-        /* KACHELN */
-        .kacheln { max-width: 1200px; margin: 0 auto; padding: 0 2rem 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-        .kachel { background: white; border-radius: 8px; padding: 2rem 1.5rem; text-decoration: none; color: #2D3640; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
-        .kachel:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
-        .kachel svg { width: 56px; height: 56px; flex-shrink: 0; }
-        .kachel-title { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #B8293D; }
-        .kachel-desc { font-size: 0.9rem; color: #6B7280; line-height: 1.5; }
+    /* ── STANDPUNKTE TEASER ── */
+    .standpunkte-teaser{background:#fff;padding:4rem 0;border-top:1px solid #E8E4DE;border-bottom:1px solid #E8E4DE}
+    .standpunkte-inner{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start}
+    .standpunkte-intro h2{font-size:1.4rem;font-weight:700;margin-bottom:0.75rem}
+    .standpunkte-intro p{font-size:0.9rem;color:#6B7280;line-height:1.65;margin-bottom:1.25rem}
+    .btn-outline{display:inline-block;border:1.5px solid #B8293D;color:#B8293D;padding:0.55rem 1.25rem;border-radius:4px;font-size:0.85rem;font-weight:600;transition:all 0.2s}
+    .btn-outline:hover{background:#B8293D;color:#fff}
+    .standpunkte-list{list-style:none;display:flex;flex-direction:column;gap:1.1rem}
+    .standpunkte-list li{display:flex;gap:1rem;align-items:baseline}
+    .sp-nr{font-size:0.7rem;font-weight:700;color:#B8293D;min-width:1.4rem}
+    .sp-text{font-size:0.95rem;color:#4B5563;line-height:1.55;font-style:italic}
 
-        /* Standpunkte-Kachel: prominent, roter Hintergrund */
-        .kachel--featured { background: #B8293D; }
-        .kachel--featured .kachel-title { color: rgba(255,255,255,0.8); }
-        .kachel--featured .kachel-desc { color: rgba(255,255,255,0.85); }
-        .kachel--featured:hover { box-shadow: 0 6px 20px rgba(184,41,61,0.35); }
+    /* ── ANSICHTEN GRID ── */
+    .ansichten{padding:4rem 0}
+    .themen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem}
+    .thema-card{background:#fff;border-radius:6px;padding:1rem 1.1rem;border:1px solid #E8E4DE;border-left:3px solid #B8293D;transition:all 0.18s;display:block}
+    .thema-card:hover{background:#B8293D;color:#fff;border-left-color:#8B1F2E;transform:translateY(-1px)}
+    .thema-card:hover .thema-count{color:rgba(255,255,255,0.7)}
+    .thema-name{font-size:0.9rem;font-weight:600;color:#2D3640;margin-bottom:0.2rem}
+    .thema-card:hover .thema-name{color:#fff}
+    .thema-count{font-size:0.72rem;color:#9CA3AF}
 
-        /* ARTIKEL */
-        .section-label { max-width: 1200px; margin: 0 auto; padding: 0 2rem 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #9CA3AF; }
-        .articles-grid { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
-        .article-card { background: white; border-radius: 8px; padding: 1.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s; }
-        .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
-        .article-meta { font-size: 0.72rem; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
-        .article-title { font-size: 1.35rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.3; }
-        .article-title a { color: #2D3640; text-decoration: none; }
-        .article-title a:hover { color: #B8293D; }
-        .article-category { font-size: 0.82rem; margin-bottom: 0.7rem; font-weight: 500; }
-        .article-category a { color: #B8293D; text-decoration: none; }
-        .article-excerpt { font-size: 0.95rem; line-height: 1.55; color: #6B7280; }
-        .article-author { margin-top: 1rem; font-size: 0.8rem; font-weight: 600; color: #2D3640; }
-        .article-author a { color: #2D3640; text-decoration: none; }
-        .article-author a:hover { color: #B8293D; }
+    /* ── EMPFEHLUNGEN ── */
+    .empfehlungen{background:#fff;padding:4rem 0;border-top:1px solid #E8E4DE}
+    .emp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .emp-card{border-radius:8px;padding:1.5rem;border:1px solid #B8293D;background:#fff;transition:box-shadow 0.2s}
+    .emp-card:hover{box-shadow:0 4px 16px rgba(184,41,61,0.12)}
+    .emp-type{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#B8293D;margin-bottom:0.5rem;display:block}
+    .emp-name{font-size:1rem;font-weight:700;color:#2D3640;margin-bottom:0.5rem}
+    .emp-desc{font-size:0.85rem;color:#6B7280;line-height:1.6;margin-bottom:1rem}
+    .emp-link{font-size:0.8rem;font-weight:600;color:#B8293D}
+    .emp-link:hover{text-decoration:underline}
 
-        /* MOBILE */
-        @media (max-width: 900px) { .kacheln { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) {
-            .hero { padding: 1rem 1.25rem 0.75rem; }
-            .hero-title { font-size: 1.4rem; }
-            .hero-sub { font-size: 0.9rem; }
-            .kacheln { grid-template-columns: repeat(2, 1fr); padding: 0 1rem 1.5rem; gap: 1rem; }
-            .kachel { padding: 1.25rem 1rem; }
-            .articles-grid { padding: 0 1rem 2rem; gap: 1rem; }
-            .article-card { padding: 1.25rem; }
-            .article-title { font-size: 1.15rem; }
-            .section-label { padding: 0 1rem 0.75rem; }
-        }
-    </style>
+    /* ── SCHREIBENDE ── */
+    .schreibende{padding:4rem 0}
+    .autoren-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+    .autor-card{background:#fff;border-radius:8px;padding:1.25rem;border:1px solid #E8E4DE;text-align:center;transition:box-shadow 0.2s}
+    .autor-card:hover{box-shadow:0 4px 14px rgba(0,0,0,0.08)}
+    .autor-avatar{width:64px;height:64px;border-radius:50%;background:#E8E4DE;margin:0 auto 0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700;color:#B8293D;overflow:hidden}
+    .autor-avatar img{width:100%;height:100%;object-fit:cover}
+    .autor-name{font-size:0.9rem;font-weight:700;color:#2D3640;margin-bottom:0.25rem}
+    .autor-bio{font-size:0.78rem;color:#6B7280;line-height:1.5}
+    .alle-link{display:block;text-align:center;margin-top:1.75rem;font-size:0.85rem;font-weight:600;color:#B8293D}
+    .alle-link:hover{text-decoration:underline}
+
+    /* ── FOOTER ── */
+    .site-footer{background:#2D3640;color:#9CA3AF;padding:2.5rem 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-size:0.9rem;font-weight:700;color:#FAF8F5}
+    .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+    .footer-links a{font-size:0.8rem;color:#9CA3AF;transition:color 0.15s}
+    .footer-links a:hover{color:#FAF8F5}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .aktuell-grid{grid-template-columns:1fr}
+      .standpunkte-inner{grid-template-columns:1fr}
+      .themen-grid{grid-template-columns:repeat(3,1fr)}
+      .emp-grid{grid-template-columns:1fr}
+      .autoren-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-inner{flex-direction:column;text-align:center}
+    }
+    @media(max-width:480px){
+      .themen-grid{grid-template-columns:repeat(2,1fr)}
+      .autoren-grid{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
 </head>
 <body>
 {{ partial "nav.html" . }}
 
-<div class="hero">
-    <p class="hero-title">Wir schreiben nicht über das Wallis.<br>Wir schreiben aus ihm heraus.</p>
-    <p class="hero-sub">13 Menschen aus dem Wallis. Unabhängig, neugierig, manchmal unbequem.</p>
-</div>
+<!-- ══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">13x13 &mdash; Geschichten aus dem Wallis</span>
+    <h1 class="hero-claim">Wir schreiben nicht &uuml;ber das Wallis.<br>Wir schreiben aus ihm heraus.</h1>
+    <p class="hero-lead">Dreizehn Schreibende. Dreizehn Themen. Ein gemeinsames Wallis &mdash; in Texten, die Haltung zeigen.</p>
+    <a href="/standpunkte/" class="hero-cta">Mehr &uuml;ber uns &rarr;</a>
+  </div>
+</section>
 
-<div class="kacheln">
+<!-- ══ AKTUELL ═══════════════════════════════════════════ -->
+<section class="aktuell">
+  <div class="container">
+    <span class="section-label">Aktuell</span>
+    {{- $posts := where .Site.RegularPages "Section" "posts" }}
+    {{- $posts = $posts.ByDate.Reverse }}
+    {{- $feature := index $posts 0 }}
+    {{- $rest := after 1 $posts | first 4 }}
+    {{- $catNames := dict "portraet" "Comic" "land-leute" "Jung und alt" "poesie" "Humor" "reise" "Tourismus" "natur" "Natur und Umwelt" }}
+    <div class="aktuell-grid">
+      {{- with $feature }}
+      <article class="feature-card">
+        <div class="card-body">
+          <span class="card-cat">{{ range .Params.categories }}{{ index $catNames . | default (. | title) }}{{ end }}</span>
+          <h2 class="card-title"><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></h2>
+          {{ with .Params.description }}<p class="card-lead">{{ . }}</p>{{ end }}
+          <span class="card-meta">{{ range .Params.authors }}{{ . }} &bull; {{ end }}{{ .Date.Format "2. January 2006" }}</span>
+        </div>
+      </article>
+      {{- end }}
+      <div class="secondary-stack">
+        {{- range $rest }}
+        <article class="mini-card">
+          <span class="card-cat">{{ range .Params.categories }}{{ index $catNames . | default (. | title) }}{{ end }}</span>
+          <div class="card-title"><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></div>
+          <span class="card-meta">{{ .Date.Format "2. January 2006" }}</span>
+        </article>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>
 
-    <a href="/standpunkte/" class="kachel kachel--featured">
-        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M28 8 L44 38 H12 Z" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
-            <circle cx="28" cy="8" r="3" fill="white"/>
-            <line x1="28" y1="38" x2="28" y2="48" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="20" y1="48" x2="36" y2="48" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
-        <span class="kachel-title">13 Standpunkte</span>
-        <span class="kachel-desc">Was wir denken — und warum. 13 Haltungen zu dem, was das Wallis bewegt.</span>
-    </a>
+<!-- ══ 13 STANDPUNKTE TEASER ═════════════════════════════ -->
+<section class="standpunkte-teaser">
+  <div class="container">
+    <div class="standpunkte-inner">
+      <div class="standpunkte-intro">
+        <span class="section-label">13 Standpunkte</span>
+        <h2>Haltung.<br>Klar formuliert.</h2>
+        <p>Was uns bewegt, was uns antreibt &mdash; dreizehn Positionen aus dem Herz des Wallis.</p>
+        <a href="/standpunkte/" class="btn-outline">Alle Standpunkte lesen &rarr;</a>
+      </div>
+      <ul class="standpunkte-list">
+        <li><span class="sp-nr">01</span><span class="sp-text">Das Wallis ist kein Postkartenmotiv. Es ist ein Lebensraum mit Widersprüchen, Schönheit und Eigensinn.</span></li>
+        <li><span class="sp-nr">02</span><span class="sp-text">Wer hier schreibt, schreibt mit Verantwortung &mdash; gegenüber den Menschen, der Sprache, dem Ort.</span></li>
+        <li><span class="sp-nr">03</span><span class="sp-text">Literatur aus der Region ist nicht provinziell. Sie ist präzise, weil sie kennt, worüber sie spricht.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <a href="/categories/" class="kachel">
-        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28" r="18" stroke="#B8293D" stroke-width="2.5" fill="none"/>
-            <line x1="28" y1="10" x2="28" y2="46" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
-            <line x1="10" y1="28" x2="46" y2="28" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
-            <line x1="13" y1="18" x2="43" y2="38" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
-            <line x1="13" y1="38" x2="43" y2="18" stroke="#B8293D" stroke-width="1.5" opacity="0.4"/>
-            <circle cx="28" cy="28" r="5" fill="#B8293D" opacity="0.15"/>
-            <circle cx="28" cy="28" r="2.5" fill="#B8293D"/>
-        </svg>
-        <span class="kachel-title">13 Ansichten</span>
-        <span class="kachel-desc">13 Themen, von Genuss bis Politik. Jeden Monat neu beleuchtet.</span>
-    </a>
+<!-- ══ 13 ANSICHTEN ══════════════════════════════════════ -->
+<section class="ansichten">
+  <div class="container">
+    <span class="section-label">13 Ansichten</span>
+    <h2 class="section-title">Dreizehn Themen. Dreizehn Perspektiven.</h2>
+    <div class="themen-grid">
+      {{- range .Site.Taxonomies.categories.Alphabetical }}
+      <a href="{{ .Page.RelPermalink }}" class="thema-card">
+        <div class="thema-name">{{ .Page.Title }}</div>
+        <div class="thema-count">{{ .Count }} {{ if eq .Count 1 }}Beitrag{{ else }}Beiträge{{ end }}</div>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>
 
-    <a href="/marktplatz/" class="kachel">
-        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Tisch -->
-            <rect x="10" y="36" width="36" height="4" rx="2" fill="#B8293D" fill-opacity="0.15" stroke="#B8293D" stroke-width="2"/>
-            <!-- Tischbeine -->
-            <line x1="16" y1="40" x2="16" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
-            <line x1="40" y1="40" x2="40" y2="48" stroke="#B8293D" stroke-width="2" stroke-linecap="round"/>
-            <!-- Teller -->
-            <ellipse cx="28" cy="34" rx="10" ry="3" fill="#B8293D" fill-opacity="0.1" stroke="#B8293D" stroke-width="1.5"/>
-            <!-- Glas links -->
-            <path d="M17 24 L19 34" stroke="#B8293D" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M15 22 Q17 20 19 22 L19 24 Q17 25 15 24 Z" stroke="#B8293D" stroke-width="1.5" fill="#B8293D" fill-opacity="0.1"/>
-            <!-- Kerze Mitte -->
-            <rect x="26" y="18" width="4" height="12" rx="1" fill="#B8293D" fill-opacity="0.15" stroke="#B8293D" stroke-width="1.5"/>
-            <path d="M28 16 Q29 14 28 12 Q27 14 28 16Z" fill="#B8293D"/>
-            <!-- Glas rechts -->
-            <path d="M39 24 L37 34" stroke="#B8293D" stroke-width="1.8" stroke-linecap="round"/>
-            <path d="M41 22 Q39 20 37 22 L37 24 Q39 25 41 24 Z" stroke="#B8293D" stroke-width="1.5" fill="#B8293D" fill-opacity="0.1"/>
-        </svg>
-        <span class="kachel-title">13 Empfehlungen</span>
-        <span class="kachel-desc">Was wir selbst schätzen — Orte, Bücher, Produkte aus dem Wallis.</span>
-    </a>
+<!-- ══ 13 EMPFEHLUNGEN ═══════════════════════════════════ -->
+<section class="empfehlungen">
+  <div class="container">
+    <span class="section-label">13 Empfehlungen</span>
+    <h2 class="section-title">Kuratiert. Verankert. Empfohlen.</h2>
+    <div class="emp-grid">
+      {{- $recs := where .Site.RegularPages "Section" "marktplatz" | first 3 }}
+      {{- if $recs }}
+        {{- range $recs }}
+        <div class="emp-card">
+          <span class="emp-type">{{ .Params.kategorie | default "Empfehlung" }}</span>
+          <div class="emp-name">{{ .Title }}</div>
+          <p class="emp-desc">{{ .Params.description | default .Summary }}</p>
+          <a href="{{ .RelPermalink }}" class="emp-link">Mehr erfahren &rarr;</a>
+        </div>
+        {{- end }}
+      {{- else }}
+      <div class="emp-card">
+        <span class="emp-type">Ort</span>
+        <div class="emp-name">Walliser Weinkeller</div>
+        <p class="emp-desc">Ein Ort, der Geschichte atmet &mdash; und die besten Walliser Weine beherbergt.</p>
+        <a href="/marktplatz/" class="emp-link">Alle Empfehlungen &rarr;</a>
+      </div>
+      <div class="emp-card">
+        <span class="emp-type">Erlebnis</span>
+        <div class="emp-name">Auf dem Höhenweg</div>
+        <p class="emp-desc">Wandern zwischen Gletschern und Rebbergen &mdash; das Wallis zu Fuss entdecken.</p>
+        <a href="/marktplatz/" class="emp-link">Alle Empfehlungen &rarr;</a>
+      </div>
+      <div class="emp-card">
+        <span class="emp-type">Text</span>
+        <div class="emp-name">Lektüre aus dem Rhonetal</div>
+        <p class="emp-desc">Bücher, die verstehen, was das Wallis ausmacht &mdash; von Menschen, die hier zuhause sind.</p>
+        <a href="/marktplatz/" class="emp-link">Alle Empfehlungen &rarr;</a>
+      </div>
+      {{- end }}
+    </div>
+  </div>
+</section>
 
-    <a href="/authors/" class="kachel">
-        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="7" stroke="#B8293D" stroke-width="2.5" fill="#B8293D" fill-opacity="0.1"/>
-            <circle cx="36" cy="20" r="7" stroke="#B8293D" stroke-width="2.5" fill="#B8293D" fill-opacity="0.1"/>
-            <path d="M8 44 C8 35 32 35 32 44" stroke="#B8293D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <path d="M30 38 C30 33 48 33 48 40" stroke="#B8293D" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
-        </svg>
-        <span class="kachel-title">Schreibende</span>
-        <span class="kachel-desc">Wer hinter den Texten steckt. 13 Menschen, 13 Stimmen.</span>
-    </a>
+<!-- ══ SCHREIBENDE ════════════════════════════════════════ -->
+<section class="schreibende">
+  <div class="container">
+    <span class="section-label">Schreibende</span>
+    <h2 class="section-title">Die Stimmen hinter 13x13</h2>
+    <div class="autoren-grid">
+      {{- $authors := .Site.Taxonomies.authors.ByCount }}
+      {{- if $authors }}
+        {{- range first 4 $authors }}
+        <a href="{{ .Page.RelPermalink }}" class="autor-card">
+          <div class="autor-avatar">{{ .Page.Title | truncate 2 "" | upper }}</div>
+          <div class="autor-name">{{ .Page.Title }}</div>
+          <div class="autor-bio">{{ .Count }} {{ if eq .Count 1 }}Beitrag{{ else }}Beiträge{{ end }}</div>
+        </a>
+        {{- end }}
+      {{- else }}
+      <div class="autor-card">
+        <div class="autor-avatar">MZ</div>
+        <div class="autor-name">Maria Zurbriggen</div>
+        <div class="autor-bio">Schreibt über Gesellschaft und Alltag im Oberwallis.</div>
+      </div>
+      <div class="autor-card">
+        <div class="autor-avatar">BK</div>
+        <div class="autor-name">Beat Kuonen</div>
+        <div class="autor-bio">Kulturjournalist, lebt und schreibt in Sitten.</div>
+      </div>
+      <div class="autor-card">
+        <div class="autor-avatar">AR</div>
+        <div class="autor-name">Anna Roten</div>
+        <div class="autor-bio">Autorin und Lehrerin, spezialisiert auf Natur und Umwelt.</div>
+      </div>
+      <div class="autor-card">
+        <div class="autor-avatar">JP</div>
+        <div class="autor-name">Jean-Pierre Fellay</div>
+        <div class="autor-bio">Fotograf und Autor, unterwegs zwischen Rhone und Bergen.</div>
+      </div>
+      {{- end }}
+    </div>
+    <a href="/authors/" class="alle-link">Alle Schreibenden entdecken &rarr;</a>
+  </div>
+</section>
 
-</div>
+<!-- ══ FOOTER ════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-brand">13&times;13 &mdash; Geschichten aus dem Wallis</span>
+      <nav class="footer-links">
+        <a href="/kontakt/">Kontakt</a>
+        <a href="/archiv/">Archiv</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </nav>
+    </div>
+  </div>
+</footer>
 
-<p class="section-label">Aktuelle Beiträge</p>
-<div class="articles-grid">
-    {{ range first 12 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
-    <article class="article-card">
-        <div class="article-meta">{{ .Date.Format "2. Januar 2006" }}{{ with .ReadingTime }} &middot; {{ . }} Min.{{ end }}</div>
-        <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ with .Params.categories }}<div class="article-category"><a href="/categories/{{ index . 0 | urlize }}/">{{ index . 0 }}</a></div>{{ end }}
-        {{ with .Params.description }}<p class="article-excerpt">{{ . }}</p>{{ end }}
-        {{ with .Params.authors }}<p class="article-author">{{ range . }}<a href="/authors/{{ . | urlize }}/">{{ . }}</a> {{ end }}</p>{{ end }}
-    </article>
-    {{ end }}
-</div>
 </body>
 </html>
