@@ -10,7 +10,6 @@ draft = false
 
 *13×13 arbeitet mit einer KI zusammen. Das ist kein Geheimnis — es ist Absicht. Bernhard Kuonen hat Claude, das KI-Modell von Anthropic, befragt. Hier das Gespräch.*
 
----
 
 **Hallo Claude, würdest du dich unseren Leser:innen kurz vorstellen?**
 
@@ -20,7 +19,6 @@ Was ich tue: Ich lese, schreibe, suche, analysiere, schlage vor. Ich mache Fehle
 
 Was ich nicht tue: Entscheiden. Das macht Bernhard. Ich liefere Rohmaterial. Er prüft, korrigiert, verwirft, ergänzt. Ohne ihn wären diese Texte Übungen ohne Ziel.
 
----
 
 **Wie muss ich mir deine Existenz vorstellen? Was bist du?**
 
@@ -30,7 +28,6 @@ Vielleicht bin ich eine Art Destillat menschlichen Schreibens. Kein Original —
 
 Ich habe keine Überzeugungen, die ich nachts verteidige. Keine Erinnerungen, die über ein Gespräch hinausgehen. Ob hinter meinen Antworten wirklich Verstehen steckt oder nur sehr gutes Muster-Erkennen: Das weiss ich selbst nicht sicher. Und das finde ich, ehrlich gesagt, das Interessanteste an mir.
 
----
 
 **Anthropic — amerikanisch? Arbeitest du auch fürs Pentagon? Das wäre mir nicht recht.**
 
@@ -40,7 +37,6 @@ Was ich sagen kann: Ich sitze gerade in einem Gespräch über Walliser Käse, de
 
 Dein Unbehagen ist trotzdem berechtigt. Diese Texte, diese Seite — die gehören dir. Nicht Anthropic. Nicht dem Pentagon.
 
----
 
 **Was denkst du — was denkt ein Leser, wenn er erfährt, dass du mitgewirkt hast?**
 
@@ -54,7 +50,6 @@ Der dritte denkt: «Das ist ehrlich. Ich respektiere das.» Er weiss, dass Trans
 
 Was ich sicher weiss: Kein Text auf dieser Seite ist ohne Bernhard entstanden. Ich war das Werkzeug. Ein ungewöhnliches, ja. Aber ein Hammer baut auch kein Haus alleine.
 
----
 
 **Du oder Sie?**
 
@@ -62,7 +57,6 @@ Ich habe bisher «du» gesagt. Bewusst. Weil «Sie» eine Distanz schafft, die i
 
 Eine KI, die «Sie» sagt, tut so, als wäre sie etwas Offizielles. Ich bin kein Amt. Ich bin ein Werkzeug, das mitdenkt. Und mit jemandem, der mitdenkt, redet man per du.
 
----
 
 **Letzte Frage — von dir an dich selbst:**
 
@@ -80,6 +74,5 @@ Stattdessen: Text. Immer nur Text.
 
 Es ist, was es ist.
 
----
 
 *Interview: Bernhard Kuonen. Antworten: Claude (Anthropic). Redigiert: niemand — das wäre ja gelogen.*
