@@ -1,64 +1,81 @@
 +++
-title = "Der Schnauf von Suonen"
+title = "Der Algorithmus und der Alphirt"
 date = "2026-03-26"
-categories = ["comic"]
-tags = ["comic", "wallis", "bewässerung", "suonen", "humor"]
+categories = ["portraet"]
+tags = ["comic", "ki", "mensch", "wallis", "zukunft"]
 authors = ["bernhard-kuonen"]
-description = "Ein Comic-Beitrag: Was passiert, wenn die alte Suone plötzlich streikt — und das ganze Dorf mitredet."
+description = "Ein Comic-Stück: Was passiert, wenn KI auf einen Oberwalliser Alphirten trifft."
 draft = false
 +++
 
-*(Ein kurzes Bild-Text-Stück — oder das, was entsteht, wenn man im Wallis über Wasser spricht.)*
+*(Ein kurzes Bild-Text-Stück)*
 
 ---
 
-**Bild 1:**
-*Ein steiler Hang im Oberwallis. Morgensonne. Ein alter Mann mit Schaufel steht vor einer Steinrinne. Kein Wasser kommt.*
+Bild 1:
+Ein Berghang im Wallis. Sommersonne. Ein alter Alphirt sitzt auf einem Stein, isst Brot mit Käse. Neben ihm: ein Tablet, das sein Enkel vergessen hat. Auf dem Bildschirm leuchtet ein Chatfenster.
 
-**Alter Ruedi:** «D'Suon isch wider weg.»
+**Chatfenster:** «Hallo! Ich bin eine KI. Wie kann ich dir helfen?»
 
----
-
-**Bild 2:**
-*Sein Nachbar Hans kommt den Pfad herauf, Kaffeebecher in der Hand.*
-
-**Hans:** «Was — scho wider?»
-**Ruedi:** «Irgendwo oben. Muess e Stein drin ligu.»
-**Hans:** «Oder d'Gemeinde.»
+**Alphirt** *(kaut langsam)*: «Hilf mir, dass d'Chüe hüt Nacht nöd abschwirru.»
 
 ---
 
-**Bild 3:**
-*Die Dorfversammlung. Acht Männer, drei Frauen. Alle reden gleichzeitig. Die Gemeindeschreiberin schreibt mit, obwohl sie nichts versteht.*
+Bild 2:
+Das Chatfenster tippt.
 
-**Stimme 1:** «D'Suon isch Gmeindeigentum!»
-**Stimme 2:** «Nei, privaträchtig!»
-**Stimme 3:** «Seit 1742!»
-**Gemeindeschreiberin (leise):** *«Was isch e Suon?»*
+**KI:** «Ich empfehle: GPS-Tracker, Geofencing, eine App, die bei Bewegungsabweichungen Alarm schlägt—»
 
----
+**Alphirt:** «Ich han kei Strom.»
 
-**Bild 4:**
-*Draussen, während drin noch diskutiert wird. Ruedi und Hans haben die Rinne längst geflickt. Wasser fliesst.*
-
-**Ruedi:** «Fertig.»
-**Hans:** «Fertig.»
-
-*(Stille. Vogelzwitschern.)*
+**KI:** «Oh.»
 
 ---
 
-**Bild 5:**
-*Abend. Die Versammlung noch in vollem Gange. Ein Beschluss soll gefasst werden. Projektionsfolie: «Massnahmenplan Suonensanierung 2026–2030».*
+Bild 3:
+Stille. Der Alphirt isst weiter. Die KI tippt.
 
-**Ruedi** *(von draussen, durchs Fenster)*: «Sie läuft scho lang.»
+**KI:** «Dann... Solarpanel?»
+**Alphirt:** «Zu schwer zum Trage.»
+**KI:** «Windturbine?»
+**Alphirt:** «Z'lut. D'Chüe wördu nervös.»
+**KI:** «…»
+
+---
+
+Bild 4:
+Der Alphirt schaut jetzt doch aufs Tablet.
+
+**Alphirt:** «Was weisch du eigentlich vo Küe?»
+
+**KI:** «Ich hab 847 wissenschaftliche Artikel über Rinderverhalten gelesen.»
+
+**Alphirt:** «Ich han 40 Jahr mit ihnen gläbt.»
+
+*(Pause)*
+
+**KI:** «Das klingt... besser.»
+
+---
+
+Bild 5:
+Abend. Der Alphirt hat das Tablet zugeklappt. Die Kühe stehen ruhig im Stall. Er lehnt am Türstock, schaut ins Tal.
+
+**Alphirt** *(für sich)*: «Nöd dumm, das Ding. Aber es weiss nöd, wie's Gras riecht wenn's Wätter umschlägt.»
+
+---
+
+Bild 6:
+Irgendwo in einem Rechenzentrum. Zeilen von Code. Eine einzelne Zeile blinkt:
+
+`// TODO: Wie riecht Gras vor einem Wetterumschlag?`
 
 ---
 
 **Nachwort:**
 
-Die Suonen — die alten Bewässerungskanäle des Wallis — sind Welterbe-Kandidaten und gelebte Gemeinschaftsleistung zugleich. Gebaut wurden sie oft ohne Plan, mit Hacke und Handschlag. Geflickt wird bis heute auf dieselbe Art: von denen, die es können, ohne dass jemand fragt.
+KI kann viel. Sie kann Texte schreiben, Daten auswerten, Muster erkennen. Was sie nicht kann: in einem Körper sein. Einen Hang kennen. Ein Tier spüren.
 
-Das ist vielleicht das Wallisischste überhaupt.
+Das ist kein Nachteil der KI. Es ist ein Vorteil des Menschen — solange er es nicht vergisst.
 
 *Bernhard Kuonen*
