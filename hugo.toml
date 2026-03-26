@@ -5,7 +5,7 @@ title = '13×13 – Geschichten aus dem Wallis'
 theme = 'ananke'
 
 [params]
-  description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.'
+  description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.
   author = 'Redaktion 13Ã13'
   featured_image = ''
   background_color_class = 'bg-near-white'
@@ -89,7 +89,7 @@ theme = 'ananke'
 
 [[menu.main]]
   name = "Humor"
-  url = "/categories/poesie/"
+    url = "/categories/humor/"
   weight = 12
 
 [[menu.main]]
