@@ -42,7 +42,7 @@
 <div class="mp">
   <header class="mp-head">
     <h1>13 Empfehlungen</h1>
-    <p class="mp-lead">13 kuratierte Empfehlungen &ndash; vom Kreis 13x13 ausgewählt nach Bedeutung, Verankerung und Eigenständigkeit.</p>
+    <p class="mp-lead">13 kuratierte Empfehlungen &ndash; von 13x13 ausgewählt nach Bedeutung, Verankerung und Eigenständigkeit.</p>
   </header>
   <nav class="mp-filter">
     <a href="#" class="active" data-filter="alle">Alle</a>
@@ -64,7 +64,7 @@
       </div>
       <div class="card-text">{{ .Summary }}</div>
       <footer class="card-foot">
-        <span>{{ with .Params.autor }}{{ . | replace "Kreis 13x13" "13x13" }}{{ end }}{{ with .Params.folge }} &middot; {{ . }}{{ end }}</span>
+        <span>{{ with .Params.autor }}{{ . }}{{ end }}{{ with .Params.folge }} &middot; {{ . }}{{ end }}</span>
         {{ with .Params.website }}<a href="{{ . }}" target="_blank" rel="noopener">Website &rarr;</a>{{ end }}
       </footer>
     </article>
