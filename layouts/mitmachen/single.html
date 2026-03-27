@@ -463,6 +463,82 @@
             transition: opacity 0.15s;
         }
         .charta-link:hover { opacity: 0.75; }
+
+        /* ── STANDPUNKTE LINK ── */
+        .sp-link-box {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--hell);
+            border: 1.5px solid #ddd;
+            border-left: 4px solid var(--rot);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+        }
+        .sp-link-box p { font-size: 1rem; color: var(--grau); margin: 0; }
+        .sp-link-box a {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--rot);
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 2px solid var(--rot);
+            padding-bottom: 1px;
+        }
+        .sp-link-box a:hover { opacity: 0.75; }
+
+        /* ── CHARTA ── */
+        .charta-bg {
+            background: var(--dunkel);
+            color: white;
+        }
+        .charta-bg .section h2 { color: white; }
+        .charta-bg .lead { color: rgba(255,255,255,0.7); }
+        .charta-intro {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.7;
+            max-width: 640px;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+        .charta-liste {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .charta-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .charta-item:last-child { border-bottom: none; }
+        .charta-item-nr {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--rot);
+            color: #E87070;
+            flex-shrink: 0;
+            min-width: 28px;
+            padding-top: 0.2rem;
+        }
+        .charta-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.35rem;
+        }
+        .charta-item p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -529,25 +605,69 @@
 </section>
 
 <!-- ── 13 STANDPUNKTE ── -->
+
+<!-- ── STANDPUNKTE LINK ── -->
 <div class="standpunkte-bg" id="standpunkte">
 <section class="section">
     <p class="section-label">Was wir denken</p>
     <h2>13 Standpunkte, die uns leiten.</h2>
     <p class="lead">Wer für 13×13 schreibt, teilt diese Haltungen — zumindest im Grundsatz.</p>
-    <div class="sp-liste">
-        <div class="sp-item"><span class="sp-nr">01</span><p>Das Wallis hat mehr zu sagen als es sagt.</p></div>
-        <div class="sp-item"><span class="sp-nr">02</span><p>Wir schreiben, weil uns etwas beschäftigt.</p></div>
-        <div class="sp-item"><span class="sp-nr">03</span><p>Unabhängig zu sein ist anstrengend — und richtig so.</p></div>
-        <div class="sp-item"><span class="sp-nr">04</span><p>Lokales Denken ist kein Nachteil.</p></div>
-        <div class="sp-item"><span class="sp-nr">05</span><p>Wir haben keine Antworten. Aber Fragen.</p></div>
-        <div class="sp-item"><span class="sp-nr">06</span><p>13 Menschen, 13 Blickwinkel — kein Konsens nötig.</p></div>
-        <div class="sp-item"><span class="sp-nr">07</span><p>Texte brauchen Zeit, die nehmen wir uns.</p></div>
-        <div class="sp-item"><span class="sp-nr">08</span><p>Wir lieben das Wallis. Auch deshalb schauen wir genau hin.</p></div>
-        <div class="sp-item"><span class="sp-nr">09</span><p>Schreiben ist denken — und wir schreiben, was wir denken.</p></div>
-        <div class="sp-item"><span class="sp-nr">10</span><p>Wir sind keine Zeitung, kein Blog. Wir sind 13×13.</p></div>
-        <div class="sp-item"><span class="sp-nr">11</span><p>Wir schreiben nicht immer was ist, sondern was sein könnte – oder sein sollte.</p></div>
-        <div class="sp-item"><span class="sp-nr">12</span><p>Wir irren uns manchmal. Das gehört dazu.</p></div>
-        <div class="sp-item"><span class="sp-nr">13</span><p>13×13 ist ein Versuch. Ein ernsthafter.</p></div>
+    <div class="sp-link-box">
+        <p>Die 13 Standpunkte sind das Fundament der Plattform — formuliert, diskutiert, beschlossen.</p>
+        <a href="/standpunkte/">→ Zu den Standpunkten</a>
+    </div>
+</section>
+</div>
+
+
+
+<!-- ── CHARTA DER SCHREIBENDEN ── -->
+<div class="charta-bg">
+<section class="section">
+    <p class="section-label" style="color:#E87070;">Charta der Schreibenden</p>
+    <h2>Wer für 13×13 schreibt, teilt diese Grundsätze.</h2>
+    <p class="charta-intro">Die Charta ist kein Regelwerk, das kontrolliert — sie ist ein Bekenntnis, das verbindet. Wer einen Beitrag einreicht, erklärt sich damit einverstanden. Nicht weil es verlangt wird, sondern weil es selbstverständlich sein sollte.</p>
+    <div class="charta-liste">
+        <div class="charta-item">
+            <span class="charta-item-nr">01</span>
+            <div><h3>Ich schreibe frei.</h3><p>Meine Texte entstehen ohne kommerziellen Auftrag, ohne politische Weisung und ohne persönliche Vorteilsnahme. Wenn ich in einem Thema befangen bin, sage ich es.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">02</span>
+            <div><h3>Ich stehe zu meinen Worten.</h3><p>Was ich schreibe, habe ich recherchiert oder klar als Meinung kenntlich gemacht. Fakten und Haltungen trenne ich bewusst. Für beides übernehme ich Verantwortung.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">03</span>
+            <div><h3>Ich schreibe mit Haltung — und mit Respekt.</h3><p>Kritik an der Sache ist erwünscht, Angriffe auf die Person sind es nicht. Auch wer anderer Meinung ist, verdient einen fairen Umgang.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">04</span>
+            <div><h3>Ich sage, was ich denke.</h3><p>Gefälligkeitstexte liegen mir fern. Ich schreibe, was ich für wahr und wichtig halte — auch wenn es unbequem ist.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">05</span>
+            <div><h3>Ich dulde keine Diskriminierung.</h3><p>Sexismus, Rassismus, Homophobie und jede Form menschenfeindlicher Äusserungen haben in meinen Texten keinen Platz — weder offen noch versteckt.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">06</span>
+            <div><h3>Ich bin erkennbar.</h3><p>Ich schreibe unter meinem Namen. Wer für eine öffentliche Plattform schreibt, steht dazu. Ausnahmen bespreche ich offen mit der Gemeinschaft.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">07</span>
+            <div><h3>Mein Text gehört mir.</h3><p>Die Urheberrechte verbleiben bei mir. Ich räume 13×13.ch das Recht zur Erstveröffentlichung und dauerhaften Online-Publikation ein.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">08</span>
+            <div><h3>Ich respektiere substanzielle Einwände.</h3><p>Wenn die Gemeinschaft oder das Board begründete Hinweise zu meinen Beiträgen hat, nehme ich diese ernst und setze mich damit auseinander. Nicht weil ich muss — sondern weil gemeinsame Sorgfalt zum Anspruch gehört, den wir alle teilen.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">09</span>
+            <div><h3>Ich trage zur Gemeinschaft bei.</h3><p>13×13 lebt vom Zusammenspiel vieler Stimmen. Ich bringe mich konstruktiv ein — auch in der Diskussion, auch wenn ich anderer Meinung bin.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">10</span>
+            <div><h3>Ich schreibe selbst.</h3><p>KI darf mich beim Korrekturlesen unterstützen — nicht beim Denken, nicht beim Formulieren, nicht beim Ersetzen meiner eigenen Stimme. Wo KI bei der Recherche mitgewirkt hat, weise ich darauf hin. Transparenz ist keine Option — sie ist Pflicht.</p></div>
+        </div>
     </div>
 </section>
 </div>
