@@ -441,6 +441,28 @@
             .themen-grid { grid-template-columns: repeat(2, 1fr); }
             .hero { padding: 3rem var(--rand) 2.5rem; }
         }
+
+        /* ── KURZKONZEPT ── */
+        .konzept-section { border-bottom: 1px solid #eae8e4; }
+        .konzept-text p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+            max-width: 680px;
+        }
+        .konzept-text p:last-child { margin-bottom: 1.75rem; }
+        .charta-link {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--rot);
+            text-decoration: none;
+            border-bottom: 2px solid var(--rot);
+            padding-bottom: 1px;
+            transition: opacity 0.15s;
+        }
+        .charta-link:hover { opacity: 0.75; }
     </style>
 </head>
 <body>
@@ -453,6 +475,18 @@
     <h1>Schreiben, was das <em>Wallis</em> bewegt.</h1>
     <p>13×13 ist ein unabhängiges Magazin für Menschen, die etwas zu sagen haben — nicht für die lautesten, sondern für die aufmerksamsten.</p>
     <a href="#formular" class="hero-btn">Jetzt mitmachen</a>
+</section>
+
+
+<!-- ── KURZKONZEPT ── -->
+<section class="section konzept-section">
+    <p class="section-label">Das Projekt</p>
+    <div class="konzept-text">
+        <p>13×13 ist eine unabhängige Plattform für das Wallis — nicht von Journalisten, sondern von Menschen, die hier leben, etwas zu sagen haben und denen die Sprache wichtig ist.</p>
+        <p>Menschen, die sich trauen, unbequem zu sein. Die Selbstkritik als Tugend verstehen und den Mut haben, sich zu exponieren.</p>
+        <p>Die Grundlage ist eine Charta: 13 Standpunkte, die beschreiben, wie wir schreiben, was uns leitet und warum Unabhängigkeit keine Verhandlungssache ist.</p>
+    </div>
+    <a href="#standpunkte" class="charta-link">→ Zur Charta</a>
 </section>
 
 <!-- ── WARUM MITMACHEN ── -->
@@ -495,7 +529,7 @@
 </section>
 
 <!-- ── 13 STANDPUNKTE ── -->
-<div class="standpunkte-bg">
+<div class="standpunkte-bg" id="standpunkte">
 <section class="section">
     <p class="section-label">Was wir denken</p>
     <h2>13 Standpunkte, die uns leiten.</h2>
