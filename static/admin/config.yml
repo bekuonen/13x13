@@ -46,10 +46,25 @@ collections:
           - {label: "Geschichte", value: "geschichte"}
           - {label: "Gesellschaft", value: "gesellschaft"}
           - {label: "Tourismus", value: "tourismus"}
-          - {label: "Handwerk", value: "handwerk"}
+          - {label: "Ästhetik", value: "aesthetik"}
+          - {label: "Humor", value: "humor"}
           - {label: "Bildung", value: "bildung"}
       - {label: "Beschreibung", name: "description", widget: "text", required: false}
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
       - {label: "Titelbild", name: "featured_image", widget: "image", required: false}
+      - label: "Fotos (Galerie – für Ästhetik)"
+        name: "fotos"
+        widget: "list"
+        required: false
+        collapsed: true
+        summary: "{{fields.caption}} – {{fields.fotograf}}"
+        fields:
+          - {label: "Bild-URL", name: "src", widget: "string", hint: "z.B. https://images.unsplash.com/... oder /images/uploads/foto.jpg"}
+          - {label: "Fotograf:in", name: "fotograf", widget: "string"}
+          - {label: "Bildunterschrift", name: "caption", widget: "string", required: false}
       - {label: "Inhalt", name: "body", widget: "markdown"}
 
   - name: authors
