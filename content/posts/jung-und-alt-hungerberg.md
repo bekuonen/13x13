@@ -1,7 +1,7 @@
 +++
 title = "Der Berg gehört uns beiden"
 date = "2026-03-26"
-categories = ["land-leute"]
+categories = ["Jung und alt"]
 tags = ["hungerberg", "oberwald", "generationen", "bergbahn", "goms"]
 authors = ["bernhard-kuonen"]
 description = "Ein Grossvater und sein Enkel auf dem Hungerberg — und was eine geplante Bergbahn für zwei Generationen bedeutet."
