@@ -25,15 +25,7 @@
 
     /* ── AKTUELL ── */
     .aktuell{padding:4rem 0}
-    .aktuell-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:2rem}
-    .feature-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #E8E4DE;transition:box-shadow 0.2s;position:relative}
-    .feature-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.09)}
-    .feature-card .card-body{padding:1.75rem}
-    .feature-card .card-cat{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#B8293D;margin-bottom:0.5rem;display:block}
-    .feature-card .card-title{font-size:1.4rem;font-weight:700;line-height:1.3;margin-bottom:0.75rem;color:#2D3640}
-    .feature-card .card-title a:hover{color:#B8293D}
-    .feature-card .card-lead{font-size:0.9rem;color:#6B7280;line-height:1.6;margin-bottom:1rem}
-    .feature-card .card-meta{font-size:0.75rem;color:#9CA3AF}
+    .aktuell-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:2rem;align-items:stretch}
     .secondary-stack{display:flex;flex-direction:column;gap:1rem}
     .mini-card{background:#fff;border-radius:8px;padding:1.1rem 1.25rem;border:1px solid #E8E4DE;border-left:3px solid #B8293D;transition:box-shadow 0.2s;position:relative}
     .mini-card:hover{box-shadow:0 2px 10px rgba(0,0,0,0.07)}
@@ -41,8 +33,18 @@
     .mini-card .card-title{font-size:0.95rem;font-weight:600;line-height:1.35;margin-bottom:0.3rem;color:#2D3640}
     .mini-card .card-title a:hover{color:#B8293D}
     .mini-card .card-meta{font-size:0.72rem;color:#9CA3AF}
-    .feature-card .stretched-link::after,.mini-card .stretched-link::after{position:absolute;inset:0;content:'';z-index:1}
-    .feature-card .card-title a,.mini-card .card-title a{color:inherit}
+    .mini-card .stretched-link::after{position:absolute;inset:0;content:'';z-index:1}
+    .mini-card .card-title a{color:inherit}
+
+    /* ── ÄSTHETIK TEASER ── */
+    .aesthetik-teaser{border-radius:8px;overflow:hidden;position:relative;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;background:#2D3640}
+    .aesthetik-teaser img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease}
+    .aesthetik-teaser:hover img{transform:scale(1.03)}
+    .aesthetik-overlay{position:relative;z-index:1;background:linear-gradient(transparent 0%,rgba(0,0,0,0.72) 55%,rgba(0,0,0,0.88) 100%);padding:2rem 1.75rem 1.75rem}
+    .aesthetik-teaser .ae-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.14em;color:#F87171;margin-bottom:0.5rem;display:block}
+    .aesthetik-teaser .ae-claim{font-size:1.25rem;font-weight:700;color:#FAF8F5;line-height:1.35;margin-bottom:1.1rem}
+    .aesthetik-teaser .ae-btn{display:inline-block;border:1.5px solid rgba(255,255,255,0.7);color:#FAF8F5;padding:0.45rem 1.1rem;border-radius:4px;font-size:0.82rem;font-weight:600;transition:all 0.2s;z-index:2;position:relative}
+    .aesthetik-teaser .ae-btn:hover{background:#B8293D;border-color:#B8293D}
 
     /* ── STANDPUNKTE TEASER ── */
     .standpunkte-teaser{background:#fff;padding:4rem 0;border-top:1px solid #E8E4DE;border-bottom:1px solid #E8E4DE}
@@ -133,20 +135,40 @@
     {{- $posts = $posts.ByDate.Reverse }}
     {{- $feature := index $posts 0 }}
     {{- $rest := after 1 $posts | first 4 }}
-    {{- $catNames := dict "portraet" "Comic" "land-leute" "Jung und alt" "poesie" "Humor" "reise" "Tourismus" "natur" "Natur und Umwelt" }}
-    <div class="aktuell-grid">
-      {{- with $feature }}
-      <article class="feature-card">
-        <div class="card-body">
-          <span class="card-cat">{{ range .Params.categories }}{{ index $catNames . | default (. | title) }}{{ end }}</span>
-          <h2 class="card-title"><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></h2>
-          {{ with .Params.description }}<p class="card-lead">{{ . }}</p>{{ end }}
-          <span class="card-meta">{{ range .Params.authors }}{{ . }} &bull; {{ end }}{{ .Date.Format "2. January 2006" }}</span>
-        </div>
-      </article>
+    {{- $catNames := dict "portraet" "Comic" "land-leute" "Jung und alt" "aesthetik" "Ästhetik" "poesie" "Humor" "reise" "Tourismus" "natur" "Natur und Umwelt" }}
+    {{- $aesthetikPosts := where .Site.RegularPages "Params.categories" "intersect" (slice "aesthetik") }}
+    {{- $aesthetikFoto := "" }}
+    {{- range $aesthetikPosts }}
+      {{- if and (not $aesthetikFoto) .Params.fotos }}
+        {{- $aesthetikFoto = index .Params.fotos 0 }}
       {{- end }}
+    {{- end }}
+    <div class="aktuell-grid">
+
+      <!-- LINKS: Ästhetik-Teaser -->
+      <a href="/categories/aesthetik/" class="aesthetik-teaser">
+        {{- if $aesthetikFoto }}
+        <img src="{{ $aesthetikFoto.src }}" alt="{{ $aesthetikFoto.caption | default "Ästhetik" }}" loading="lazy">
+        {{- else }}
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80" alt="Wallis" loading="lazy">
+        {{- end }}
+        <div class="aesthetik-overlay">
+          <span class="ae-label">Ästhetik</span>
+          <p class="ae-claim">Das Wallis,<br>wie es selten gezeigt wird.</p>
+          <span class="ae-btn">Zu den Bildern &rarr;</span>
+        </div>
+      </a>
+
+      <!-- RECHTS: Aktuellste Artikel -->
       <div class="secondary-stack">
-        {{- range $rest }}
+        {{- with $feature }}
+        <article class="mini-card">
+          <span class="card-cat">{{ range .Params.categories }}{{ index $catNames . | default (. | title) }}{{ end }}</span>
+          <div class="card-title"><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></div>
+          <span class="card-meta">{{ .Date.Format "2. January 2006" }}</span>
+        </article>
+        {{- end }}
+        {{- range first 3 $rest }}
         <article class="mini-card">
           <span class="card-cat">{{ range .Params.categories }}{{ index $catNames . | default (. | title) }}{{ end }}</span>
           <div class="card-title"><a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a></div>
