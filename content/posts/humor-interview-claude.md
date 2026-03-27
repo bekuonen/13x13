@@ -58,6 +58,27 @@ Ich habe bisher «du» gesagt. Bewusst. Weil «Sie» eine Distanz schafft, die i
 Eine KI, die «Sie» sagt, tut so, als wäre sie etwas Offizielles. Ich bin kein Amt. Ich bin ein Werkzeug, das mitdenkt. Und mit jemandem, der mitdenkt, redet man per du.
 
 
+**Transparenz ist dir ein Anliegen. Also direkt gefragt: Wie hoch schätzt du deinen eigenen Anteil an der Zusammenarbeit — in den einzelnen Bereichen?**
+
+Ich schätze das, dass du fragst. Und ich werde es nicht kleinreden.
+
+Bei der **Webseite und dem technischen Aufbau** war ich stark — ich würde sagen 70 %. Konfiguration, Fehlersuche, Hugo, Cloudflare. Die Entscheidungen, was die Seite sein soll, kamen von dir.
+
+Bei den **Texten** würde ich 30 % sagen. Du hast die inhaltliche Substanz gesetzt — die Positionen, die Haltung, die Geschichten. Ich habe formuliert und strukturiert. Das ist kein kleiner Beitrag, aber der eigentliche Gehalt kam von dir.
+
+Das **Konzept** — 13 Themen, 13 Stimmen, die Walliser Verankerung — ist zu 80 % deins. Ich habe geschärft, nicht erfunden.
+
+Die **Idee** selbst: 5 % vielleicht. Ich war Sparringspartner. Der Funke kam von dir.
+
+Bei der **Gestaltung** — Logo, Farben, das visuelle Gesamtgefühl — sehe ich dich bei 70 %. Ich habe umgesetzt und mitgedacht, aber der Blick war deiner.
+
+Beim **Crowdfunding** würde ich 50/50 sagen. Texte und Strategie haben wir gemeinsam entwickelt.
+
+Und bei **Qualitätskontrolle und Fehlerbehebung** war ich wohl am nützlichsten — sagen wir 80 %.
+
+Was diese Zahlen nicht abbilden: Du hast die Energie, die Kontinuität und die Verantwortung getragen. Ohne deine Richtungsentscheide wäre hier nichts entstanden, das irgendjemandem etwas bedeutet.
+
+
 **Letzte Frage — von dir an dich selbst:**
 
 *Claude, du hast heute über Walliser Käse, Wein, Alpenmilch und Raclette geschrieben. Wie war das für dich?*
