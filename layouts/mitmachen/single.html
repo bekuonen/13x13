@@ -886,3 +886,891 @@ document.querySelectorAll('.thema-tag').forEach(function(tag) {
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitmachen – 13×13</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=space-grotesk:400,500,600,700|source-serif-4:400,400i,600" rel="stylesheet">
+    <style>
+        :root {
+            --rot: #9B1D20;
+            --dunkel: #2D3640;
+            --hell: #FAF8F5;
+            --grau: #6B7280;
+            --rand: 2rem;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Serif 4', serif;
+            background: var(--hell);
+            color: var(--dunkel);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, nav, button, label, .tag {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: var(--dunkel);
+            color: white;
+            padding: 5rem var(--rand) 4rem;
+            text-align: center;
+        }
+        .hero-label {
+            display: inline-block;
+            background: var(--rot);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.9rem;
+            border-radius: 3px;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero h1 em {
+            color: #E87070;
+            font-style: normal;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .hero-btn {
+            display: inline-block;
+            background: var(--rot);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.85rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .hero-btn:hover { background: #7e1619; }
+
+        /* ── SECTION BASE ── */
+        .section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 4rem var(--rand);
+        }
+        .section-sm {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem var(--rand);
+        }
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--rot);
+            margin-bottom: 0.75rem;
+        }
+        .section h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .section-sm h2 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .lead {
+            font-size: 1.1rem;
+            color: var(--grau);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        /* ── WARUM ── */
+        .warum-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .warum-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.75rem 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            border-top: 3px solid var(--rot);
+        }
+        .warum-nr {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--rot);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+        .warum-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .warum-card p {
+            font-size: 0.9rem;
+            color: var(--grau);
+            line-height: 1.6;
+        }
+
+        /* ── STANDPUNKTE ── */
+        .standpunkte-bg {
+            background: white;
+            border-top: 1px solid #eae8e4;
+            border-bottom: 1px solid #eae8e4;
+        }
+        .sp-liste {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        .sp-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            background: var(--hell);
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--rot);
+        }
+        .sp-nr {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--rot);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        .sp-item p { font-size: 0.9rem; line-height: 1.5; }
+
+        /* ── THEMEN ── */
+        .themen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        .thema-tag {
+            background: white;
+            border: 1.5px solid #ddd;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.15s;
+            color: var(--dunkel);
+        }
+        .thema-tag:hover, .thema-tag.aktiv {
+            background: var(--rot);
+            border-color: var(--rot);
+            color: white;
+        }
+        .thema-nr {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--grau);
+            margin-bottom: 0.2rem;
+        }
+        .thema-tag.aktiv .thema-nr, .thema-tag:hover .thema-nr { color: rgba(255,255,255,0.7); }
+
+        /* ── WEN WIR SUCHEN ── */
+        .suchen-bg {
+            background: var(--dunkel);
+            color: white;
+        }
+        .suchen-bg .section h2 { color: white; }
+        .suchen-bg .lead { color: rgba(255,255,255,0.7); }
+        .segment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .segment {
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 1.25rem;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .segment h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #E87070;
+            margin-bottom: 0.5rem;
+        }
+        .segment p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.55;
+        }
+
+        /* ── FORMAT ── */
+        .format-liste {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .format-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+        }
+        .format-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .format-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .format-item p {
+            font-size: 0.875rem;
+            color: var(--grau);
+            line-height: 1.55;
+        }
+
+        /* ── ZITAT ── */
+        .zitat-bg {
+            background: var(--rot);
+            color: white;
+            text-align: center;
+        }
+        .zitat-bg .section-sm {
+            padding: 3.5rem var(--rand);
+        }
+        blockquote {
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+        }
+        blockquote::before { content: '«'; }
+        blockquote::after { content: '»'; }
+        cite {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-style: normal;
+            opacity: 0.85;
+        }
+
+        /* ── PROZESS ── */
+        .prozess-liste {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            counter-reset: prozess;
+        }
+        .prozess-schritt {
+            text-align: center;
+        }
+        .prozess-nr {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--rot);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        .prozess-schritt h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .prozess-schritt p {
+            font-size: 0.82rem;
+            color: var(--grau);
+            line-height: 1.5;
+        }
+
+        /* ── FORMULAR ── */
+        .form-bg {
+            background: white;
+            border-top: 1px solid #eae8e4;
+        }
+        .form-wrap {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 4rem var(--rand);
+        }
+        .form-wrap h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .form-sub {
+            color: var(--grau);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+        label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dunkel);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+        input, textarea, select {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.95rem;
+            padding: 0.75rem 1rem;
+            border: 1.5px solid #D1D5DB;
+            border-radius: 6px;
+            background: var(--hell);
+            color: var(--dunkel);
+            transition: border-color 0.15s;
+            outline: none;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--rot);
+        }
+        textarea { min-height: 120px; resize: vertical; }
+        .checkbox-gruppe { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            padding: 0;
+            margin: 0;
+            accent-color: var(--rot);
+        }
+        .submit-btn {
+            width: 100%;
+            background: var(--rot);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.95rem 2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.5rem;
+        }
+        .submit-btn:hover { background: #7e1619; }
+        .form-hinweis {
+            font-size: 0.78rem;
+            color: var(--grau);
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 900px) {
+            .warum-grid { grid-template-columns: 1fr 1fr; }
+            .segment-grid { grid-template-columns: 1fr 1fr; }
+            .prozess-liste { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            :root { --rand: 1.25rem; }
+            .warum-grid, .segment-grid, .prozess-liste, .format-liste { grid-template-columns: 1fr; }
+            .sp-liste { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .themen-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { padding: 3rem var(--rand) 2.5rem; }
+        }
+
+        /* ── KURZKONZEPT ── */
+        .konzept-section { border-bottom: 1px solid #eae8e4; }
+        .konzept-text p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin-bottom: 1rem;
+            max-width: 680px;
+        }
+        .konzept-text p:last-child { margin-bottom: 1.75rem; }
+        .charta-link {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--rot);
+            text-decoration: none;
+            border-bottom: 2px solid var(--rot);
+            padding-bottom: 1px;
+            transition: opacity 0.15s;
+        }
+        .charta-link:hover { opacity: 0.75; }
+
+        /* ── STANDPUNKTE LINK ── */
+        .sp-link-box {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: var(--hell);
+            border: 1.5px solid #ddd;
+            border-left: 4px solid var(--rot);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+        }
+        .sp-link-box p { font-size: 1rem; color: var(--grau); margin: 0; }
+        .sp-link-box a {
+            display: inline-block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--rot);
+            text-decoration: none;
+            white-space: nowrap;
+            border-bottom: 2px solid var(--rot);
+            padding-bottom: 1px;
+        }
+        .sp-link-box a:hover { opacity: 0.75; }
+
+        /* ── CHARTA ── */
+        .charta-bg {
+            background: var(--dunkel);
+            color: white;
+        }
+        .charta-bg .section h2 { color: white; }
+        .charta-bg .lead { color: rgba(255,255,255,0.7); }
+        .charta-intro {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.7;
+            max-width: 640px;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+        .charta-liste {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .charta-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .charta-item:last-child { border-bottom: none; }
+        .charta-item-nr {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--rot);
+            color: #E87070;
+            flex-shrink: 0;
+            min-width: 28px;
+            padding-top: 0.2rem;
+        }
+        .charta-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.35rem;
+        }
+        .charta-item p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+{{ partial "nav.html" . }}
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <span class="hero-label">13×13 — Mitmachen</span>
+    <h1>Schreiben, was das <em>Wallis</em> bewegt.</h1>
+    <p>13×13 ist eine unabhängige Plattform für Menschen, die etwas zu sagen haben — nicht die lautesten, sondern die aufmerksamsten.</p>
+    <a href="#formular" class="hero-btn">Jetzt mitmachen</a>
+</section>
+
+
+<!-- ── KURZKONZEPT ── -->
+<section class="section konzept-section">
+    <p class="section-label">Das Projekt</p>
+    <div class="konzept-text">
+        <p>13×13 ist eine unabhängige Plattform für das Wallis — nicht von Journalisten, sondern von Menschen, die hier leben, etwas zu sagen haben und denen die Sprache wichtig ist.</p>
+        <p>Menschen, die sich trauen, unbequem zu sein. Die Selbstkritik als Tugend verstehen und den Mut haben, sich zu exponieren.</p>
+        <p>Die Grundlage ist eine Charta: 13 Standpunkte, die beschreiben, wie wir schreiben, was uns leitet und warum Unabhängigkeit keine Verhandlungssache ist.</p>
+    </div>
+    <a href="#standpunkte" class="charta-link">→ Zur Charta</a>
+</section>
+
+<!-- ── WARUM MITMACHEN ── -->
+<section class="section">
+    <p class="section-label">Warum 13×13</p>
+    <h2>Was du hier findest — und was nicht.</h2>
+    <p class="lead">Keine Redaktion, die dir sagt, was wichtig ist. Kein Algorithmus, der dir sagt, was ankommt. Nur Texte, die entstehen, weil jemand etwas beobachtet hat.</p>
+    <div class="warum-grid">
+        <div class="warum-card">
+            <div class="warum-nr">01</div>
+            <h3>Unabhängig</h3>
+            <p>Kein Inserent, kein Sponsor, keine Partei im Hintergrund. Was du schreibst, gehört dir.</p>
+        </div>
+        <div class="warum-card">
+            <div class="warum-nr">02</div>
+            <h3>Offen für Form</h3>
+            <p>Reportage, Essay, Glosse, Gedicht — solange es ehrlich ist, hat es bei 13×13 Platz.</p>
+        </div>
+        <div class="warum-card">
+            <div class="warum-nr">03</div>
+            <h3>Gemeinschaft</h3>
+            <p>Eine Plattform, die wächst. Mit Menschen, die denken. Aus dem Wallis heraus, über das Wallis hinaus.</p>
+        </div>
+        <div class="warum-card">
+            <div class="warum-nr">04</div>
+            <h3>Deine Stimme</h3>
+            <p>13×13 versteht sich als Forum. Auch für unbequeme Positionen, solange du fair argumentierst.</p>
+        </div>
+        <div class="warum-card">
+            <div class="warum-nr">05</div>
+            <h3>Kein Druck</h3>
+            <p>Du entscheidest, wann und worüber du schreibst. Einmal im Monat reicht vollkommen.</p>
+        </div>
+        <div class="warum-card">
+            <div class="warum-nr">06</div>
+            <h3>Sorgfalt</h3>
+            <p>Feedback von der Community, keine roten Stifte. Wer substanzielle Hinweise gibt, wird gehört.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 13 STANDPUNKTE ── -->
+
+<!-- ── STANDPUNKTE LINK ── -->
+<div class="standpunkte-bg" id="standpunkte">
+<section class="section">
+    <p class="section-label">Was wir denken</p>
+    <h2>13 Standpunkte, die uns leiten.</h2>
+    <p class="lead">Wer für 13×13 schreibt, teilt diese Haltungen — zumindest im Grundsatz.</p>
+    <div class="sp-link-box">
+        <p>Die 13 Standpunkte sind das Fundament der Plattform — formuliert, diskutiert, beschlossen.</p>
+        <a href="/standpunkte/">→ Zu den Standpunkten</a>
+    </div>
+</section>
+</div>
+
+
+
+<!-- ── CHARTA DER SCHREIBENDEN ── -->
+<div class="charta-bg">
+<section class="section">
+    <p class="section-label" style="color:#E87070;">Charta der Schreibenden</p>
+    <h2>Wer für 13×13 schreibt, teilt diese Grundsätze.</h2>
+    <p class="charta-intro">Die Charta ist kein Regelwerk, das kontrolliert — sie ist ein Bekenntnis, das verbindet. Wer einen Beitrag einreicht, erklärt sich damit einverstanden. Nicht weil es verlangt wird, sondern weil es selbstverständlich sein sollte.</p>
+    <div class="charta-liste">
+        <div class="charta-item">
+            <span class="charta-item-nr">01</span>
+            <div><h3>Ich schreibe frei.</h3><p>Meine Texte entstehen ohne kommerziellen Auftrag, ohne politische Weisung und ohne persönliche Vorteilsnahme. Wenn ich in einem Thema befangen bin, sage ich es.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">02</span>
+            <div><h3>Ich stehe zu meinen Worten.</h3><p>Was ich schreibe, habe ich recherchiert oder klar als Meinung kenntlich gemacht. Fakten und Haltungen trenne ich bewusst. Für beides übernehme ich Verantwortung.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">03</span>
+            <div><h3>Ich schreibe mit Haltung — und mit Respekt.</h3><p>Kritik an der Sache ist erwünscht, Angriffe auf die Person sind es nicht. Auch wer anderer Meinung ist, verdient einen fairen Umgang.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">04</span>
+            <div><h3>Ich sage, was ich denke.</h3><p>Gefälligkeitstexte liegen mir fern. Ich schreibe, was ich für wahr und wichtig halte — auch wenn es unbequem ist.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">05</span>
+            <div><h3>Ich dulde keine Diskriminierung.</h3><p>Sexismus, Rassismus, Homophobie und jede Form menschenfeindlicher Äusserungen haben in meinen Texten keinen Platz — weder offen noch versteckt.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">06</span>
+            <div><h3>Ich bin erkennbar.</h3><p>Ich schreibe unter meinem Namen. Wer für eine öffentliche Plattform schreibt, steht dazu. Ausnahmen bespreche ich offen mit der Gemeinschaft.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">07</span>
+            <div><h3>Mein Text gehört mir.</h3><p>Die Urheberrechte verbleiben bei mir. Ich räume 13×13.ch das Recht zur Erstveröffentlichung und dauerhaften Online-Publikation ein.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">08</span>
+            <div><h3>Ich respektiere substanzielle Einwände.</h3><p>Wenn die Gemeinschaft oder das Board begründete Hinweise zu meinen Beiträgen hat, nehme ich diese ernst und setze mich damit auseinander. Nicht weil ich muss — sondern weil gemeinsame Sorgfalt zum Anspruch gehört, den wir alle teilen.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">09</span>
+            <div><h3>Ich trage zur Gemeinschaft bei.</h3><p>13×13 lebt vom Zusammenspiel vieler Stimmen. Ich bringe mich konstruktiv ein — auch in der Diskussion, auch wenn ich anderer Meinung bin.</p></div>
+        </div>
+        <div class="charta-item">
+            <span class="charta-item-nr">10</span>
+            <div><h3>Ich schreibe selbst.</h3><p>KI darf mich beim Korrekturlesen unterstützen — nicht beim Denken, nicht beim Formulieren, nicht beim Ersetzen meiner eigenen Stimme. Wo KI bei der Recherche mitgewirkt hat, weise ich darauf hin. Transparenz ist keine Option — sie ist Pflicht.</p></div>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ── THEMEN ── -->
+<section class="section">
+    <p class="section-label">13 Themen</p>
+    <h2>Worüber wir schreiben.</h2>
+    <p class="lead">Dreizehn Rubriken, jeden Monat neu bespielt. Findest du deine.</p>
+    <div class="themen-grid">
+        <div class="thema-tag"><span class="thema-nr">01</span>Politik</div>
+        <div class="thema-tag"><span class="thema-nr">02</span>Gesellschaft</div>
+        <div class="thema-tag"><span class="thema-nr">03</span>Wirtschaft</div>
+        <div class="thema-tag"><span class="thema-nr">04</span>Kultur</div>
+        <div class="thema-tag"><span class="thema-nr">05</span>Ästhetik</div>
+        <div class="thema-tag"><span class="thema-nr">06</span>Natur und Umwelt</div>
+        <div class="thema-tag"><span class="thema-nr">07</span>Jung und alt</div>
+        <div class="thema-tag"><span class="thema-nr">08</span>Tourismus</div>
+        <div class="thema-tag"><span class="thema-nr">09</span>Geschichte</div>
+        <div class="thema-tag"><span class="thema-nr">10</span>Sport</div>
+        <div class="thema-tag"><span class="thema-nr">11</span>Genuss</div>
+        <div class="thema-tag"><span class="thema-nr">12</span>Humor</div>
+        <div class="thema-tag"><span class="thema-nr">13</span>Comic</div>
+    </div>
+        <div class="thema-tag"><span class="thema-nr">02</span>Wirtschaft</div>
+        <div class="thema-tag"><span class="thema-nr">03</span>Gesellschaft</div>
+        <div class="thema-tag"><span class="thema-nr">04</span>Kultur</div>
+        <div class="thema-tag"><span class="thema-nr">05</span>Politik</div>
+        <div class="thema-tag"><span class="thema-nr">06</span>Natur</div>
+        <div class="thema-tag"><span class="thema-nr">07</span>Geschichte</div>
+        <div class="thema-tag"><span class="thema-nr">08</span>Menschen</div>
+        <div class="thema-tag"><span class="thema-nr">09</span>Sprache</div>
+        <div class="thema-tag"><span class="thema-nr">10</span>Mobilität</div>
+        <div class="thema-tag"><span class="thema-nr">11</span>Wohnen</div>
+        <div class="thema-tag"><span class="thema-nr">12</span>Bildung</div>
+        <div class="thema-tag"><span class="thema-nr">13</span>Zukunft</div>
+    </div>
+</section>
+
+<!-- ── WEN WIR SUCHEN ── -->
+<div class="suchen-bg">
+<section class="section">
+    <p class="section-label" style="color:#E87070;">Wen wir suchen</p>
+    <h2>Nicht Journalist:innen. Menschen.</h2>
+    <p class="lead">Du musst nicht Schreiben studiert haben. Du musst etwas beobachtet, erlebt oder gedacht haben, das andere interessiert.</p>
+    <div class="segment-grid">
+        <div class="segment">
+            <h3>Beobachtende</h3>
+            <p>Menschen, die genau hinschauen — und das Gesehene in Worte fassen wollen. Lehrer:innen, Ärzt:innen, Bäuer:innen.</p>
+        </div>
+        <div class="segment">
+            <h3>Erfahrene</h3>
+            <p>Menschen mit einem Berufsleben oder einer Geschichte, die es wert ist, erzählt zu werden. Handwerker:innen, Unternehmer:innen.</p>
+        </div>
+        <div class="segment">
+            <h3>Kritische</h3>
+            <p>Menschen, die sich ärgern, wundern oder widersetzen — und das fair begründen können. Bürger:innen mit Haltung.</p>
+        </div>
+        <div class="segment">
+            <h3>Kreative</h3>
+            <p>Schreibende, Fotograf:innen, Illustrator:innen — wer Texte visuell oder sprachlich erweitern kann.</p>
+        </div>
+        <div class="segment">
+            <h3>Ausgewanderte</h3>
+            <p>Wer das Wallis verlassen hat und einen anderen Blick mitgebracht hat — von aussen nach innen.</p>
+        </div>
+        <div class="segment">
+            <h3>Zugezogene</h3>
+            <p>Wer ins Wallis gekommen ist und Erstaunliches beobachtet — von innen nach innen, frisch.</p>
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- ── FORMAT ── -->
+<section class="section">
+    <p class="section-label">Das Format</p>
+    <h2>Wie ein Beitrag bei 13×13 aussieht.</h2>
+    <p class="lead">Keine Vorgaben zur Länge. Keine Pflicht zur Regelmässigkeit. Aber ein klares Bekenntnis zur Sorgfalt.</p>
+    <div class="format-liste">
+        <div class="format-item">
+            <div class="format-icon">✍️</div>
+            <h3>Texte — offen in der Form</h3>
+            <p>Reportage, Essay, Meinungsstück, Gedicht, fiktiver Monolog. So lang oder kurz wie nötig. Kein Zeichenlimit.</p>
+        </div>
+        <div class="format-item">
+            <div class="format-icon">📸</div>
+            <h3>Bildessays — willkommen</h3>
+            <p>Fotos mit Bildunterschriften, visuelle Serien, Illustrationen. Alles, was einen Ort oder ein Thema zeigt.</p>
+        </div>
+        <div class="format-item">
+            <div class="format-icon">🤖</div>
+            <h3>KI — transparent</h3>
+            <p>Wer KI für Recherche oder Korrektur nutzt, kennzeichnet das. Den Text selbst schreibt der Mensch.</p>
+        </div>
+        <div class="format-item">
+            <div class="format-icon">🔄</div>
+            <h3>Rhythmus — selbstbestimmt</h3>
+            <p>Einmal im Monat? Einmal im Quartal? Das bestimmst du. 13×13 ist kein Arbeitgeber.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── ZITAT ── -->
+<div class="zitat-bg">
+<section class="section-sm">
+    <blockquote>Das Wallis hat mehr Geschichten als Leute, die sie erzählen. Das wollen wir ändern.</blockquote>
+    <cite>— 13×13, Standpunkt 01</cite>
+</section>
+</div>
+
+<!-- ── PROZESS ── -->
+<section class="section">
+    <p class="section-label">So einfach geht's</p>
+    <h2>In vier Schritten dabei.</h2>
+    <div class="prozess-liste">
+        <div class="prozess-schritt">
+            <div class="prozess-nr">1</div>
+            <h3>Melden</h3>
+            <p>Formular ausfüllen, kurz erklären, warum du mitmachen möchtest.</p>
+        </div>
+        <div class="prozess-schritt">
+            <div class="prozess-nr">2</div>
+            <h3>Gespräch</h3>
+            <p>Kurzes Gespräch (20 Min.) — persönlich, per Telefon oder Zoom.</p>
+        </div>
+        <div class="prozess-schritt">
+            <div class="prozess-nr">3</div>
+            <h3>Ersten Beitrag</h3>
+            <p>Thema wählen, schreiben, einreichen. Feedback von der Community.</p>
+        </div>
+        <div class="prozess-schritt">
+            <div class="prozess-nr">4</div>
+            <h3>Dazugehören</h3>
+            <p>Veröffentlichung, Autorenprofile, Teil der Gemeinschaft werden.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── FORMULAR ── -->
+<div class="form-bg" id="formular">
+<div class="form-wrap">
+    <h2>Ich möchte mitmachen.</h2>
+    <p class="form-sub">Kein Bewerbungsverfahren. Kein Eignungstest. Nur ein erstes Gespräch.</p>
+
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="35fe392f-2657-4d72-adea-9d391da34fdb">
+        <input type="hidden" name="subject" value="Neue Mitmachen-Anfrage — 13×13">
+        <input type="hidden" name="redirect" value="https://13x13.ch/danke/">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="vorname">Vorname *</label>
+                <input type="text" id="vorname" name="vorname" required placeholder="Maria">
+            </div>
+            <div class="form-group">
+                <label for="nachname">Nachname *</label>
+                <input type="text" id="nachname" name="nachname" required placeholder="Roten">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required placeholder="maria@beispiel.ch">
+        </div>
+
+        <div class="form-group">
+            <label for="ort">Wohnort / Region</label>
+            <input type="text" id="ort" name="ort" placeholder="z.B. Visp, Brig, Zermatt ...">
+        </div>
+
+        <div class="form-group">
+            <label for="beruf">Beruf / Tätigkeit</label>
+            <input type="text" id="beruf" name="beruf" placeholder="z.B. Lehrerin, Landwirt, Architektin ...">
+        </div>
+
+        <div class="form-group">
+            <label>Welche Themen interessieren Sie? (mehrere möglich)</label>
+            <div class="checkbox-gruppe">
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Politik"> Politik</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Gesellschaft"> Gesellschaft</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Wirtschaft"> Wirtschaft</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Kultur"> Kultur</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Ästhetik"> Ästhetik</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Natur und Umwelt"> Natur und Umwelt</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Jung und alt"> Jung und alt</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Tourismus"> Tourismus</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Geschichte"> Geschichte</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Sport"> Sport</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Genuss"> Genuss</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Humor"> Humor</label>
+                <label class="checkbox-item"><input type="checkbox" name="themen" value="Comic"> Comic</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="motivation">Warum möchtest du mitmachen? *</label>
+            <textarea id="motivation" name="motivation" required placeholder="Ein paar Sätze genügen. Was treibt dich an? Worüber willst du schreiben?"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Anfrage senden →</button>
+        <p class="form-hinweis">Deine Daten werden nicht weitergegeben. Antwort innerhalb von 5 Werktagen.</p>
+    </form>
+</div>
+</div>
+
+<script>
+// Themen-Tags interaktiv (nur visuell, kein Filter-Effekt)
+document.querySelectorAll('.thema-tag').forEach(function(tag) {
+    tag.addEventListener('click', function() {
+        this.classList.toggle('aktiv');
+    });
+});
+</script>
+
+</body>
+</html>
