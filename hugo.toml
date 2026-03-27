@@ -94,5 +94,5 @@ theme = 'ananke'
 
 [[menu.main]]
  name = "Comic"
- url = "/categories/portraet/"
+ url = "/categories/humor/"
  weight = 13
