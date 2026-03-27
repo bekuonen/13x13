@@ -2,10 +2,50 @@
 title = '«Das ist mein Leben hier oben»'
 date = 2026-03-26
 categories = ['aesthetik']
-tags = ['Sennerin', 'Gletsch', 'Käse', 'Alpwirtschaft', 'Goms']
+tags = ['Alpwirtschaft', 'Landschaft', 'Fauna']
 authors = ['bernhard-kuonen']
 description = 'Ein fiktives Gespräch mit der Sennerin auf Gletsch — dreissig Jahre Käse, Kühe und Stille.'
 draft = false
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Alplandschaft, Goms"
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1566902025255-3b0083d0d6c7?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Kühe auf der Alp"
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Bergsee im Wallis"
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1508193638397-1e4745a4d39b?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Bergpfad im Herbst"
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Gipfel im Morgenrot"
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Winterlandschaft, Obergoms"
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Alpkäse, frisch gepresst"
+
+[[fotos]]
+  src = "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80"
+  fotograf = "Platzhalter / Unsplash"
+  caption = "Almwiese im Sommer"
 +++
 
 *Ein fiktives Gespräch auf der Alp Gletsch*
