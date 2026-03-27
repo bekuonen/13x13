@@ -64,12 +64,12 @@ theme = 'ananke'
 
 [[menu.main]]
   name = "Jung und alt"
-  url = "/categories/land-leute/"
+    url = "/categories/jung-und-alt/"
   weight = 7
 
 [[menu.main]]
   name = "Tourismus"
-  url = "/categories/reise/"
+    url = "/categories/tourismus/"
   weight = 8
 
 [[menu.main]]
