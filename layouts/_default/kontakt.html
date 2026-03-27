@@ -21,9 +21,8 @@ body{font-family:'DM Sans',sans-serif;background:#FAF8F5;color:#2D3640}
 .iframe-wrap{flex:1;min-height:0;border-radius:6px;overflow:hidden;background:#fff}
 .iframe-wrap iframe{display:block;width:100%;height:100%;min-height:290px;border:none}
 .nl-hint{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.75rem}
-.person-name{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:#2D3640}
-.person-role{font-size:0.85rem;color:#6B7280;margin-top:0.15rem;margin-bottom:1rem}
-.info-block{display:flex;flex-direction:column;gap:0.35rem;font-size:0.88rem;color:#4B5563;padding-bottom:1rem;border-bottom:1px solid #E8E4DE}
+.person-name{font-family:'Space Grotesk',sans-serif;font-size:0.9rem;font-weight:600;color:#2D3640;margin-bottom:0.4rem}
+.info-block{display:flex;flex-direction:column;gap:0.25rem;font-size:0.82rem;color:#6B7280;padding-bottom:0.75rem;border-bottom:1px solid #E8E4DE}
 .info-block a{color:#B8293D;text-decoration:none}
 .info-block a:hover{text-decoration:underline}
 .form-block{display:flex;flex-direction:column;gap:0.5rem;flex:1}
@@ -48,7 +47,6 @@ textarea{resize:vertical;min-height:75px}
 {{ partial "nav.html" . }}
 <div class="page-header"><h1>{{ .Title }}</h1></div>
 <div class="two-col">
-
   <div class="nl-col">
     <div class="col-label">Newsletter</div>
     <h2>Bleib dabei.</h2>
@@ -58,12 +56,10 @@ textarea{resize:vertical;min-height:75px}
     </div>
     <p class="nl-hint">{{ .Params.newsletter_hint }}</p>
   </div>
-
   <div class="contact-col">
     <div>
-      <div class="col-label">Redaktion</div>
+      <div class="col-label">Kontakt</div>
       <div class="person-name">{{ .Params.redaktion_name }}</div>
-      <div class="person-role">{{ .Params.redaktion_rolle }}</div>
       <div class="info-block">
         <span>{{ .Params.redaktion_adresse }}, {{ .Params.redaktion_adresse2 }}, {{ .Params.redaktion_plz }}</span>
         <a href="mailto:{{ .Params.redaktion_email }}">{{ .Params.redaktion_email }}</a>
@@ -92,19 +88,18 @@ textarea{resize:vertical;min-height:75px}
       </form>
     </div>
   </div>
-
 </div>
 <script>
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var data = {name: document.getElementById('name').value, email: document.getElementById('email').value, betreff: document.getElementById('betreff').value, nachricht: document.getElementById('nachricht').value, ts: new Date().toISOString()};
-  var all = JSON.parse(localStorage.getItem('13x13-kontakt') || '[]');
-  all.push(data);
-  localStorage.setItem('13x13-kontakt', JSON.stringify(all));
-  document.getElementById('contactSuccess').style.display = 'block';
-  this.reset();
-  setTimeout(function(){ document.getElementById('contactSuccess').style.display = 'none'; }, 4000);
-});
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = {name: document.getElementById('name').value, email: document.getElementById('email').value, betreff: document.getElementById('betreff').value, nachricht: document.getElementById('nachricht').value, ts: new Date().toISOString()};
+    var all = JSON.parse(localStorage.getItem('13x13-kontakt') || '[]');
+    all.push(data);
+    localStorage.setItem('13x13-kontakt', JSON.stringify(all));
+    document.getElementById('contactSuccess').style.display = 'block';
+    this.reset();
+    setTimeout(function(){ document.getElementById('contactSuccess').style.display = 'none'; }, 4000);
+  });
 </script>
 </body>
 </html>
