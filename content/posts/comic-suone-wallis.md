@@ -1,7 +1,7 @@
 +++
 title = "Der Algorithmus und der Alphirt"
 date = "2026-03-26"
-categories = ["portraet"]
+categories = ["humor"]
 tags = ["comic", "ki", "mensch", "wallis", "zukunft"]
 authors = ["bernhard-kuonen"]
 description = "Ein Comic-Stück: Was passiert, wenn KI auf einen Oberwalliser Alphirten trifft."
