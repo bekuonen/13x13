@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>test</head>
+<body>test</body>
+</html><!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 Fragen – {{ .Site.Title }}</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Manrope', sans-serif; background: #FAF8F5; color: #2D3640; line-height: 1.5; }
+        .page-header { background: #B8293D; padding: 3rem 2rem 2.5rem; text-align: center; }
+        .page-header h1 { font-size: 2rem; font-weight: 700; color: white; margin-bottom: 0.75rem; }
+        .page-header p { font-size: 1rem; color: rgba(255,255,255,0.85); max-width: 580px; margin: 0 auto; line-height: 1.6; }
+        .intro { max-width: 720px; margin: 3rem auto 2rem; padding: 0 2rem; }
+        .intro p { font-size: 1.05rem; color: #555; line-height: 1.75; }
+        .fragen-liste { max-width: 720px; margin: 0 auto; padding: 0 2rem 5rem; }
+        .frage { display: flex; align-items: baseline; gap: 1.25rem; padding: 1.1rem 0; border-bottom: 1px solid #eae8e4; }
+        .frage:last-child { border-bottom: none; }
+        .frage-nr { font-size: 0.75rem; font-weight: 700; color: #B8293D; letter-spacing: 0.06em; flex-shrink: 0; width: 2rem; text-align: right; }
+        .frage-text { font-size: 1.1rem; font-weight: 500; color: #2D3640; line-height: 1.5; }
+        @media (max-width: 600px) {
+            .page-header { padding: 2rem 1.25rem 1.75rem; }
+            .page-header h1 { font-size: 1.5rem; }
+            .intro, .fragen-liste { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .frage-text { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+{{ partial "nav.html" . }}
+<div class="page-header">
+    <h1>13 Fragen</h1>
+    <p>Eine Persönlichkeit. Dreizehn Fragen. Immer dieselben. Immer andere Antworten.</p>
+</div>
+<div class="intro">
+    <p>Angelehnt an den klassischen Proust-Fragebogen — wie ihn die FAZ seit Jahrzehnten pflegt — stellt 13×13 dreizehn Fragen an Menschen mit Bezug zum Wallis. Nicht nach dem Lebenslauf. Nach dem Charakter. Bäuerinnen und Bürgermeister, Künstlerinnen und Handwerker, Lehrpersonen und Unternehmer — alle auf denselben dreizehn Zeilen gleichgestellt.</p>
+</div>
+<div class="fragen-liste">
+    <div class="frage"><span class="frage-nr">01</span><span class="frage-text">Was ist Ihr frühestes Schreiberlebnis?</span></div>
+    <div class="frage"><span class="frage-nr">02</span><span class="frage-text">Welche Eigenschaft schätzen Sie an einem Menschen am meisten?</span></div>
+    <div class="frage"><span class="frage-nr">03</span><span class="frage-text">Was ist Ihr grösster Fehler?</span></div>
+    <div class="frage"><span class="frage-nr">04</span><span class="frage-text">Worüber können Sie lachen?</span></div>
+    <div class="frage"><span class="frage-nr">05</span><span class="frage-text">Was hat Sie am stärksten geprägt — ein Buch, ein Ort, ein Mensch?</span></div>
+    <div class="frage"><span class="frage-nr">06</span><span class="frage-text">Was würden Sie am Wallis sofort ändern?</span></div>
+    <div class="frage"><span class="frage-nr">07</span><span class="frage-text">Gehört das Wallis zur Schweiz?</span></div>
+    <div class="frage"><span class="frage-nr">08</span><span class="frage-text">Was ist für Sie Glück?</span></div>
+    <div class="frage"><span class="frage-nr">09</span><span class="frage-text">Wofür schämen Sie sich?</span></div>
+    <div class="frage"><span class="frage-nr">10</span><span class="frage-text">Von wem würden Sie sich gerne bekochen lassen?</span></div>
+    <div class="frage"><span class="frage-nr">11</span><span class="frage-text">Was wären Sie, wenn Sie nicht Sie wären?</span></div>
+    <div class="frage"><span class="frage-nr">12</span><span class="frage-text">Was sagen andere über Sie — und haben sie recht?</span></div>
+    <div class="frage"><span class="frage-nr">13</span><span class="frage-text">Was würden Sie zu 13×13 beitragen?</span></div>
+</div>
+</body>
+</html>
