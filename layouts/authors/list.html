@@ -4,30 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Die Schreibenden – {{ .Site.Title }}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=space-grotesk:400,500,600,700|dm-sans:400,400i,500,600" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.7}
+        body{font-family:'DM Sans',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.7}
         h1,h2,h3{font-family:'Space Grotesk',sans-serif}
 
-        .hero{background:linear-gradient(135deg,#2D3640 0%,#1a1f26 100%);padding:4rem 2rem 3rem;text-align:center;color:white}
+        .hero{background:linear-gradient(135deg,#2D3640 0%,#1a1f26 100%);padding:2rem 2rem 1.5rem;text-align:center;color:white}
         .hero h1{font-size:2.8rem;margin-bottom:0.5rem}
         .hero p{color:rgba(255,255,255,0.7);font-size:1.1rem;max-width:600px;margin:0 auto}
 
-        .container{max-width:1100px;margin:0 auto;padding:3rem 2rem}
+        .container{max-width:1100px;margin:0 auto;padding:1.5rem 2rem}
 
-        .authors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
+        .authors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
 
         .author-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:all 0.3s;position:relative}
         .author-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
 
         .card-accent{height:4px;background:linear-gradient(90deg,#B8293D,#d4475c)}
 
-        .card-body{padding:2rem;text-align:center}
+        .card-body{padding:1.25rem;text-align:center}
 
-        .author-avatar{width:140px;height:140px;position:relative;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:2rem;color:white;background:linear-gradient(135deg,#B8293D 0%,#8B1F2E 100%);box-shadow:0 4px 12px rgba(184,41,61,0.25);overflow:hidden;border:3px solid #8B2332}
+        .author-avatar{width:90px;height:90px;position:relative;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:white;background:linear-gradient(135deg,#B8293D 0%,#8B1F2E 100%);box-shadow:0 4px 12px rgba(184,41,61,0.25);overflow:hidden;border:3px solid #8B2332}
         .author-avatar img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) sepia(80%) hue-rotate(-15deg) saturate(2.5) contrast(1.1);transition:filter 0.3s}.author-card:hover .author-avatar img{filter:grayscale(0%)}.author-avatar::after{content:"";position:absolute;top:0;left:50%;width:50%;height:100%;background:rgba(255,255,255,0.75);border-radius:0 100px 100px 0;backdrop-filter:contrast(2) brightness(1.5) grayscale(100%);pointer-events:none;transition:opacity 0.4s;z-index:2}.author-card:hover .author-avatar::after{opacity:0}
 
         .author-card h2{font-size:1.4rem;margin-bottom:0.3rem}
@@ -46,7 +45,7 @@
         .card-link:hover{opacity:0.7}
         .card-link::after{content:' →'}
 
-        .team-stats{display:flex;justify-content:center;gap:3rem;margin-bottom:3rem;flex-wrap:wrap}
+        .team-stats{display:flex;justify-content:center;gap:3rem;margin-bottom:1.5rem;flex-wrap:wrap}
         .stat{text-align:center}
         .stat-number{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:#B8293D;display:block}
         .stat-label{font-size:0.85rem;color:#999;text-transform:uppercase;letter-spacing:0.05em}
