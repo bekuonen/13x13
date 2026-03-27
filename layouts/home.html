@@ -69,15 +69,20 @@
     .thema-count{font-size:0.72rem;color:#9CA3AF}
 
     /* ── EMPFEHLUNGEN ── */
-    .empfehlungen{background:#fff;padding:2rem 0;border-top:1px solid #E8E4DE}
-    .emp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-    .emp-card{border-radius:8px;padding:1.5rem;border:1px solid #B8293D;background:#fff;transition:box-shadow 0.2s}
-    .emp-card:hover{box-shadow:0 4px 16px rgba(184,41,61,0.12)}
-    .emp-type{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#B8293D;margin-bottom:0.5rem;display:block}
-    .emp-name{font-size:1rem;font-weight:700;color:#2D3640;margin-bottom:0.5rem}
-    .emp-desc{font-size:0.85rem;color:#6B7280;line-height:1.6;margin-bottom:1rem}
-    .emp-link{font-size:0.8rem;font-weight:600;color:#B8293D}
-    .emp-link:hover{text-decoration:underline}
+    .mitmachen-teaser{background:#2D3640;padding:1.25rem 0;border-top:1px solid #E8E4DE}
+    .mitmachen-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .mitmachen-text .section-label{color:#B8293D}
+    .mitmachen-title{font-family:'Space Grotesk',sans-serif;font-size:1.2rem;font-weight:700;color:#FAF8F5;margin-bottom:0.3rem}
+    .mitmachen-lead{font-size:0.875rem;color:rgba(255,255,255,0.65);line-height:1.5;max-width:480px}
+    .btn-mitmachen{display:inline-block;background:#B8293D;color:#fff;padding:0.6rem 1.4rem;border-radius:4px;font-family:'Space Grotesk',sans-serif;font-size:0.875rem;font-weight:600;white-space:nowrap}
+    .btn-mitmachen:hover{background:#9a2233}
+    .empf-mini{margin-top:0.5rem;font-size:0.78rem}
+    .empf-mini a{color:rgba(255,255,255,0.45)}
+    .empf-mini a:hover{color:rgba(255,255,255,0.85)}
+    .hero-actions{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center}
+    .hero-cta-out{display:inline-block;background:transparent;color:#B8293D;border:2px solid #B8293D;padding:0.7rem 1.5rem;border-radius:4px;font-size:0.875rem;font-weight:600;transition:all 0.2s}
+    .hero-cta-out:hover{background:#B8293D;color:#fff}
+    @media(max-width:700px){.mitmachen-inner{flex-direction:column;align-items:flex-start}}
 
     /* ── SCHREIBENDE ── */
     .schreibende{padding:2rem 0}
@@ -104,7 +109,6 @@
       .aktuell-grid{grid-template-columns:1fr}
       .standpunkte-inner{grid-template-columns:1fr}
       .themen-grid{grid-template-columns:repeat(3,1fr)}
-      .emp-grid{grid-template-columns:1fr}
       .autoren-grid{grid-template-columns:repeat(2,1fr)}
       .footer-inner{flex-direction:column;text-align:center}
     }
@@ -123,7 +127,10 @@
     <span class="hero-eyebrow">13x13 &mdash; Geschichten aus dem Wallis</span>
     <h1 class="hero-claim">Wir schreiben nicht &uuml;ber das Wallis.<br>Wir schreiben aus ihm heraus.</h1>
     <p class="hero-lead">Dreizehn Schreibende. Dreizehn Themen. Ein gemeinsames Wallis &mdash; in Texten, die Haltung zeigen.</p>
-    <a href="/standpunkte/" class="hero-cta">Mehr &uuml;ber uns &rarr;</a>
+    <div class="hero-actions">
+  <a href="/standpunkte/" class="hero-cta">Mehr über uns →</a>
+  <a href="/mitmachen/" class="hero-cta-out">Mitmachen →</a>
+</div>
   </div>
 </section>
 
@@ -215,42 +222,19 @@
   </div>
 </section>
 
-<!-- ══ 13 EMPFEHLUNGEN ═══════════════════════════════════ -->
-<section class="empfehlungen">
+<!-- ══ MITMACHEN ════════════════════════════════════════════ -->
+<section class="mitmachen-teaser">
   <div class="container">
-    <span class="section-label">13 Empfehlungen</span>
-    <h2 class="section-title">Kuratiert. Verankert. Empfohlen.</h2>
-    <div class="emp-grid">
-      {{- $recs := where .Site.RegularPages "Section" "marktplatz" | first 3 }}
-      {{- if $recs }}
-        {{- range $recs }}
-        <div class="emp-card">
-          <span class="emp-type">{{ .Params.kategorie | default "Empfehlung" }}</span>
-          <div class="emp-name">{{ .Title }}</div>
-          <p class="emp-desc">{{ .Params.description | default .Summary }}</p>
-          <a href="{{ .RelPermalink }}" class="emp-link">Mehr erfahren &rarr;</a>
-        </div>
-        {{- end }}
-      {{- else }}
-      <div class="emp-card">
-        <span class="emp-type">Ort</span>
-        <div class="emp-name">Walliser Weinkeller</div>
-        <p class="emp-desc">Ein Ort, der Geschichte atmet &mdash; und die besten Walliser Weine beherbergt.</p>
-        <a href="/marktplatz/" class="emp-link">Alle Empfehlungen &rarr;</a>
+    <div class="mitmachen-inner">
+      <div class="mitmachen-text">
+        <span class="section-label">Mitmachen</span>
+        <h2 class="mitmachen-title">Schreiben aus dem Wallis.</h2>
+        <p class="mitmachen-lead">Du hast eine Haltung, eine Geschichte, eine Stimme — und möchtest Teil von 13×13 werden? Wir freuen uns auf dich.</p>
       </div>
-      <div class="emp-card">
-        <span class="emp-type">Erlebnis</span>
-        <div class="emp-name">Auf dem Höhenweg</div>
-        <p class="emp-desc">Wandern zwischen Gletschern und Rebbergen &mdash; das Wallis zu Fuss entdecken.</p>
-        <a href="/marktplatz/" class="emp-link">Alle Empfehlungen &rarr;</a>
+      <div>
+        <a href="/mitmachen/" class="btn-mitmachen">Jetzt mitmachen →</a>
+        <div class="empf-mini"><a href="/marktplatz/">13 Empfehlungen →</a></div>
       </div>
-      <div class="emp-card">
-        <span class="emp-type">Text</span>
-        <div class="emp-name">Lektüre aus dem Rhonetal</div>
-        <p class="emp-desc">Bücher, die verstehen, was das Wallis ausmacht &mdash; von Menschen, die hier zuhause sind.</p>
-        <a href="/marktplatz/" class="emp-link">Alle Empfehlungen &rarr;</a>
-      </div>
-      {{- end }}
     </div>
   </div>
 </section>
@@ -303,6 +287,7 @@
     <div class="footer-inner">
       <span class="footer-brand">13&times;13 &mdash; Geschichten aus dem Wallis</span>
       <nav class="footer-links">
+        <a href="/mitmachen/">Mitmachen</a>
         <a href="/kontakt/">Kontakt</a>
         <a href="/archiv/">Archiv</a>
         <a href="/impressum/">Impressum</a>
