@@ -1,7 +1,7 @@
 +++
 title = 'Münster plant die Zukunft'
 date = 2026-02-05
-categories = ['land-leute']
+categories = ['Jung und alt']
 tags = ['Gemeinde', 'Entwicklung', 'Infrastruktur', 'Goms']
 authors = ['thomas-summermatter']
 description = 'Die Gemeinde Münster stellt ihre Strategie 2035 vor - ein ambitionierter Plan für die Zukunft des Dorfes.'
