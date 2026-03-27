@@ -6,7 +6,7 @@ theme = 'ananke'
 
 [params]
   description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.
-  author = 'Redaktion 13Ã13'
+  author = 'Redaktion 13Ã13'
   featured_image = ''
   background_color_class = 'bg-near-white'
   recent_posts_number = 3
@@ -53,8 +53,8 @@ theme = 'ananke'
   weight = 4
 
 [[menu.main]]
-  name = "Handwerk"
-  url = "/categories/handwerk/"
+  name = "Ästhetik"
+  url = "/categories/aesthetik/"
   weight = 5
 
 [[menu.main]]
