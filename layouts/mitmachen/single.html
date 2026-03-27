@@ -85,12 +85,12 @@
         .section {
             max-width: 960px;
             margin: 0 auto;
-            padding: 3rem var(--rand);
+            padding: 4rem var(--rand);
         }
         .section-sm {
             max-width: 720px;
             margin: 0 auto;
-            padding: 2.5rem var(--rand);
+            padding: 4rem var(--rand);
         }
         .section-label {
             font-size: 0.75rem;
@@ -115,7 +115,7 @@
         .lead {
             font-size: 1.1rem;
             color: var(--grau);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             max-width: 600px;
         }
 
@@ -123,8 +123,8 @@
         .warum-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-top: 1.5rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         .warum-card {
             background: white;
@@ -305,7 +305,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            margin-top: 1.75rem;
+            margin-top: 2.5rem;
             counter-reset: prozess;
         }
         .prozess-schritt {
@@ -344,7 +344,7 @@
         .form-wrap {
             max-width: 640px;
             margin: 0 auto;
-            padding: 3rem var(--rand);
+            padding: 4rem var(--rand);
         }
         .form-wrap h2 {
             font-family: 'Space Grotesk', sans-serif;
@@ -432,34 +432,14 @@
             .warum-grid { grid-template-columns: 1fr 1fr; }
             .segment-grid { grid-template-columns: 1fr 1fr; }
             .prozess-liste { grid-template-columns: repeat(2, 1fr); }
-            .section { padding: 2.5rem var(--rand); }
-            .form-wrap { padding: 2.5rem var(--rand); }
         }
         @media (max-width: 640px) {
-            :root { --rand: 1.1rem; }
-            body { line-height: 1.5; }
-            .section { padding: 2rem var(--rand); }
-            .section-sm { padding: 1.75rem var(--rand); }
-            .form-wrap { padding: 2rem var(--rand); }
-            .hero { padding: 2.5rem var(--rand) 2rem; }
-            .zitat-bg .section-sm { padding: 2.5rem var(--rand); }
+            :root { --rand: 1.25rem; }
             .warum-grid, .segment-grid, .prozess-liste, .format-liste { grid-template-columns: 1fr; }
             .sp-liste { grid-template-columns: 1fr; }
             .form-row { grid-template-columns: 1fr; }
             .themen-grid { grid-template-columns: repeat(2, 1fr); }
-            .lead { font-size: 0.92rem; margin-bottom: 1.25rem; }
-            .konzept-text p { font-size: 0.95rem; margin-bottom: 0.6rem; }
-            .warum-card { padding: 1.1rem 0.9rem; }
-            .warum-nr { font-size: 1.5rem; }
-            .charta-item { padding: 0.85rem 0; gap: 1rem; }
-            .charta-item h3 { font-size: 0.9rem; }
-            .charta-item p { font-size: 0.82rem; line-height: 1.5; }
-            .charta-intro { font-size: 0.9rem; margin-bottom: 1.75rem; }
-            .sp-item { padding: 0.75rem 0.9rem; }
-            .format-item { padding: 1.1rem; }
-            .prozess-schritt p { font-size: 0.8rem; }
-            blockquote { font-size: 1.1rem; }
-            .sp-link-box { padding: 1.1rem 1.25rem; flex-direction: column; gap: 0.75rem; }
+            .hero { padding: 3rem var(--rand) 2.5rem; }
         }
 
         /* ── KURZKONZEPT ── */
@@ -467,7 +447,7 @@
         .konzept-text p {
             font-size: 1.1rem;
             line-height: 1.75;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             max-width: 680px;
         }
         .konzept-text p:last-child { margin-bottom: 1.75rem; }
@@ -569,7 +549,7 @@
 <section class="hero">
     <span class="hero-label">13×13 — Mitmachen</span>
     <h1>Schreiben, was das <em>Wallis</em> bewegt.</h1>
-    <p>13×13 ist ein unabhängiges Magazin für Menschen, die etwas zu sagen haben — nicht für die lautesten, sondern für die aufmerksamsten.</p>
+    <p>13×13 ist eine unabhängige Plattform für Menschen, die etwas zu sagen haben — nicht die lautesten, sondern die aufmerksamsten.</p>
     <a href="#formular" class="hero-btn">Jetzt mitmachen</a>
 </section>
 
@@ -588,13 +568,13 @@
 <!-- ── WARUM MITMACHEN ── -->
 <section class="section">
     <p class="section-label">Warum 13×13</p>
-    <h2>Was Sie hier finden — und was nicht.</h2>
-    <p class="lead">Keine Redaktion, die Ihnen sagt, was wichtig ist. Kein Algorithmus, der Ihnen sagt, was ankommt. Nur Texte, die entstehen, weil jemand etwas beobachtet hat.</p>
+    <h2>Was du hier findest — und was nicht.</h2>
+    <p class="lead">Keine Redaktion, die dir sagt, was wichtig ist. Kein Algorithmus, der dir sagt, was ankommt. Nur Texte, die entstehen, weil jemand etwas beobachtet hat.</p>
     <div class="warum-grid">
         <div class="warum-card">
             <div class="warum-nr">01</div>
             <h3>Unabhängig</h3>
-            <p>Kein Inserent, kein Sponsor, keine Partei im Hintergrund. Was Sie schreiben, gehört Ihnen.</p>
+            <p>Kein Inserent, kein Sponsor, keine Partei im Hintergrund. Was du schreibst, gehört dir.</p>
         </div>
         <div class="warum-card">
             <div class="warum-nr">02</div>
@@ -609,12 +589,12 @@
         <div class="warum-card">
             <div class="warum-nr">04</div>
             <h3>Ihre Stimme</h3>
-            <p>13×13 versteht sich als Forum. Auch für unbequeme Positionen, solange sie fair argumentieren.</p>
+            <p>13×13 versteht sich als Forum. Auch für unbequeme Positionen, solange du fair argumentierst.</p>
         </div>
         <div class="warum-card">
             <div class="warum-nr">05</div>
             <h3>Kein Druck</h3>
-            <p>Sie entscheiden, wann und worüber Sie schreiben. Einmal im Monat reicht vollkommen.</p>
+            <p>Du entscheidest, wann und worüber du schreibst. Einmal im Monat reicht vollkommen.</p>
         </div>
         <div class="warum-card">
             <div class="warum-nr">06</div>
@@ -732,7 +712,7 @@
 <section class="section">
     <p class="section-label" style="color:#E87070;">Wen wir suchen</p>
     <h2>Nicht Journalist:innen. Menschen.</h2>
-    <p class="lead">Sie müssen nicht Schreiben studiert haben. Sie müssen etwas beobachtet, erlebt oder gedacht haben, das andere interessiert.</p>
+    <p class="lead">Du musst nicht Schreiben studiert haben. Du musst etwas beobachtet, erlebt oder gedacht haben, das andere interessiert.</p>
     <div class="segment-grid">
         <div class="segment">
             <h3>Beobachtende</h3>
@@ -786,7 +766,7 @@
         <div class="format-item">
             <div class="format-icon">🔄</div>
             <h3>Rhythmus — selbstbestimmt</h3>
-            <p>Einmal im Monat? Einmal im Quartal? Das bestimmen Sie. 13×13 ist kein Arbeitgeber.</p>
+            <p>Einmal im Monat? Einmal im Quartal? Das bestimmst du. 13×13 ist kein Arbeitgeber.</p>
         </div>
     </div>
 </section>
@@ -807,7 +787,7 @@
         <div class="prozess-schritt">
             <div class="prozess-nr">1</div>
             <h3>Melden</h3>
-            <p>Formular ausfüllen, kurz erklären, warum Sie mitmachen möchten.</p>
+            <p>Formular ausfüllen, kurz erklären, warum du mitmachen möchtest.</p>
         </div>
         <div class="prozess-schritt">
             <div class="prozess-nr">2</div>
@@ -890,7 +870,7 @@
         </div>
 
         <button type="submit" class="submit-btn">Anfrage senden →</button>
-        <p class="form-hinweis">Ihre Daten werden nicht weitergegeben. Antwort innerhalb von 5 Werktagen.</p>
+        <p class="form-hinweis">Deine Daten werden nicht weitergegeben. Antwort innerhalb von 5 Werktagen.</p>
     </form>
 </div>
 </div>
