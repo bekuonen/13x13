@@ -5,94 +5,94 @@ title = '13×13 – Geschichten aus dem Wallis'
 theme = 'ananke'
 
 [params]
-  description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.
-  author = 'Redaktion 13Ã13'
-  featured_image = ''
-  background_color_class = 'bg-near-white'
-  recent_posts_number = 3
+ description = 'Dreizehn Themen. Dreizehn Perspektiven. Jeden Monat neu.'
+ author = 'Redaktion 13×13'
+ featured_image = ''
+ background_color_class = 'bg-near-white'
+ recent_posts_number = 3
 
-  [params.giscus]
-    repo = "bekuonen/13x13"
-    repoid = "R_kgDORNugmg"
-    category = "General"
-    categoryid = "DIC_kwDORNugms4C2s5m"
-    mapping = "pathname"
-    reactionsenabled = "1"
-    theme = "preferred_color_scheme"
+ [params.giscus]
+  repo = "bekuonen/13x13"
+  repoid = "R_kgDORNugmg"
+  category = "General"
+  categoryid = "DIC_kwDORNugms4C2s5m"
+  mapping = "pathname"
+  reactionsenabled = "1"
+  theme = "preferred_color_scheme"
 
 [taxonomies]
-  category = 'categories'
-  tag = 'tags'
-  author = 'authors'
+ category = 'categories'
+ tag = 'tags'
+ author = 'authors'
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+ [markup.goldmark]
+  [markup.goldmark.renderer]
+   unsafe = true
 
 # Kategorien-Navigation: 13 Ansichten
 
 [[menu.main]]
-  name = "Politik"
-  url = "/categories/politik/"
-  weight = 1
+ name = "Politik"
+ url = "/categories/politik/"
+ weight = 1
 
 [[menu.main]]
-  name = "Gesellschaft"
-  url = "/categories/gesellschaft/"
-  weight = 2
+ name = "Gesellschaft"
+ url = "/categories/gesellschaft/"
+ weight = 2
 
 [[menu.main]]
-  name = "Wirtschaft"
-  url = "/categories/wirtschaft/"
-  weight = 3
+ name = "Wirtschaft"
+ url = "/categories/wirtschaft/"
+ weight = 3
 
 [[menu.main]]
-  name = "Kultur"
-  url = "/categories/kultur/"
-  weight = 4
+ name = "Kultur"
+ url = "/categories/kultur/"
+ weight = 4
 
 [[menu.main]]
-  name = "Ästhetik"
-  url = "/categories/aesthetik/"
-  weight = 5
+ name = "Ästhetik"
+ url = "/categories/aesthetik/"
+ weight = 5
 
 [[menu.main]]
-  name = "Natur und Umwelt"
-  url = "/categories/natur/"
-  weight = 6
+ name = "Natur und Umwelt"
+ url = "/categories/natur/"
+ weight = 6
 
 [[menu.main]]
-  name = "Jung und alt"
-    url = "/categories/jung-und-alt/"
-  weight = 7
+ name = "Jung und alt"
+ url = "/categories/jung-und-alt/"
+ weight = 7
 
 [[menu.main]]
-  name = "Tourismus"
-    url = "/categories/tourismus/"
-  weight = 8
+ name = "Tourismus"
+ url = "/categories/tourismus/"
+ weight = 8
 
 [[menu.main]]
-  name = "Geschichte"
-  url = "/categories/geschichte/"
-  weight = 9
+ name = "Geschichte"
+ url = "/categories/geschichte/"
+ weight = 9
 
 [[menu.main]]
-  name = "Sport"
-  url = "/categories/sport/"
-  weight = 10
+ name = "Sport"
+ url = "/categories/sport/"
+ weight = 10
 
 [[menu.main]]
-  name = "Genuss"
-  url = "/categories/genuss/"
-  weight = 11
+ name = "Genuss"
+ url = "/categories/genuss/"
+ weight = 11
 
 [[menu.main]]
-  name = "Humor"
-    url = "/categories/humor/"
-  weight = 12
+ name = "Humor"
+ url = "/categories/humor/"
+ weight = 12
 
 [[menu.main]]
-  name = "Comic"
-  url = "/categories/portraet/"
-  weight = 13
+ name = "Comic"
+ url = "/categories/portraet/"
+ weight = 13
