@@ -36,13 +36,13 @@ collections:
         multiple: true
         options:
           - {label: "Genuss", value: "genuss"}
-          - {label: "Portraet", value: "portraet"}
+          - {label: "Humor / Comic", value: "humor"}
           - {label: "Land und Leute", value: "land-leute"}
           - {label: "Sport", value: "sport"}
           - {label: "Politik", value: "politik"}
           - {label: "Kultur", value: "kultur"}
           - {label: "Wirtschaft", value: "wirtschaft"}
-          - {label: "Natur", value: "natur"}
+          - {label: "Natur und Umwelt", value: "natur"}
           - {label: "Geschichte", value: "geschichte"}
           - {label: "Gesellschaft", value: "gesellschaft"}
           - {label: "Tourismus", value: "tourismus"}
