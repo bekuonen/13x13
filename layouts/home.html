@@ -135,7 +135,7 @@
     {{- $posts = $posts.ByDate.Reverse }}
     {{- $feature := index $posts 0 }}
     {{- $rest := after 1 $posts | first 4 }}
-    {{- $catNames := dict "portraet" "Comic" "land-leute" "Jung und alt" "aesthetik" "Ästhetik" "poesie" "Humor" "reise" "Tourismus" "natur" "Natur und Umwelt" }}
+    {{- $catNames := dict "land-leute" "Jung und alt" "aesthetik" "Ästhetik" "poesie" "Humor" "reise" "Tourismus" "natur" "Natur und Umwelt" }}
     {{- $aesthetikPosts := where .Site.RegularPages "Params.categories" "intersect" (slice "aesthetik") }}
     {{- $aesthetikFoto := "" }}
     {{- range $aesthetikPosts }}
