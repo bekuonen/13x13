@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ .Title }} â {{ .Site.Title }}</title>
   <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=manrope:400,500,600,700,800" rel="stylesheet">
+  <link href="https://fonts.bunny.net/css?family=dm-sans:400,400i,500,600" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Manrope',sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.6}
+    body{font-family:'DM Sans', sans-serif;background:#FAF8F5;color:#2D3640;line-height:1.6}
     a{text-decoration:none;color:inherit}
     .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
     .section-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#B8293D;margin-bottom:0.75rem;display:block}
@@ -74,7 +74,10 @@
     .footer-links a:hover{color:#FAF8F5}
 
     @media(max-width:640px){
-      .artikel-nav-inner{grid-template-columns:1fr}
+      .artikel-nav-inner{grid-template-columns:1fr.artikel-header{padding:1.25rem 1.1rem 1.75rem}
+      .artikel-body{padding:1rem 1.1rem 2rem}
+      .artikel-lead{font-size:0.95rem}
+    }
       .nav-artikel.rechts{text-align:left}
       .autor-box{flex-direction:column;gap:1rem}
       .footer-inner{flex-direction:column;text-align:center}
