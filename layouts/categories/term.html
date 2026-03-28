@@ -44,14 +44,30 @@
             <h1>{{ .Title | title }}</h1>
             <p class="post-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}Beitrag{{ else }}Beiträge{{ end }}</p>
           </div>
-          <div class="articles-grid">
-      {{ range .Pages.ByDate.Reverse }}
-      <article class="article-card">
-                <div class="article-meta">
+          {{ if .Pages }}
+    <div class="articles-grid">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="article-card">
+      <div class="article-meta">
         {{ range .Params.authors }}<a href="/authors/{{ . | urlize }}/">{{ . }}</a> &bull; {{ end }}
-                    {{ .Date.Format "2. January 2006" }}
-{{ with .ReadingTime }} &bull; {{ . }} Min.{{ end }}
-        </div>
+        {{ .Date.Format "2. January 2006" }}
+        {{ with .ReadingTime }} &bull; {{ . }} Min.{{ end }}
+      </div>
+      <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Params.description }}
+      <p class="article-excerpt">{{ . }}</p>
+      {{ end }}
+      <a href="{{ .RelPermalink }}" class="read-more">Lesen →</a>
+    </article>
+    {{ end }}
+    </div>
+    {{ else }}
+    <div style="text-align:center;padding:3rem 1rem;color:#999;font-size:1.05rem;background:white;border-radius:8px;margin-bottom:2rem;">
+      <p style="font-size:1.3rem;margin-bottom:0.5rem;">📝</p>
+      <p>Hier entsteht bald Neues. Schau bald wieder vorbei.</p>
+      <a href="/mitmachen/" style="color:#B8293D;text-decoration:none;font-weight:600;">Mitmachen →</a>
+    </div>
+    {{ end }}
                   <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
           {{ with .Params.description }}
         <p class="article-excerpt">{{ . }}</p>
