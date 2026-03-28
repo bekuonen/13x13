@@ -82,7 +82,7 @@
     .hero-actions{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center}
     .hero-cta-out{display:inline-block;background:transparent;color:#B8293D;border:2px solid #B8293D;padding:0.7rem 1.5rem;border-radius:4px;font-size:0.875rem;font-weight:600;transition:all 0.2s}
     .hero-cta-out:hover{background:#B8293D;color:#fff}
-    @media(max-width:700px){.mitmachen-inner{flex-direction:column;align-items:flex-start}}
+    @media(max-width:700px){.mitmachen-inner{flex-direction:column;align-items:flex-start}.footer-links{gap:0.75rem;justify-content:center}}
 
     /* ── SCHREIBENDE ── */
     .schreibende{padding:2rem 0}
@@ -114,7 +114,9 @@
     }
     @media(max-width:480px){
       .themen-grid{grid-template-columns:repeat(2,1fr)}
-      .autoren-grid{grid-template-columns:repeat(2,1fr)}
+      .autoren-grid{grid-template-columns:1fr}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .hero-cta,.hero-cta-out{text-align:center;display:block}
     }
   </style>
 </head>
