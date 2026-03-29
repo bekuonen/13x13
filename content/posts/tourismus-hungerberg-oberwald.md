@@ -1,12 +1,20 @@
-+++
-title = 'Der Mut von Oberwald'
-date = 2026-03-26
-categories = ['Tourismus']
-tags = ['Oberwald', 'Goms', 'Bergbahn', 'Tourismus']
-authors = ['bernhard-kuonen']
-description = 'Oberwald plant eine Bergbahn auf den Hungerberg — ein Zeichen für sanften Tourismus und den Mut kleiner Gemeinden.'
-draft = false
-+++
+---
+title: Der Mut von Oberwald
+date: 2026-03-26
+draft: false
+textformat: einschaetzung
+authors:
+  - bernhard-kuonen
+categories:
+  - tourismus
+description: Oberwald plant eine Bergbahn auf den Hungerberg — ein Zeichen für
+  sanften Tourismus und den Mut kleiner Gemeinden.
+tags:
+  - Oberwald
+  - Goms
+  - Bergbahn
+  - Tourismus
+---
 
 2009 wurden die Skilifte am Hungerberg stillgelegt. 2012 abgebrochen. Was blieb: ein Bergrestaurant, ein Aussichtspunkt, ein Dorf, das weitermacht — und eine Gemeinde, die nicht aufgibt.
 
