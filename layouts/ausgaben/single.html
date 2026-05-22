@@ -1,8 +1,4 @@
 {{ define "main" }}
-{{ if .Params.standpunkte }}{{ partial "inhalt-standpunkte.html" . }}
-{{ else if .Params.grundsaetze }}{{ partial "inhalt-charta.html" . }}
-{{ else if .Params.redaktion_name }}{{ partial "inhalt-kontakt.html" . }}
-{{ else if eq .Section "ausgaben" }}
 <article class="beitrag"><div class="schmal">
   {{ with .Params.thema }}<span class="kicker">{{ . }}</span>{{ end }}
   <h1>{{ .Title }}</h1>
@@ -10,10 +6,4 @@
   <div class="zeile meta">{{ partial "beitrag-meta.html" . }}{{ with .Parent }} · Ausgabe {{ printf "%02d" (int .Params.nummer) }}{{ end }}{{ with .Date }} · {{ .Format "Januar 2006" }}{{ end }}</div>
   <div class="beitrag-body">{{ .Content }}</div>
 </div></article>
-{{ else }}
-<section class="seite"><div class="schmal">
-  <h1>{{ .Title }}</h1>
-  <div class="seite-body">{{ .Content }}</div>
-</div></section>
-{{ end }}
 {{ end }}

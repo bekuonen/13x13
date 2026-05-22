@@ -3,5 +3,5 @@
 <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.description }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Params.lead }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
