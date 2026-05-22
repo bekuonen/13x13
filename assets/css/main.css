@@ -185,3 +185,29 @@ h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;letter-spacing:-0.02em;co
 .kontakt-karte{margin-top:26px;font-family:var(--serif);font-size:18px;line-height:1.7;}
 .kontakt-karte .k-name{font-family:var(--grotesk);font-weight:600;font-size:20px;color:var(--schiefer);margin-bottom:10px;}
 .kontakt-karte p{margin-bottom:14px;}
+
+/* ---------- Seitenkopf (Standpunkte / Charta) ---------- */
+.seitenkopf{background:var(--schiefer);color:#fff;padding:60px 0 52px;position:relative;}
+.seitenkopf::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rot);}
+.seitenkopf h1{color:#fff;font-size:clamp(30px,5vw,48px);margin-top:14px;}
+.kicker--hell{color:#E8556A;}
+.seitenkopf-intro{font-family:var(--serif);font-size:clamp(18px,2.2vw,21px);color:#d6dbe1;margin-top:18px;max-width:46ch;line-height:1.5;}
+.seiten-inhalt{padding:48px 0 64px;}
+.quer-verweis{font-family:var(--grotesk);font-weight:600;font-size:15px;margin-top:40px;}
+
+/* ---------- 13 Standpunkte (Karten-Raster) ---------- */
+.sp-liste{list-style:none;counter-reset:sp;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0;margin:0;}
+.sp-karte{counter-increment:sp;background:var(--karte);border:1px solid var(--linie);border-left:3px solid var(--rot);border-radius:10px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start;}
+.sp-karte::before{content:counter(sp);font-family:var(--grotesk);font-weight:700;font-size:1.6rem;line-height:1;color:var(--rot);opacity:.3;flex:0 0 auto;min-width:1.4em;text-align:right;}
+.sp-karte p{font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--text);margin:0;}
+@media(max-width:820px){.sp-liste{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.sp-liste{grid-template-columns:1fr;}}
+
+/* ---------- Charta der Schreibenden ---------- */
+.charta-liste{list-style:none;counter-reset:ch;padding:0;margin:0;}
+.charta-punkt{counter-increment:ch;display:grid;grid-template-columns:52px 1fr;column-gap:24px;padding:26px 0;border-top:1px solid var(--linie);}
+.charta-punkt:first-child{border-top:none;}
+.charta-punkt::before{content:counter(ch,decimal-leading-zero);grid-row:1 / span 2;font-family:var(--grotesk);font-weight:700;font-size:1.05rem;color:var(--rot);padding-top:3px;}
+.charta-punkt h2{font-family:var(--grotesk);font-size:1.2rem;margin:0 0 6px;}
+.charta-punkt p{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--text);margin:0;}
+@media(max-width:560px){.charta-punkt{grid-template-columns:40px 1fr;column-gap:16px;}}

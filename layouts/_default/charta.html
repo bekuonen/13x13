@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="seitenkopf"><div class="wrap">
+  <span class="kicker kicker--hell">★ Selbstverpflichtung</span>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.intro }}<p class="seitenkopf-intro">{{ . }}</p>{{ end }}
+</div></section>
+
+<section class="seiten-inhalt"><div class="schmal">
+  <ol class="charta-liste">
+    {{ range .Params.grundsaetze }}
+    <li class="charta-punkt">
+      <h2>{{ .titel }}</h2>
+      <p>{{ .text }}</p>
+    </li>
+    {{ end }}
+  </ol>
+  <p class="quer-verweis"><a href="/standpunkte/">→ Zu den 13 Standpunkten</a></p>
+</div></section>
+{{ end }}
