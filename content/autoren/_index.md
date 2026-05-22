@@ -1,3 +1,0 @@
----
-title: "Autorinnen und Autoren"
----
