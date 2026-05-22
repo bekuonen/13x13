@@ -1,4 +1,0 @@
----
-title: "Mitmachen"
-layout: "single"
----

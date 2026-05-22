@@ -1,3 +1,0 @@
-+++
-title = 'Natur und Umwelt'
-+++
