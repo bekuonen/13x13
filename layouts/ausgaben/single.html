@@ -1,9 +1,0 @@
-{{ define "main" }}
-<article class="beitrag"><div class="schmal">
-  {{ with .Params.thema }}<span class="kicker">{{ . }}</span>{{ end }}
-  <h1>{{ .Title }}</h1>
-  {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
-  <div class="zeile meta">{{ partial "beitrag-meta.html" . }}{{ with .Parent }} · Ausgabe {{ printf "%02d" (int .Params.nummer) }}{{ end }}{{ with .Date }} · {{ .Format "Januar 2006" }}{{ end }}</div>
-  <div class="beitrag-body">{{ .Content }}</div>
-</div></article>
-{{ end }}
