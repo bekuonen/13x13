@@ -1,0 +1,9 @@
+<section class="hero-start"><div class="wrap">
+  {{ with .Params.hero_kicker }}<span class="kicker">{{ . }}</span>{{ end }}
+  {{ with .Params.hero_titel }}<h1 class="hero-titel">{{ . }}</h1>{{ end }}
+  {{ with .Params.hero_text }}<p class="hero-text">{{ . }}</p>{{ end }}
+  <div class="hero-btns">
+    {{ if .Params.hero_btn1_url }}<a class="btn btn-primary" href="{{ .Params.hero_btn1_url }}">{{ .Params.hero_btn1_text }} &rarr;</a>{{ end }}
+    {{ if .Params.hero_btn2_url }}<a class="btn btn-ghost-hell" href="{{ .Params.hero_btn2_url }}">{{ .Params.hero_btn2_text }} &rarr;</a>{{ end }}
+  </div>
+</div></section>
