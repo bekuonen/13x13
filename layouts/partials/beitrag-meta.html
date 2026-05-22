@@ -1,0 +1,3 @@
+{{- $labels := dict "einschaetzung" "Einschätzung" "reportage" "Reportage" "portraet" "Porträt" "beobachtung" "Beobachtung" "fiktion" "Fiktion" -}}
+{{- with .Params.textformat }}{{ index $labels . | default . }}{{ end -}}
+{{- range .Params.autoren }} · {{ with site.GetPage (printf "/autoren/%s" .) }}{{ .Title }}{{ else }}{{ . }}{{ end }}{{ end -}}
