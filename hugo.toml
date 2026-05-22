@@ -1,0 +1,44 @@
+baseURL = 'https://13x13.ch/'
+languageCode = 'de-ch'
+defaultContentLanguage = 'de'
+title = '13×13'
+
+[params]
+  description = 'Oberwalliser Perspektiven'
+  author = '13×13'
+  vorschau = true
+  launch = '2026-09-01T00:00:00'
+  vorschau_text = 'Die Beiträge dienen der Illustration. Standpunkte und Positionierung von 13×13 sind definitiv.'
+
+[taxonomies]
+  tag = 'tags'
+  autor = 'autoren'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[permalinks]
+  empfehlungen = '/empfehlungen/:slug/'
+
+[[menu.main]]
+  name = 'Aktuelle Ausgabe'
+  url = '/'
+  weight = 1
+[[menu.main]]
+  name = 'Archiv'
+  url = '/ausgaben/'
+  weight = 2
+[[menu.main]]
+  name = '13 Empfehlungen'
+  url = '/empfehlungen/'
+  weight = 3
+[[menu.main]]
+  name = 'Standpunkte'
+  url = '/standpunkte/'
+  weight = 4
+[[menu.main]]
+  name = 'Mitmachen'
+  url = '/mitmachen/'
+  weight = 5
