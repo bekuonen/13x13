@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="seite"><div class="schmal">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="seite-body">{{ . }}</div>{{ end }}
+  <form action="https://api.web3forms.com/submit" method="POST" class="formular">
+    <input type="hidden" name="access_key" value="DEIN-WEB3FORMS-KEY">
+    <input type="hidden" name="subject" value="Neue Mitmachen-Anfrage – 13×13">
+    <input type="hidden" name="redirect" value="https://13x13.ch/danke/">
+    <div class="hp"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></div>
+    <label>Name<input type="text" name="name" required></label>
+    <label>E-Mail<input type="email" name="email" required></label>
+    <label>Worum geht’s?<textarea name="nachricht" rows="6" required></textarea></label>
+    <button type="submit" class="btn btn-primary">Absenden</button>
+  </form>
+</div></section>
+{{ end }}

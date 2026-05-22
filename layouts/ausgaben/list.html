@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ if .Parent.IsHome }}
+<section class="archiv"><div class="schmal">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="seite-body">{{ . }}</div>{{ end }}
+  {{ range sort .Sections "Params.nummer" "desc" }}
+  <div class="ausgabe-zeile">
+    <div class="znr">{{ printf "%02d" (int .Params.nummer) }}</div>
+    <div>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Params.titelzeile }}<p class="meta">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+  {{ end }}
+</div></section>
+{{ else }}
+{{ partial "ausgabe-aufschlag.html" . }}
+{{ end }}
+{{ end }}
