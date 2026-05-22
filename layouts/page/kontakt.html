@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="seite kontakt"><div class="schmal">
+  <h1>{{ .Title }}</h1>
+  <div class="kontakt-karte">
+    <p class="k-name">{{ .Params.redaktion_name }}{{ with .Params.redaktion_rolle }} · {{ . }}{{ end }}</p>
+    <p>{{ .Params.redaktion_adresse }}<br>{{ .Params.redaktion_adresse2 }}<br>{{ .Params.redaktion_plz }}</p>
+    <p><a href="mailto:{{ .Params.redaktion_email }}">{{ .Params.redaktion_email }}</a><br>
+       <a href="tel:{{ replaceRE " " "" .Params.redaktion_telefon }}">{{ .Params.redaktion_telefon }}</a></p>
+  </div>
+  {{ with .Content }}<div class="seite-body">{{ . }}</div>{{ end }}
+</div></section>
+{{ end }}
