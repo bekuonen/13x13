@@ -23,9 +23,9 @@ collections:
       - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
       - {label: "Editorial", name: "body", widget: "markdown"}
 
-  # --- Beiträge: liegen in der jeweiligen Ausgabe ---
+  # --- BeitrÃ¤ge: liegen in der jeweiligen Ausgabe ---
   - name: beitraege
-    label: Beiträge
+    label: BeitrÃ¤ge
     label_singular: Beitrag
     folder: content/ausgaben
     path: "{{fields.ausgabe}}/{{slug}}"
@@ -38,14 +38,14 @@ collections:
       - label: "Thema"
         name: "thema"
         widget: "select"
-        options: [Politik, Gesellschaft, Wirtschaft, Kultur, Geschichte, "Natur und Umwelt", Tourismus, Sport, Genuss, Porträt, Ästhetik, Generationen, Glosse]
+        options: [Politik, Gesellschaft, Wirtschaft, Kultur, Geschichte, "Natur und Umwelt", Tourismus, Sport, Genuss, PortrÃ¤t, Ãsthetik, Generationen, Glosse]
       - label: "Textformat"
         name: "textformat"
         widget: "select"
         options:
-          - {label: "Einschätzung", value: "einschaetzung"}
+          - {label: "EinschÃ¤tzung", value: "einschaetzung"}
           - {label: "Reportage", value: "reportage"}
-          - {label: "Porträt", value: "portraet"}
+          - {label: "PortrÃ¤t", value: "portraet"}
           - {label: "Beobachtung", value: "beobachtung"}
           - {label: "Fiktion", value: "fiktion"}
       - label: "Autoren"
@@ -56,7 +56,11 @@ collections:
       - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Titelbild", name: "featured_image", widget: "image", required: false}
-      - {label: "Inhalt", name: "body", widget: "markdown"}
+      - label: "Inhalt"
+        name: "body"
+        widget: "markdown"
+        media_library:
+          allow_multiple: true
 
   # --- 13 Empfehlungen ---
   - name: empfehlungen
@@ -85,6 +89,7 @@ collections:
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Biografie", name: "bio", widget: "text", required: false}
       - {label: "E-Mail", name: "email", widget: "string", required: false}
+      - {label: "Foto", name: "foto", widget: "image", required: false, hint: "Porträtfoto der Autorin / des Autors"}
 
   # --- Einzelseiten ---
   - name: seiten
@@ -96,7 +101,7 @@ collections:
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Layout", name: "layout", widget: "hidden", default: "standpunkte"}
-      - label: "Empfehlungen – Einleitung"
+      - label: "Empfehlungen â Einleitung"
         name: "empfehlungen_index"
         file: "content/empfehlungen/_index.md"
         fields:
