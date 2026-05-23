@@ -1,7 +1,7 @@
 /* ============================================================
-   13×13 — Stylesheet
+   13Ã13 â Stylesheet
    Gestaltung aus dem Logo: ein Rot, warmes Creme, harter Kontrast.
-   Haltung über Kontrast und Typografie, nicht über grelles Rot.
+   Haltung Ã¼ber Kontrast und Typografie, nicht Ã¼ber grelles Rot.
    ============================================================ */
 
 /* ---------- Schriften (lokal, /static/fonts) ---------- */
@@ -136,7 +136,7 @@ h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;letter-spacing:-0.02em;co
 }
 
 /* ============================================================
-   Übernommen aus der bewährten Seite: Vorschau-Banner, Hero
+   Ãbernommen aus der bewÃ¤hrten Seite: Vorschau-Banner, Hero
    ============================================================ */
 
 /* ---------- Vorschau-Banner + Countdown ---------- */
@@ -267,7 +267,7 @@ h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;letter-spacing:-0.02em;co
 }
 .btn-mitmachen:hover { background: var(--rot-tief); }
 
-/* Grid für Karten */
+/* Grid fÃ¼r Karten */
 .mm-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -436,3 +436,13 @@ h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;letter-spacing:-0.02em;co
   .form-reihe { grid-template-columns: 1fr; }
   .schritte-liste { grid-template-columns: 1fr; }
 }
+
+
+/* ---------- Autorenprofil ---------- */
+.autor-profil{margin-bottom:32px;}
+.autor-foto{margin-bottom:24px;}
+.autor-foto img{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;}
+.autor-bio{color:var(--text);margin-top:12px;line-height:1.6;}
+.autor-email{margin-top:8px;font-family:var(--ui);font-size:15px;color:var(--meta);}
+.autor-email a{color:var(--blau);}
+.autor-email a:hover{color:var(--rot);}
