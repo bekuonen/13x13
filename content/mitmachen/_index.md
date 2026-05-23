@@ -1,4 +1,4 @@
 ---
 title: "Mitmachen"
-layout: "single"
+description: "Schreiben, was das Wallis bewegt."
 ---

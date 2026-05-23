@@ -1,136 +1,23 @@
-<div id="preview-banner" style="
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  background: #2D3640;
-  color: #FAF8F5;
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.95rem;
-  padding: 0.9rem 4rem 0.9rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.8rem;
-  flex-wrap: wrap;
-  line-height: 1.4;
-">
-  <span style="
-    background: #C8962B;
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.65rem;
-    border-radius: 3px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  ">Vorschau</span>
-
-  <span style="opacity: 0.85; max-width: 480px; text-align: center;">
-    Die Beiträge dienen der Illustration und Orientierung.
-    Standpunkte und Positionierung von 13&times;13 sind definitiv.
+{{ if .Site.Params.vorschau }}
+<div class="vorschau-banner" id="vorschau-banner">
+  <span class="vb-badge">Vorschau</span>
+  <span class="vb-text">{{ .Site.Params.vorschau_text }}</span>
+  {{ with .Site.Params.launch }}
+  <span class="vb-count" data-launch="{{ . }}">
+    <span class="vb-num" data-d>–</span><small>Tage</small>
+    <span class="vb-num" data-h>–</span><small>Std</small>
+    <span class="vb-num" data-m>–</span><small>Min</small>
   </span>
-
-  <div style="display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0;">
-    <span style="opacity: 0.5; font-size: 0.8rem; white-space: nowrap;">Launch in</span>
-    <div style="display: flex; align-items: flex-start; gap: 0.3rem;">
-
-      <span style="text-align: center; min-width: 2.4rem;">
-        <span id="cd-days" style="
-          font-family: 'Space Grotesk', 'Manrope', sans-serif;
-          font-size: 1.7rem;
-          font-weight: 700;
-          color: #F0C060;
-          display: block;
-          line-height: 1;
-        ">--</span>
-        <small style="font-size: 0.62rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.07em;">Tage</small>
-      </span>
-
-      <span style="color: #F0C060; opacity: 0.35; font-size: 1.4rem; margin-top: 0.1rem;">:</span>
-
-      <span style="text-align: center; min-width: 2.4rem;">
-        <span id="cd-hours" style="
-          font-family: 'Space Grotesk', 'Manrope', sans-serif;
-          font-size: 1.7rem;
-          font-weight: 700;
-          color: #F0C060;
-          display: block;
-          line-height: 1;
-        ">--</span>
-        <small style="font-size: 0.62rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.07em;">Std</small>
-      </span>
-
-      <span style="color: #F0C060; opacity: 0.35; font-size: 1.4rem; margin-top: 0.1rem;">:</span>
-
-      <span style="text-align: center; min-width: 2.4rem;">
-        <span id="cd-min" style="
-          font-family: 'Space Grotesk', 'Manrope', sans-serif;
-          font-size: 1.7rem;
-          font-weight: 700;
-          color: #F0C060;
-          display: block;
-          line-height: 1;
-        ">--</span>
-        <small style="font-size: 0.62rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.07em;">Min</small>
-      </span>
-
-    </div>
-  </div>
-
-  <button
-    onclick="document.getElementById('preview-banner').style.display='none';try{localStorage.setItem('13x13-banner-closed','1');}catch(e){}"
-    aria-label="Schliessen"
-    style="
-      background: none;
-      border: none;
-      color: #FAF8F5;
-      opacity: 0.4;
-      cursor: pointer;
-      font-size: 1.6rem;
-      line-height: 1;
-      padding: 0 0.25rem;
-      position: absolute;
-      right: 1.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-    "
-  >&times;</button>
+  {{ end }}
+  <button class="vb-close" onclick="this.parentElement.remove()" aria-label="Schliessen">&times;</button>
 </div>
-
 <script>
-(function () {
-  try {
-    if (localStorage.getItem('13x13-banner-closed')) {
-      var b = document.getElementById('preview-banner');
-      if (b) b.style.display = 'none';
-    }
-  } catch(e) {}
-
-  var launch = new Date('2026-07-01T00:00:00+02:00');
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
-  function update() {
-    var diff = launch - new Date();
-    if (diff <= 0) {
-      var b = document.getElementById('preview-banner');
-      if (b) b.remove();
-      return;
-    }
-    var d = Math.floor(diff / 864e5);
-    var h = Math.floor((diff % 864e5) / 36e5);
-    var m = Math.floor((diff % 36e5) / 6e4);
-    var ed = document.getElementById('cd-days');
-    var eh = document.getElementById('cd-hours');
-    var em = document.getElementById('cd-min');
-    if (ed) ed.textContent = pad(d);
-    if (eh) eh.textContent = pad(h);
-    if (em) em.textContent = pad(m);
-  }
-
-  update();
-  setInterval(update, 30000);
-}());
+(function(){var el=document.getElementById('vorschau-banner');if(!el)return;var c=el.querySelector('.vb-count');if(!c)return;
+var t=new Date(c.getAttribute('data-launch')).getTime();
+function u(){var x=t-Date.now();if(x<0)x=0;
+c.querySelector('[data-d]').textContent=Math.floor(x/864e5);
+c.querySelector('[data-h]').textContent=Math.floor(x%864e5/36e5);
+c.querySelector('[data-m]').textContent=Math.floor(x%36e5/6e4);}
+u();setInterval(u,60000);})();
 </script>
+{{ end }}

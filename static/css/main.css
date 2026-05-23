@@ -1,0 +1,438 @@
+/* ============================================================
+   13×13 — Stylesheet
+   Gestaltung aus dem Logo: ein Rot, warmes Creme, harter Kontrast.
+   Haltung über Kontrast und Typografie, nicht über grelles Rot.
+   ============================================================ */
+
+/* ---------- Schriften (lokal, /static/fonts) ---------- */
+@font-face { font-family:"Space Grotesk"; font-weight:500; font-style:normal; font-display:swap; src:url("/fonts/space-grotesk-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family:"Space Grotesk"; font-weight:600; font-style:normal; font-display:swap; src:url("/fonts/space-grotesk-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family:"Space Grotesk"; font-weight:700; font-style:normal; font-display:swap; src:url("/fonts/space-grotesk-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family:"Source Serif 4"; font-weight:400; font-style:normal; font-display:swap; src:url("/fonts/source-serif-4-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Source Serif 4"; font-weight:400; font-style:italic; font-display:swap; src:url("/fonts/source-serif-4-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family:"Source Serif 4"; font-weight:600; font-style:normal; font-display:swap; src:url("/fonts/source-serif-4-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family:"Inter"; font-weight:400; font-style:normal; font-display:swap; src:url("/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family:"Inter"; font-weight:500; font-style:normal; font-display:swap; src:url("/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family:"Inter"; font-weight:600; font-style:normal; font-display:swap; src:url("/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+
+/* ---------- Tokens ---------- */
+:root {
+  --rot:#B8293D; --rot-tief:#9A2030;
+  --schiefer:#2D3640; --text:#2D3640; --meta:#6B7280;
+  --grund:#FAF8F5; --karte:#FFFFFF; --linie:#E8E6E1; --blau:#4A6B82;
+  --serif:"Source Serif 4",Georgia,serif;
+  --grotesk:"Space Grotesk",system-ui,sans-serif;
+  --ui:"Inter",system-ui,sans-serif;
+  --breite:720px; --breit:1040px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--grund);color:var(--text);font-family:var(--serif);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:var(--breit);margin:0 auto;padding:0 28px;}
+.schmal{max-width:var(--breite);margin:0 auto;padding:0 28px;}
+a{color:var(--rot);text-decoration:none;}
+a:hover{color:var(--rot-tief);}
+img{max-width:100%;height:auto;display:block;}
+
+h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;letter-spacing:-0.02em;color:var(--schiefer);line-height:1.12;}
+
+/* ---------- Header ---------- */
+.site-header{background:var(--schiefer);}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px;gap:20px;flex-wrap:wrap;}
+.logo{display:block;width:140px;flex:0 0 auto;}
+.logo svg{width:100%;height:auto;display:block;border-radius:9px;}
+.mainnav{display:flex;gap:22px;flex-wrap:wrap;}
+.mainnav a{font-family:var(--grotesk);font-weight:500;font-size:15px;color:#cfd5db;letter-spacing:0.01em;}
+.mainnav a:hover,.mainnav a.aktiv{color:#fff;}
+.mainnav a.aktiv{border-bottom:2px solid var(--rot);padding-bottom:2px;}
+
+/* ---------- Kicker / Tags ---------- */
+.kicker{font-family:var(--ui);font-weight:600;text-transform:uppercase;letter-spacing:0.16em;font-size:11px;color:var(--rot);display:inline-flex;align-items:center;gap:8px;}
+.kicker::before{content:"\2605";font-size:12px;}
+.tag{font-family:var(--ui);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.1em;padding:5px 10px;border-radius:4px;display:inline-block;background:var(--rot);color:#fff;}
+.tag--ort{background:transparent;color:var(--schiefer);border:1px solid var(--linie);}
+.tag--blau{background:var(--blau);color:#fff;}
+.meta{font-family:var(--ui);font-size:13px;color:var(--meta);letter-spacing:0.02em;}
+
+/* ---------- Ausgabe-Aufschlag (Start + einzelne Ausgabe) ---------- */
+.ausgabe-kopf{background:var(--schiefer);color:#fff;padding:64px 0 56px;position:relative;}
+.ausgabe-kopf::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rot);}
+.ausgabe-kopf .nr{font-family:var(--grotesk);font-weight:700;font-size:clamp(40px,8vw,76px);letter-spacing:-0.03em;line-height:1;color:#fff;}
+.ausgabe-kopf .nr span{color:var(--rot);}
+.ausgabe-kopf .titelzeile{font-family:var(--serif);font-size:clamp(19px,2.4vw,24px);color:#e7e9ec;margin-top:18px;max-width:34ch;}
+.ausgabe-kopf .editorial{font-family:var(--serif);color:#c9cfd6;margin-top:20px;max-width:60ch;}
+.ausgabe-kopf .editorial p{margin-top:.8em;}
+
+/* Beitragsliste einer Ausgabe */
+.beitragsliste{padding:48px 0 64px;}
+.beitrag-item{padding:30px 0;border-top:1px solid var(--linie);}
+.beitrag-item:first-child{border-top:none;}
+.beitrag-item h2{font-size:clamp(22px,3.2vw,30px);margin:10px 0 8px;}
+.beitrag-item h2 a{color:var(--schiefer);}
+.beitrag-item h2 a:hover{color:var(--rot);}
+.beitrag-item .lead{font-family:var(--serif);color:var(--text);max-width:62ch;}
+.beitrag-item .zeile{margin-top:12px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+
+/* ---------- Beitrag (single) ---------- */
+.beitrag{padding:56px 0 72px;}
+.beitrag .kicker{margin-bottom:16px;}
+.beitrag h1{font-size:clamp(30px,5vw,46px);letter-spacing:-0.03em;line-height:1.08;margin-bottom:20px;}
+.beitrag .lead{font-family:var(--serif);font-size:22px;line-height:1.5;color:var(--schiefer);border-left:4px solid var(--rot);padding-left:20px;margin-bottom:26px;}
+.beitrag .zeile{margin-bottom:36px;}
+.beitrag-body{font-size:19px;line-height:1.75;}
+.beitrag-body p{margin-top:1.1em;}
+.beitrag-body h2{font-size:26px;margin:1.6em 0 .4em;}
+.beitrag-body h3{font-size:21px;margin:1.4em 0 .3em;}
+.beitrag-body blockquote{font-style:italic;border-left:3px solid var(--linie);padding-left:18px;color:var(--meta);margin:1.2em 0;}
+.beitrag-body a{text-decoration:underline;text-underline-offset:2px;}
+
+/* ---------- Archiv ---------- */
+.archiv{padding:56px 0 72px;}
+.archiv h1{font-size:clamp(28px,4vw,40px);margin-bottom:8px;}
+.ausgabe-zeile{display:flex;align-items:baseline;gap:20px;padding:24px 0;border-top:1px solid var(--linie);}
+.ausgabe-zeile .znr{font-family:var(--grotesk);font-weight:700;font-size:34px;color:var(--rot);line-height:1;flex:0 0 auto;min-width:64px;}
+.ausgabe-zeile h2{font-size:22px;}
+.ausgabe-zeile h2 a{color:var(--schiefer);}
+.ausgabe-zeile h2 a:hover{color:var(--rot);}
+
+/* ---------- Empfehlungen ---------- */
+.empf{padding:56px 0 72px;}
+.empf-intro{max-width:60ch;margin-bottom:36px;}
+.empf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;}
+.empf-karte{background:var(--karte);border:1px solid var(--linie);border-radius:12px;padding:26px;}
+.empf-karte .folge{font-family:var(--grotesk);font-weight:700;color:var(--rot);font-size:15px;}
+.empf-karte h2{font-size:21px;margin:6px 0 10px;}
+.empf-karte p{font-family:var(--serif);font-size:16px;line-height:1.6;}
+.empf-karte .web{margin-top:14px;}
+
+/* ---------- Standpunkte ---------- */
+.standpunkte{padding:56px 0 72px;}
+.standpunkte h1{font-size:clamp(30px,5vw,46px);margin-bottom:28px;}
+.standpunkte-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.standpunkt{background:var(--karte);border:1px solid var(--linie);border-radius:10px;padding:22px;}
+.standpunkt .sp-nr{font-family:var(--grotesk);font-weight:700;color:var(--rot);font-size:14px;}
+.standpunkt p{font-family:var(--serif);font-size:17px;line-height:1.5;margin-top:8px;color:var(--schiefer);}
+
+/* ---------- Einfache Seite ---------- */
+.seite{padding:56px 0 72px;}
+.seite h1{font-size:clamp(28px,4vw,40px);margin-bottom:20px;}
+.seite-body p{margin-top:1em;}
+.seite-body h2{font-family:var(--grotesk);font-size:24px;margin:1.4em 0 .3em;}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--schiefer);color:#aab1ba;margin-top:40px;}
+.site-footer .wrap{padding-top:40px;padding-bottom:48px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.site-footer a{color:#cfd5db;font-family:var(--ui);font-size:14px;}
+.site-footer a:hover{color:#fff;}
+.site-footer .ff{font-family:var(--ui);font-size:13px;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:640px){
+  body{font-size:17px;}
+  .site-header .wrap{flex-direction:column;align-items:flex-start;gap:14px;}
+  .ausgabe-kopf{padding:44px 0 40px;}
+  .beitrag{padding:40px 0 52px;}
+}
+
+/* ============================================================
+   Übernommen aus der bewährten Seite: Vorschau-Banner, Hero
+   ============================================================ */
+
+/* ---------- Vorschau-Banner + Countdown ---------- */
+.vorschau-banner{background:#222a32;color:#cfd5db;display:flex;align-items:center;gap:18px;padding:11px 28px;font-family:var(--ui);font-size:13px;flex-wrap:wrap;}
+.vb-badge{background:#C9A227;color:#1c2229;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:11px;padding:4px 11px;border-radius:3px;flex:0 0 auto;}
+.vb-text{flex:1;min-width:220px;line-height:1.4;}
+.vb-count{display:flex;gap:16px;align-items:baseline;flex:0 0 auto;}
+.vb-num{font-family:var(--grotesk);font-weight:700;font-size:19px;color:#C9A227;}
+.vb-count small{color:var(--meta);font-size:10px;text-transform:uppercase;letter-spacing:.12em;margin-left:4px;}
+.vb-close{background:none;border:none;color:#9aa4b0;font-size:22px;line-height:1;cursor:pointer;flex:0 0 auto;}
+.vb-close:hover{color:#fff;}
+
+/* ---------- Hero (Startseite) ---------- */
+.hero-start{background:var(--schiefer);color:#fff;padding:66px 0 74px;position:relative;}
+.hero-start::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rot);}
+.hero-start .kicker{margin-bottom:20px;}
+.hero-titel{font-family:var(--grotesk);font-weight:700;font-size:clamp(34px,6vw,64px);letter-spacing:-0.03em;line-height:1.07;color:#fff;max-width:17ch;}
+.hero-text{font-family:var(--serif);font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:#c9cfd6;max-width:52ch;margin-top:22px;}
+.hero-btns{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+.btn{font-family:var(--ui);font-weight:600;font-size:15px;padding:13px 26px;border-radius:7px;display:inline-block;}
+.btn-primary{background:var(--rot);color:#fff;}
+.btn-primary:hover{background:var(--rot-tief);color:#fff;}
+.btn-ghost-hell{border:1.5px solid rgba(255,255,255,.4);color:#fff;}
+.btn-ghost-hell:hover{background:rgba(255,255,255,.1);color:#fff;}
+
+/* ---------- Aktuelle Ausgabe (Startseite, hell) ---------- */
+.aktuell{padding:50px 0 66px;}
+.aktuell-kopf{margin-bottom:10px;}
+.aktuell-kopf h2{font-size:clamp(24px,3.5vw,32px);margin-top:8px;}
+.aktuell-mehr{margin-top:32px;font-family:var(--ui);font-weight:600;}
+
+@media (max-width:640px){
+  .vorschau-banner{font-size:12px;padding:10px 18px;gap:12px;}
+  .hero-start{padding:46px 0 52px;}
+}
+
+/* ---------- Formular (Mitmachen) ---------- */
+.formular{max-width:520px;margin-top:30px;display:flex;flex-direction:column;gap:18px;}
+.formular label{display:flex;flex-direction:column;gap:6px;font-family:var(--ui);font-weight:600;font-size:14px;color:var(--schiefer);}
+.formular input,.formular textarea{font-family:var(--serif);font-size:17px;padding:11px 13px;border:1px solid var(--linie);border-radius:7px;background:var(--karte);color:var(--text);}
+.formular input:focus,.formular textarea:focus{outline:none;border-color:var(--rot);}
+.formular .hp{position:absolute;left:-9999px;}
+.formular button{align-self:flex-start;cursor:pointer;border:none;}
+
+/* ---------- Kontakt ---------- */
+.kontakt-karte{margin-top:26px;font-family:var(--serif);font-size:18px;line-height:1.7;}
+.kontakt-karte .k-name{font-family:var(--grotesk);font-weight:600;font-size:20px;color:var(--schiefer);margin-bottom:10px;}
+.kontakt-karte p{margin-bottom:14px;}
+
+/* ---------- Seitenkopf (Standpunkte / Charta) ---------- */
+.seitenkopf{background:var(--schiefer);color:#fff;padding:60px 0 52px;position:relative;}
+.seitenkopf::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rot);}
+.seitenkopf h1{color:#fff;font-size:clamp(30px,5vw,48px);margin-top:14px;}
+.kicker--hell{color:#E8556A;}
+.seitenkopf-intro{font-family:var(--serif);font-size:clamp(18px,2.2vw,21px);color:#d6dbe1;margin-top:18px;max-width:46ch;line-height:1.5;}
+.seiten-inhalt{padding:48px 0 64px;}
+.quer-verweis{font-family:var(--grotesk);font-weight:600;font-size:15px;margin-top:40px;}
+
+/* ---------- 13 Standpunkte (Karten-Raster) ---------- */
+.sp-liste{list-style:none;counter-reset:sp;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0;margin:0;}
+.sp-karte{counter-increment:sp;background:var(--karte);border:1px solid var(--linie);border-left:3px solid var(--rot);border-radius:10px;padding:18px 20px;display:flex;gap:16px;align-items:flex-start;}
+.sp-karte::before{content:counter(sp);font-family:var(--grotesk);font-weight:700;font-size:1.6rem;line-height:1;color:var(--rot);opacity:.3;flex:0 0 auto;min-width:1.4em;text-align:right;}
+.sp-karte p{font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--text);margin:0;}
+@media(max-width:820px){.sp-liste{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.sp-liste{grid-template-columns:1fr;}}
+
+/* ---------- Charta der Schreibenden ---------- */
+.charta-liste{list-style:none;counter-reset:ch;padding:0;margin:0;}
+.charta-punkt{counter-increment:ch;display:grid;grid-template-columns:52px 1fr;column-gap:24px;padding:26px 0;border-top:1px solid var(--linie);}
+.charta-punkt:first-child{border-top:none;}
+.charta-punkt::before{content:counter(ch,decimal-leading-zero);grid-row:1 / span 2;font-family:var(--grotesk);font-weight:700;font-size:1.05rem;color:var(--rot);padding-top:3px;}
+.charta-punkt h2{font-family:var(--grotesk);font-size:1.2rem;margin:0 0 6px;}
+.charta-punkt p{font-family:var(--serif);font-size:17px;line-height:1.6;color:var(--text);margin:0;}
+@media(max-width:560px){.charta-punkt{grid-template-columns:40px 1fr;column-gap:16px;}}
+
+/* ============================================
+   MITMACHEN
+   ============================================ */
+
+.mm-sektion {
+  padding: 4rem 0;
+}
+.mm-sektion--grau {
+  background: var(--steingrau-linie);
+}
+.mm-titel {
+  font-family: var(--grotesk);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--schiefer);
+  margin: 0 0 0.5rem;
+}
+.mm-untertitel {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--nebelgrau);
+  margin: 0 0 2rem;
+  max-width: 640px;
+}
+.mm-text p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--schiefer);
+  margin: 0 0 1rem;
+}
+.mm-text a, .mm-link-zeile a {
+  color: var(--rot);
+  text-decoration: none;
+  font-family: var(--grotesk);
+  font-weight: 600;
+}
+.mm-link-zeile {
+  margin-top: 1.5rem;
+}
+.btn-mitmachen {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--rot);
+  color: #fff;
+  font-family: var(--grotesk);
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.btn-mitmachen:hover { background: var(--rot-tief); }
+
+/* Grid für Karten */
+.mm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mm-grid--3 {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.mm-karte {
+  background: var(--grund);
+  border: 1px solid var(--steingrau-linie);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+.mm-sektion--grau .mm-karte {
+  background: #fff;
+}
+.mm-karte strong {
+  font-family: var(--grotesk);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--schiefer);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.mm-karte p {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--nebelgrau);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 4 Schritte */
+.schritte-liste {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  counter-reset: none;
+}
+.schritt {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+}
+.schritt-nr {
+  font-family: var(--grotesk);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--rot);
+  opacity: 0.35;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2rem;
+}
+.schritt strong {
+  font-family: var(--grotesk);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--schiefer);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.schritt p {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--nebelgrau);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Formular */
+.wrap--eng { max-width: 640px; }
+.mm-formular { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+.form-reihe { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-feld { display: flex; flex-direction: column; gap: 0.35rem; }
+.form-feld label {
+  font-family: var(--grotesk);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--schiefer);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.form-feld input,
+.form-feld textarea {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--schiefer);
+  background: #fff;
+  border: 1.5px solid var(--steingrau-linie);
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.form-feld input:focus,
+.form-feld textarea:focus {
+  outline: none;
+  border-color: var(--rot);
+}
+.form-checkboxen {
+  border: 1.5px solid var(--steingrau-linie);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+.form-checkboxen legend {
+  font-family: var(--grotesk);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--schiefer);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+}
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.checkbox-grid label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--schiefer);
+  cursor: pointer;
+}
+.checkbox-grid input[type="checkbox"] {
+  accent-color: var(--rot);
+  width: auto;
+}
+.btn-submit {
+  align-self: flex-start;
+  padding: 0.75rem 2rem;
+  background: var(--rot);
+  color: #fff;
+  font-family: var(--grotesk);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-submit:hover { background: var(--rot-tief); }
+.form-hinweis {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  color: var(--nebelgrau);
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .form-reihe { grid-template-columns: 1fr; }
+  .schritte-liste { grid-template-columns: 1fr; }
+}

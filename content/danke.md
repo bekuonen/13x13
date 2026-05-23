@@ -1,4 +1,3 @@
 ---
 title: "Danke"
-layout: "danke"
 ---

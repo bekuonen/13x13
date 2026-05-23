@@ -8,141 +8,97 @@ public_folder: /images/uploads
 locale: de
 
 collections:
-  - name: posts
-    label: Artikel
-    label_singular: Artikel
-    folder: content/posts
+  # --- Ausgaben: ein Editorial-Kopf je Ausgabe ---
+  - name: ausgaben
+    label: Ausgaben
+    label_singular: Ausgabe
+    folder: content/ausgaben
+    path: "{{slug}}/_index"
+    create: true
+    fields:
+      - {label: "Titel", name: "title", widget: "string", default: "Ausgabe "}
+      - {label: "Nummer", name: "nummer", widget: "number", value_type: "int"}
+      - {label: "Erscheinungsdatum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
+      - {label: "Titelzeile (optional)", name: "titelzeile", widget: "string", required: false}
+      - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
+      - {label: "Editorial", name: "body", widget: "markdown"}
+
+  # --- Beiträge: liegen in der jeweiligen Ausgabe ---
+  - name: beitraege
+    label: Beiträge
+    label_singular: Beitrag
+    folder: content/ausgaben
+    path: "{{fields.ausgabe}}/{{slug}}"
     create: true
     slug: "{{slug}}"
     fields:
+      - {label: "Ausgabe", name: "ausgabe", widget: "string", hint: "Nummer des Ausgabe-Ordners, z. B. 01"}
       - {label: "Titel", name: "title", widget: "string"}
-      - {label: "Datum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
-      - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
+      - {label: "Lead", name: "lead", widget: "text"}
+      - label: "Thema"
+        name: "thema"
+        widget: "select"
+        options: [Politik, Gesellschaft, Wirtschaft, Kultur, Geschichte, "Natur und Umwelt", Tourismus, Sport, Genuss, Porträt, Ästhetik, Generationen, Glosse]
       - label: "Textformat"
         name: "textformat"
         widget: "select"
         options:
           - {label: "Einschätzung", value: "einschaetzung"}
           - {label: "Reportage", value: "reportage"}
-          - {label: "Fiktion", value: "fiktion"}
+          - {label: "Porträt", value: "portraet"}
           - {label: "Beobachtung", value: "beobachtung"}
+          - {label: "Fiktion", value: "fiktion"}
       - label: "Autoren"
-        name: "authors"
+        name: "autoren"
         widget: "list"
-        field: {label: "Autor", name: "author", widget: "string"}
-      - label: "Kategorie"
-        name: "categories"
-        widget: "select"
-        multiple: true
-        options:
-          - {label: "Genuss", value: "genuss"}
-          - {label: "Humor / Comic", value: "humor"}
-          - {label: "Land und Leute", value: "land-leute"}
-          - {label: "Sport", value: "sport"}
-          - {label: "Politik", value: "politik"}
-          - {label: "Kultur", value: "kultur"}
-          - {label: "Wirtschaft", value: "wirtschaft"}
-          - {label: "Natur und Umwelt", value: "natur"}
-          - {label: "Geschichte", value: "geschichte"}
-          - {label: "Gesellschaft", value: "gesellschaft"}
-          - {label: "Tourismus", value: "tourismus"}
-          - {label: "Ästhetik", value: "aesthetik"}
-          - {label: "Humor", value: "humor"}
-          - {label: "Bildung", value: "bildung"}
-      - {label: "Beschreibung", name: "description", widget: "text", required: false}
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
-        required: false
+        field: {label: "Autor", name: "autor", widget: "string"}
+      - {label: "Datum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
+      - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Titelbild", name: "featured_image", widget: "image", required: false}
-      - label: "Fotos (Galerie – für Ästhetik)"
-        name: "fotos"
-        widget: "list"
-        required: false
-        collapsed: true
-        summary: "{{fields.caption}} – {{fields.fotograf}}"
-        fields:
-          - {label: "Bild-URL", name: "src", widget: "string", hint: "z.B. https://images.unsplash.com/... oder /images/uploads/foto.jpg"}
-          - {label: "Fotograf:in", name: "fotograf", widget: "string"}
-          - {label: "Bildunterschrift", name: "caption", widget: "string", required: false}
       - {label: "Inhalt", name: "body", widget: "markdown"}
 
-  - name: authors
+  # --- 13 Empfehlungen ---
+  - name: empfehlungen
+    label: 13 Empfehlungen
+    label_singular: Empfehlung
+    folder: content/empfehlungen
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titel", name: "title", widget: "string"}
+      - {label: "Folge", name: "folge", widget: "string", required: false, hint: "z. B. #5"}
+      - {label: "Kategorie", name: "kategorie", widget: "string", required: false}
+      - {label: "Website", name: "website", widget: "string", required: false}
+      - {label: "Hervorgehoben", name: "featured", widget: "boolean", default: false}
+      - {label: "Beschreibung", name: "body", widget: "markdown"}
+
+  # --- Autoren ---
+  - name: autoren
     label: Autoren
     label_singular: Autor
-    folder: content/authors
-    create: true
+    folder: content/autoren
     path: "{{slug}}/_index"
+    create: true
     slug: "{{slug}}"
     fields:
       - {label: "Name", name: "title", widget: "string"}
       - {label: "Biografie", name: "bio", widget: "text", required: false}
       - {label: "E-Mail", name: "email", widget: "string", required: false}
-      - {label: "Website", name: "website", widget: "string", required: false}
-      - {label: "Foto", name: "photo", widget: "image", required: false}
-      - {label: "Ort", name: "ort", widget: "string", required: false}
 
-  - name: pages
+  # --- Einzelseiten ---
+  - name: seiten
     label: Seiten
     files:
-      - name: start
-        label: Start
-        file: content/_index.md
+      - label: "Standpunkte"
+        name: "standpunkte"
+        file: "content/standpunkte.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Beschreibung", name: "description", widget: "text", required: false}
-          - {label: "Inhalt", name: "body", widget: "markdown", required: false}
-      - name: archiv
-        label: Archiv
-        file: content/archiv.md
+          - {label: "Layout", name: "layout", widget: "hidden", default: "standpunkte"}
+      - label: "Empfehlungen – Einleitung"
+        name: "empfehlungen_index"
+        file: "content/empfehlungen/_index.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Inhalt", name: "body", widget: "markdown", required: false}
-      - name: editorial
-        label: Editorial
-        file: content/editorial.md
-        fields:
-          - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Untertitel", name: "subtitle", widget: "string", required: false}
-          - {label: "Inhalt", name: "body", widget: "markdown", required: false}
-      - name: kontakt
-        label: Kontakt
-        file: content/kontakt.md
-        fields:
-          - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Redaktion Name", name: "redaktion_name", widget: "string", required: false}
-          - {label: "Redaktion E-Mail", name: "redaktion_email", widget: "string", required: false}
-          - {label: "Redaktion Telefon", name: "redaktion_telefon", widget: "string", required: false}
-          - {label: "Inhalt", name: "body", widget: "markdown", required: false}
-      - name: marktplatz
-        label: Marktplatz
-        file: content/marktplatz.md
-        fields:
-          - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Beschreibung", name: "description", widget: "text", required: false}
-          - {label: "Inhalt", name: "body", widget: "markdown", required: false}
-
-  - name: marktplatz
-    label: Marktplatz
-    label_singular: Empfehlung
-    folder: content/marktplatz
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Firmenname", name: "title", widget: "string"}
-      - {label: "Folge", name: "folge", widget: "string", hint: "#1, #2, #3 ..."}
-      - label: "Kategorie"
-        name: "kategorie"
-        widget: "select"
-        options:
-          - {label: "Handwerk & Manufaktur", value: "handwerk-manufaktur"}
-          - {label: "Genuss & Gastlichkeit", value: "genuss-gastlichkeit"}
-          - {label: "Kultur & Raum", value: "kultur-raum"}
-          - {label: "Innovation & Zukunft", value: "innovation-zukunft"}
-          - {label: "Tourismus & Erlebnis", value: "tourismus-erlebnis"}
-      - {label: "Website", name: "website", widget: "string", required: false}
-      - {label: "Logo", name: "logo", widget: "image", required: false}
-      - {label: "Kuratierter Text", name: "body", widget: "markdown"}
-      - {label: "Foto", name: "foto", widget: "image", required: false}
-      - {label: "Schreibende/r", name: "autor", widget: "string", required: false}
-      - {label: "Empfehlung der Folge", name: "featured", widget: "boolean", default: false}
+          - {label: "Einleitung", name: "body", widget: "markdown"}

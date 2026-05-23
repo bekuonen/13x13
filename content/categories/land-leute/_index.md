@@ -1,3 +1,0 @@
-+++
-title = 'Jung und alt'
-+++

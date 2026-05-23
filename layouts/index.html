@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "hero.html" . }}
+{{ with .Site.GetPage "/ausgaben" }}
+  {{ $sorted := sort .Sections "Params.nummer" "desc" }}
+  {{ if gt (len $sorted) 0 }}{{ $a := index $sorted 0 }}
+  <section class="aktuell"><div class="schmal">
+    <div class="aktuell-kopf">
+      <span class="kicker">Aktuelle Ausgabe</span>
+      <h2>{{ $a.Title }}</h2>
+      {{ with $a.Params.titelzeile }}<p class="meta">{{ . }}</p>{{ end }}
+    </div>
+    {{ range $a.RegularPages }}
+    <article class="beitrag-item">
+      {{ with .Params.thema }}<span class="kicker">{{ . }}</span>{{ end }}
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Params.lead }}<p class="lead">{{ . }}</p>{{ end }}
+      <div class="zeile meta">{{ partial "beitrag-meta.html" . }}</div>
+    </article>
+    {{ end }}
+    <p class="aktuell-mehr"><a href="{{ $a.RelPermalink }}">Ganze Ausgabe &rarr;</a></p>
+  </div></section>
+  {{ end }}
+{{ end }}
+{{ end }}
