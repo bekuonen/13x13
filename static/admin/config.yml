@@ -18,14 +18,14 @@ collections:
     fields:
       - {label: "Titel", name: "title", widget: "string", default: "Ausgabe "}
       - {label: "Nummer", name: "nummer", widget: "number", value_type: "int"}
-      - {label: "Erscheinungsdatum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
+      - {label: "Erscheinungsdatum", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false}
       - {label: "Titelzeile (optional)", name: "titelzeile", widget: "string", required: false}
       - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
       - {label: "Editorial", name: "body", widget: "markdown"}
 
-  # --- BeitrÃ¤ge: liegen in der jeweiligen Ausgabe ---
+  # --- Beiträge: liegen in der jeweiligen Ausgabe ---
   - name: beitraege
-    label: BeitrÃ¤ge
+    label: Beiträge
     label_singular: Beitrag
     folder: content/ausgaben
     path: "{{fields.ausgabe}}/{{slug}}"
@@ -38,21 +38,21 @@ collections:
       - label: "Thema"
         name: "thema"
         widget: "select"
-        options: [Politik, Gesellschaft, Wirtschaft, Kultur, Geschichte, "Natur und Umwelt", Tourismus, Sport, Genuss, PortrÃ¤t, Ãsthetik, Generationen, Glosse]
+        options: [Politik, Gesellschaft, Wirtschaft, Kultur, Geschichte, "Natur und Umwelt", Tourismus, Sport, Genuss, Porträt, Ästhetik, Generationen, Glosse]
       - label: "Textformat"
         name: "textformat"
         widget: "select"
         options:
-          - {label: "EinschÃ¤tzung", value: "einschaetzung"}
+          - {label: "Einschätzung", value: "einschaetzung"}
           - {label: "Reportage", value: "reportage"}
-          - {label: "PortrÃ¤t", value: "portraet"}
+          - {label: "Porträt", value: "portraet"}
           - {label: "Beobachtung", value: "beobachtung"}
           - {label: "Fiktion", value: "fiktion"}
       - label: "Autoren"
         name: "autoren"
         widget: "list"
         field: {label: "Autor", name: "autor", widget: "string"}
-      - {label: "Datum", name: "date", widget: "datetime", format: "2006-01-02", date_format: "DD.MM.YYYY", time_format: false}
+      - {label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false}
       - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Titelbild", name: "featured_image", widget: "image", required: false}
@@ -101,7 +101,7 @@ collections:
         fields:
           - {label: "Titel", name: "title", widget: "string"}
           - {label: "Layout", name: "layout", widget: "hidden", default: "standpunkte"}
-      - label: "Empfehlungen â Einleitung"
+      - label: "Empfehlungen – Einleitung"
         name: "empfehlungen_index"
         file: "content/empfehlungen/_index.md"
         fields:
