@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="seite"><div class="schmal">
+  <div class="autor-profil">
+    {{ if .Params.foto }}
+    <div class="autor-foto">
+      <img src="{{ .Params.foto }}" alt="{{ .Title }}">
+    </div>
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.bio }}<p class="autor-bio">{{ . }}</p>{{ end }}
+    {{ with .Params.email }}<p class="autor-email"><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+  </div>
+  {{ .Content }}
+</div></section>
+{{ end }}
