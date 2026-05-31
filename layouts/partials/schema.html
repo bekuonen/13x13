@@ -1,0 +1,47 @@
+{{- $logoAbs := absURL "/images/logo.svg" -}}
+{{- $publisher := dict
+  "@type" "NewsMediaOrganization"
+  "name" .Site.Title
+  "url" .Site.BaseURL
+  "logo" (dict "@type" "ImageObject" "url" $logoAbs)
+-}}
+{{- if .IsHome -}}
+{{- $org := dict
+  "@context" "https://schema.org"
+  "@type" "NewsMediaOrganization"
+  "name" .Site.Title
+  "description" .Site.Params.description
+  "url" .Site.BaseURL
+  "inLanguage" "de-CH"
+  "logo" (dict "@type" "ImageObject" "url" $logoAbs)
+-}}
+<script type="application/ld+json">
+{{ $org | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{- else if and .IsPage (eq .Section "ausgaben") -}}
+{{- $authors := slice -}}
+{{- range .Params.autoren -}}
+  {{- with site.GetPage (printf "/autoren/%s" .) -}}
+    {{- $authors = $authors | append (dict "@type" "Person" "name" .Title "url" .Permalink) -}}
+  {{- end -}}
+{{- end -}}
+{{- $article := dict
+  "@context" "https://schema.org"
+  "@type" "Article"
+  "headline" .Title
+  "description" (.Params.lead | default .Site.Params.description)
+  "url" .Permalink
+  "inLanguage" "de-CH"
+  "publisher" $publisher
+  "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+-}}
+{{- with .Date }}{{ $article = merge $article (dict "datePublished" (.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
+{{- with .Lastmod }}{{ $article = merge $article (dict "dateModified" (.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
+{{- with .Params.thema }}{{ $article = merge $article (dict "articleSection" .) }}{{ end -}}
+{{- with .Params.tags }}{{ $article = merge $article (dict "keywords" .) }}{{ end -}}
+{{- if gt (len $authors) 0 }}{{ $article = merge $article (dict "author" $authors) }}{{ end -}}
+{{- with .Params.featured_image }}{{ $article = merge $article (dict "image" (. | absURL)) }}{{ end -}}
+<script type="application/ld+json">
+{{ $article | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{- end -}}
