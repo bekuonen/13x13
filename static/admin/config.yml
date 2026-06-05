@@ -2,7 +2,7 @@ backend:
   name: github
   repo: bekuonen/13x13
   branch: main
-  base_url: https://cms-auth.bekuonen.workers.dev
+  base_url: https://sveltia-auth.bekuonen.workers.dev
 media_folder: static/images/uploads
 public_folder: /images/uploads
 locale: de
