@@ -1,0 +1,20 @@
+# Cloudflare Pages Build-Konfiguration — Projekt «13x13» (M1-Standardisierung 2026-06-05)
+#
+# Diese Datei ist die im Repo versionierte SOLL-Definition des Builds.
+# Cloudflare Pages liest sie NICHT automatisch — die Werte müssen im
+# Dashboard eingetragen sein (Pages → 13x13 → Settings → Builds):
+#
+#   Build command:        hugo --minify
+#   Build output:         public
+#   Root directory:       (leer lassen)
+#   Environment Variable: HUGO_VERSION = 0.161.1
+#
+# Bei Abweichung zwischen Dashboard und dieser Datei gilt diese Datei als Soll;
+# das Dashboard ist anzugleichen (Standardversion gem. Migrationsbericht 2026-06-05).
+
+[build]
+  command = "hugo --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.161.1"
