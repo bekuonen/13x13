@@ -7,7 +7,7 @@ textformat: beobachtung
 autoren:
   - bernhard-kuonen
 date: 2026-09-24
-draft: true
+draft: false
 tags: []
 featured_image: /images/uploads/7k8a0671.jpeg
 ---
