@@ -58,7 +58,7 @@ h1,h2,h3,h4{font-family:var(--grotesk);font-weight:600;letter-spacing:-0.02em;co
 /* ---------- Ausgabe-Aufschlag (Start + einzelne Ausgabe) ---------- */
 .ausgabe-kopf{background:var(--schiefer);color:#fff;padding:64px 0 56px;position:relative;}
 .ausgabe-kopf::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--rot);}
-.ausgabe-kopf .nr{font-family:var(--grotesk);font-weight:700;font-size:clamp(40px,8vw,76px);letter-spacing:-0.03em;line-height:1;color:#fff;}
+.ausgabe-kopf .nr{margin:0;font-family:var(--grotesk);font-weight:700;font-size:clamp(40px,8vw,76px);letter-spacing:-0.03em;line-height:1;color:#fff;}
 .ausgabe-kopf .nr span{color:var(--rot);}
 .ausgabe-kopf .titelzeile{font-family:var(--serif);font-size:clamp(19px,2.4vw,24px);color:#e7e9ec;margin-top:18px;max-width:34ch;}
 .ausgabe-kopf .editorial{font-family:var(--serif);color:#c9cfd6;margin-top:20px;max-width:60ch;}

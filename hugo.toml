@@ -1,13 +1,12 @@
 baseURL = 'https://13x13.ch/'
-languageCode = 'de-ch'
+locale = 'de-CH'
 defaultContentLanguage = 'de'
 title = '13×13'
 
 [params]
-  description = 'Oberwalliser Perspektiven'
+  description = 'Texte aus dem Oberwallis'
   author = '13×13'
   vorschau = true
-  launch = '2026-09-01T00:00:00'
   vorschau_text = 'Die Beiträge dienen der Illustration. Standpunkte und Positionierung von 13×13 sind definitiv.'
 
 [taxonomies]

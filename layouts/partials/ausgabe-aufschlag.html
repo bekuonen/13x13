@@ -1,6 +1,6 @@
 <section class="ausgabe-kopf"><div class="wrap">
   <span class="kicker">Ausgabe</span>
-  <div class="nr">{{ printf "%02d" (int .Params.nummer) }}</div>
+  <h1 class="nr" aria-label="Ausgabe {{ printf "%02d" (int .Params.nummer) }}">{{ printf "%02d" (int .Params.nummer) }}</h1>
   {{ with .Params.titelzeile }}<p class="titelzeile">{{ . }}</p>{{ end }}
   {{ with .Content }}<div class="editorial">{{ . }}</div>{{ end }}
 </div></section>
