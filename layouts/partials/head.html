@@ -2,7 +2,7 @@
 {{- $desc := cond .IsHome .Site.Params.description (.Params.lead | default .Site.Params.description) -}}
 {{- $ogImage := "" -}}
 {{- with .Params.featured_image }}{{ $ogImage = . }}{{ end -}}
-{{- if not $ogImage }}{{ with .Params.photo }}{{ $ogImage = . }}{{ end }}{{ end -}}
+{{- if not $ogImage }}{{ with .Params.foto }}{{ $ogImage = . }}{{ end }}{{ end -}}
 {{- if not $ogImage }}{{ with .Site.Params.og_image }}{{ $ogImage = . }}{{ end }}{{ end -}}
 {{- if not $ogImage }}{{ $ogImage = "/images/logo.svg" }}{{ end -}}
 {{- $ogImageAbs := $ogImage | absURL -}}

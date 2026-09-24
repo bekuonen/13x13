@@ -1,11 +1,14 @@
 backend:
   name: github
   repo: bekuonen/13x13
-  branch: main
+  # TESTBETRIEB (Branch website-ueberarbeitung): Das CMS schreibt nur auf diesen Branch.
+  # Vor einer Zusammenführung mit main zwingend auf «main» zurückstellen.
+  branch: website-ueberarbeitung
   base_url: https://sveltia-auth.bekuonen.workers.dev
 media_folder: static/images/uploads
 public_folder: /images/uploads
-locale: de
+# Editorial Workflow (Entwurf → Review → Bereit) für den CMS-Test; erst ab Sveltia 0.17x/0.2xx unterstützt.
+publish_mode: editorial_workflow
 
 collections:
   # --- Ausgaben: ein Editorial-Kopf je Ausgabe ---
@@ -50,8 +53,12 @@ collections:
           - {label: "Fiktion", value: "fiktion"}
       - label: "Autoren"
         name: "autoren"
-        widget: "list"
-        field: {label: "Autor", name: "autor", widget: "string"}
+        widget: "relation"
+        collection: "autoren"
+        value_field: "{{slug}}"
+        search_fields: ["title"]
+        display_fields: ["title"]
+        multiple: true
       - {label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD.MM.YYYY", time_format: false}
       - {label: "Entwurf", name: "draft", widget: "boolean", default: true}
       - {label: "Tags", name: "tags", widget: "list", required: false}
@@ -59,8 +66,6 @@ collections:
       - label: "Inhalt"
         name: "body"
         widget: "markdown"
-        media_library:
-          allow_multiple: true
 
   # --- 13 Empfehlungen ---
   - name: empfehlungen
@@ -100,7 +105,7 @@ collections:
         file: "content/standpunkte.md"
         fields:
           - {label: "Titel", name: "title", widget: "string"}
-          - {label: "Layout", name: "layout", widget: "hidden", default: "standpunkte"}
+          - {name: "layout", widget: "hidden", default: "standpunkte"}
       - label: "Empfehlungen – Einleitung"
         name: "empfehlungen_index"
         file: "content/empfehlungen/_index.md"

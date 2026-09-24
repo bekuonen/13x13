@@ -6,5 +6,5 @@ bio: |-
   Schreibt gelegentlich Leserbriefe im WB
 email: 13@13x13.ch
 ort: Münster, Wallis
-photo: /images/uploads/7k8a0671.jpeg
+foto: /images/uploads/7k8a0671.jpeg
 ---
